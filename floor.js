@@ -12,7 +12,7 @@ class Floor {
   }
   draw() {
     this.time++;
-    if (this.time % 2 == 1) {
+    if (this.time % 1 == 0) {
       this.x--;
     }
     ctxMain.drawImage(floorImg, this.x, this.y, this.width, this.height);

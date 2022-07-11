@@ -92,7 +92,7 @@ let player = {
   height: 90,
   yspeed: 1,
   index: 0,
-  speed: 15,
+  speed: 5,
   time: 0,
   state: "run",
   draw() {

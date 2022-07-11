@@ -276,8 +276,8 @@ function game() {
   drawScore.draw();
   player.update();
 
-  console.log(jumpTimer);
-  console.log(player.state);
+  // console.log(jumpTimer);
+  // console.log(player.state);
 }
 
 //실행

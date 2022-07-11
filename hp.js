@@ -31,13 +31,13 @@ let ctxJam = canvasJam.getContext("2d");
 
 // jam image
 let jamImg = new Image();
-jamImg.onload = function () {
+function jamDraw() {
   ctxJam.drawImage(jamImg, 35, 30, 233, 50);
-};
+  console.log("jam");
+}
 jamImg.src = "images/HP/hp.png";
 
 function clearDraw() {
   ctxJam.clearRect(35, 30, 233, 50);
+  console.log("clear");
 }
-
-clearDraw();

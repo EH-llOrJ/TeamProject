@@ -356,6 +356,10 @@ function game() {
   });
   drawScore.draw();
   player.update();
+  breadDraw();
+  jamDraw();
+  HpDecrease.draw();
+  HpLight.draw();
   console.log(player.y);
 }
 

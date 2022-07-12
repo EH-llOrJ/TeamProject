@@ -66,6 +66,30 @@ class BigJelly extends WhiteJelly {
   }
 }
 
+//젤리먹기 함수
+function jellyEat() {
+  for (let i = 0; i < whiteJelly.length; i++) {
+    if (whiteJelly[i].getEater() == false) {
+      whitejellyEat(player, whiteJelly[i]);
+    }
+  }
+  for (let i = 0; i < yellowJelly.length; i++) {
+    if (yellowJelly[i].getEater() == false) {
+      yellowjellyEat(player, yellowJelly[i]);
+    }
+  }
+  for (let i = 0; i < redJelly.length; i++) {
+    if (redJelly[i].getEater() == false) {
+      redjellyEat(player, redJelly[i]);
+    }
+  }
+  for (let i = 0; i < bigJelly.length; i++) {
+    if (bigJelly[i].getEater() == false) {
+      bigjellyEat(player, bigJelly[i]);
+    }
+  }
+}
+
 //젤리먹기 충돌체크
 function whitejellyEat(player, _jelly) {
   let eatJellyX = _jelly.x - player.x;

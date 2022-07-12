@@ -12,12 +12,8 @@ class Hurdle {
     this.time = 0;
   }
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
     ctxMain.drawImage(skyHurdleImg, this.x, this.y, this.width, this.height);
   }
 }
 
-let skyHurdle = new Hurdle({ x: 500, y: 450, width: 40, height: 300 });
+let skyHurdle = new Hurdle({ x: 3850, y: 30, width: 120, height: 430 });

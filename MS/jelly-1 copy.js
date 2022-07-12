@@ -221,6 +221,14 @@ let yellowJelly = [
   new YellowJelly({ x: 3460, y: 450, width: 40, height: 40 }),
   new YellowJelly({ x: 3510, y: 450, width: 40, height: 40 }),
   new YellowJelly({ x: 3560, y: 450, width: 40, height: 40 }),
+
+  new YellowJelly({ x: 3860, y: 460, width: 40, height: 40 }),
+  new YellowJelly({ x: 3910, y: 460, width: 40, height: 40 }),
+  new YellowJelly({ x: 3960, y: 460, width: 40, height: 40 }),
+  new YellowJelly({ x: 4010, y: 460, width: 40, height: 40 }),
+  new YellowJelly({ x: 4060, y: 460, width: 40, height: 40 }),
+  new YellowJelly({ x: 4110, y: 460, width: 40, height: 40 }),
+  new YellowJelly({ x: 4160, y: 460, width: 40, height: 40 }),
 ];
 
 let redJelly = [
@@ -239,6 +247,10 @@ let redJelly = [
   new RedJelly({ x: 3110, y: 270, width: 40, height: 40 }),
   new RedJelly({ x: 3160, y: 270, width: 40, height: 40 }),
   new RedJelly({ x: 3210, y: 270, width: 40, height: 40 }),
+
+  new RedJelly({ x: 3660, y: 450, width: 40, height: 40 }),
+  new RedJelly({ x: 3710, y: 450, width: 40, height: 40 }),
+  new RedJelly({ x: 3760, y: 450, width: 40, height: 40 }),
 ];
 
 let bigJelly = [

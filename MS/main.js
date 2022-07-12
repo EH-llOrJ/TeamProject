@@ -328,28 +328,7 @@ function game() {
     }
   }
 
-  //젤리먹기
-  for (let i = 0; i < whiteJelly.length; i++) {
-    if (whiteJelly[i].getEater() == false) {
-      whitejellyEat(player, whiteJelly[i]);
-    }
-  }
-  for (let i = 0; i < yellowJelly.length; i++) {
-    if (yellowJelly[i].getEater() == false) {
-      yellowjellyEat(player, yellowJelly[i]);
-    }
-  }
-  for (let i = 0; i < redJelly.length; i++) {
-    if (redJelly[i].getEater() == false) {
-      redjellyEat(player, redJelly[i]);
-    }
-  }
-  for (let i = 0; i < bigJelly.length; i++) {
-    if (bigJelly[i].getEater() == false) {
-      bigjellyEat(player, bigJelly[i]);
-    }
-  }
-
+  jellyEat();
   jumpSkill();
 
   //맵그리기, 땅그리기, 점수 그리기, 젤리 그리기, 캐릭터 그리기

@@ -203,6 +203,7 @@ let dbjump = false;
 // });
 
 let isSliding = false;
+let floatPlayer = false;
 
 //키 이벤트
 document.addEventListener("keydown", function (key) {
@@ -219,6 +220,7 @@ document.addEventListener("keydown", function (key) {
         player.y = player.y - 0.1;
         player.state = "jump";
         jump = true;
+        floatPlayer = true;
         break;
     }
   }
@@ -296,6 +298,7 @@ function game() {
       player.x + 30 <= floor[i].x + floor[i].width
     ) {
       player.yspeed = 0;
+      floatPlayer = false;
       jumpTimer = 0;
       jump = false;
       dbjump = false;
@@ -305,23 +308,27 @@ function game() {
       }
     }
   }
-  for (let i = 0; i < floatFloor.length; i++) {
-    if (
-      player.y + player.height >= floatFloor[i].y &&
-      player.x + player.width - 10 >= floatFloor[i].x &&
-      player.x + 30 <= floatFloor[i].x + floatFloor[i].width
-    ) {
-      player.y = floatFloor[i].y - player.height;
-      player.yspeed = 0;
-      jumpTimer = 0;
-      jump = false;
-      dbjump = false;
-      if (player.state != "slide") {
-        player.state = "run";
+
+  if (floatPlayer == true) {
+    for (let i = 0; i < floatFloor.length; i++) {
+      if (
+        player.y + player.height >= floatFloor[i].y &&
+        player.x + player.width - 10 >= floatFloor[i].x &&
+        player.x + 30 <= floatFloor[i].x + floatFloor[i].width
+      ) {
+        player.y = floatFloor[i].y - player.height;
+        player.yspeed = 0;
+        jumpTimer = 0;
+        jump = false;
+        dbjump = false;
+        if (player.state != "slide") {
+          player.state = "run";
+        }
       }
     }
   }
 
+  //젤리먹기
   for (let i = 0; i < whiteJelly.length; i++) {
     if (whiteJelly[i].getEater() == false) {
       whitejellyEat(player, whiteJelly[i]);
@@ -355,8 +362,12 @@ function game() {
   });
   drawScore.draw();
   player.update();
-  console.log(player.y);
-}
 
+  //hp.js함수 실행
+  breadDraw();
+  jamDraw();
+  clear.clearDraw();
+  toggle.toggle();
+}
 //실행
 game();

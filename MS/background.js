@@ -21,7 +21,7 @@ let background = {
     if (this.time % 1000 == 0) {
       this.a -= 0.01;
     }
-    ctxBackground.globalAlpha = this.a;
+    // ctxBackground.globalAlpha = this.a;
     // ctxMap.fillStyle = "black";
     // ctxMap.fillRect(this.x, this.y, this.width, this.height);
     ctxBackground.drawImage(

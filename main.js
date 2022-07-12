@@ -61,9 +61,9 @@ let player = {
     this.y += this.yspeed;
     this.yspeed += gravity;
 
-    //바닥에 캐릭터 닿으면 순간 yspeed를 0으로 만들어서 띄움
+    //땅에 붙으면 하락값 0
     for (let i = 0; i < floor.length; i++)
-      if (this.y + this.height >= floor[i].height - 1) {
+      if (this.y + this.height > floor[i].height) {
         this.yspeed += gravity;
       } else this.yspeed = 0;
   },
@@ -155,14 +155,14 @@ function jumpSkill() {
   //더블점프
   if (dbjump == true) {
     jumpTimer++;
-    player.y -= 5.55;
+    player.y -= 4.55;
   }
 
   //더블 점프 이미지 변경
   if (player.state == "dbjumpstart" && jumpTimer > 30) {
     player.state = "dbjump";
   }
-  if (player.state == "dbjump" && jumpTimer > 120) {
+  if (player.state == "dbjump" && jumpTimer > 110) {
     player.state = "dbjumplast";
   }
   //더블 점프 & 점프타이머 100 넘어가면 상승 끝
@@ -289,7 +289,6 @@ function game() {
   ctxBackground.clearRect(0, 0, canvasBackground.width, canvasBackground.width);
 
   //땅 올라타기
-
   for (let i = 0; i < floor.length; i++) {
     if (
       player.y + player.height >= floor[i].y &&

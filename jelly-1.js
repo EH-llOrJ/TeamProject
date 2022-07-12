@@ -195,9 +195,9 @@ let redJelly = [
 ];
 
 let bigJelly = [
-  new BigJelly({ x: 1410, y: 230, width: 100, height: 100 }),
-  new BigJelly({ x: 1440, y: 205, width: 100, height: 100 }),
-  new BigJelly({ x: 1470, y: 180, width: 100, height: 100 }),
-  new BigJelly({ x: 1500, y: 205, width: 100, height: 100 }),
-  new BigJelly({ x: 1530, y: 230, width: 100, height: 100 }),
+  new BigJelly({ x: 1410, y: 260, width: 100, height: 100 }),
+  new BigJelly({ x: 1440, y: 235, width: 100, height: 100 }),
+  new BigJelly({ x: 1470, y: 210, width: 100, height: 100 }),
+  new BigJelly({ x: 1500, y: 235, width: 100, height: 100 }),
+  new BigJelly({ x: 1530, y: 260, width: 100, height: 100 }),
 ];

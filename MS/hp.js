@@ -35,20 +35,8 @@ function jamDraw() {
   ctxJam.drawImage(jamImg, 35, 30, 233, 50);
 }
 
-// function imgData() {
-//   let imageData = ctxJam.getImageData(35, 30, 233, 50);
-//   let raster = imageData.data;
-
-//   for (let i = 0; i < raster.length; i += 4) {
-//     raster[i] = 60 + raster[i];
-//     raster[i + 1] = 60 + raster[i + 1];
-//     raster[i + 2] = 60 + raster[i + 2];
-//   }
-
-//   ctxJam.putImageData(imageData, 35, 30);
-// }
-
-class Clear {
+// HP decrease
+class HP {
   constructor({ x, y, width, height }) {
     this.x = x;
     this.y = y;
@@ -57,7 +45,8 @@ class Clear {
     this.time = 0;
   }
 
-  clearDraw() {
+  // HP decrease
+  draw() {
     this.time++;
     this.x -= 0.05;
     this.width += 1;
@@ -71,64 +60,63 @@ class Clear {
   }
 }
 
-class Toggle {
+// HP light
+class Light {
   constructor({ res1, res2 }) {
     this.time = 0;
     this.res1 = res1;
     this.res2 = res2;
+    this.selectres = this.res1;
+    this.switch = false;
   }
 
-  toggle() {
+  draw() {
     let imageData = ctxJam.getImageData(35, 30, 233, 50);
     let raster = imageData.data;
     this.time++;
-    this.res1;
-    this.temp;
-
-    // if (this.res1 > 0) {
-    //   this.res1--;
-    //   for (let i = 0; i < raster.length; i += 4) {
-    //     raster[i] = this.res1 + raster[i];
-    //     raster[i + 1] = this.res1 + raster[i + 1];
-    //     raster[i + 2] = this.res1 + raster[i + 2];
-    //   }
-    //   console.log(this.res1);
-    //   ctxJam.putImageData(imageData, 35, 30);
-    // }
-
-    // if (this.res1 == 0) {
-    //   this.temp = this.res1;
-      
-    //   for (let i = 0; i < raster.length; i += 4) {
-    //     raster[i] = this.res1 + raster[i];
-    //     raster[i + 1] = this.res1 + raster[i + 1];
-    //     raster[i + 2] = this.res1 + raster[i + 2];
-    //   }
-    //   ctxJam.putImageData(imageData, 35, 30);
-    // }
-
-    if (this.res1 > 0) {
-      this.res1--;
-      // this.temp = res1;
-      for (let i = 0; i < raster.length; i += 4) {
-        raster[i] = this.res1 + raster[i];
-        raster[i + 1] = this.res1 + raster[i + 1];
-        raster[i + 2] = this.res1 + raster[i + 2];
-      }
-      // console.log(this.res1);
-      if (this.temp
-        == 0) {
-        this.res1++;
+    if (this.selectres == 0) {
+      if (this.selectres < 60) {
+        this.selectres += 1;
         for (let i = 0; i < raster.length; i += 4) {
-          raster[i] = this.res1 + raster[i];
-          raster[i + 1] = this.res1 + raster[i + 1];
-          raster[i + 2] = this.res1 + raster[i + 2];
+          raster[i] = this.selectres + raster[i];
+          raster[i + 1] = this.selectres + raster[i + 1];
+          raster[i + 2] = this.selectres + raster[i + 2];
         }
-        // console.log(this.res1);
+        // console.log(this.selectres);
+        ctxJam.putImageData(imageData, 35, 30);
+        if (this.selectres == 59) {
+          if (this.switch == true) {
+            this.selectres = this.res2;
+            this.switch = false;
+          } else {
+            this.selectres = this.res1;
+            this.switch = true;
+          }
+        }
+      }
+    } else {
+      if (this.selectres > 0) {
+        this.selectres -= 1;
+        for (let i = 0; i < raster.length; i += 4) {
+          raster[i] = this.selectres + raster[i];
+          raster[i + 1] = this.selectres + raster[i + 1];
+          raster[i + 2] = this.selectres + raster[i + 2];
+        }
+        // console.log(this.selectres);
+        ctxJam.putImageData(imageData, 35, 30);
+        if (this.selectres == 0) {
+          if (this.switch == true) {
+            this.selectres = this.res2;
+            this.switch = false;
+          } else {
+            this.selectres = this.res1;
+            this.switch = true;
+          }
+        }
       }
     }
   }
 }
 
-let clear = new Clear({ x: 268, y: 30, width: 0, height: 50 });
-let toggle = new Toggle({ res1: 60, res2: 0 });
+let HpDecrease = new HP({ x: 268, y: 30, width: 0, height: 50 });
+let HpLight = new Light({ res1: 60, res2: 0 });

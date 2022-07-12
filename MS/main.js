@@ -366,12 +366,11 @@ function game() {
   //함수 실행
   drawScore.draw();
   player.update();
-
-  //hp.js함수 실행
   breadDraw();
   jamDraw();
-  clear.clearDraw();
-  toggle.toggle();
+  HpDecrease.draw();
+  HpLight.draw();
+  console.log(player.y);
 }
 
 //실행

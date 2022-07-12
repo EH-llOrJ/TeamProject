@@ -360,6 +360,7 @@ function game() {
   floatFloor.forEach((floor) => {
     floor.draw();
   });
+  skyHurdle.draw();
   drawScore.draw();
   player.update();
 

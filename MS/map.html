@@ -18,11 +18,10 @@
     <canvas id="background"></canvas>
     <canvas id="main"></canvas>
   </body>
-  <script src="background.js"></script>
-  <script src="floor-1.js"></script>
-  <script src="hurdle-1.js"></script>
-  <script src="jelly-1.js"></script>
-  <script src="hp.js"></script>
+  <script src="background copy.js"></script>
+  <script src="floor-1 copy.js"></script>
+  <script src="hurdle-1 copy.js"></script>
+  <script src="jelly-1 copy.js"></script>
   <script>
     function mapTest() {
       requestAnimationFrame(mapTest);
@@ -45,6 +44,7 @@
       bigJelly.forEach((bigJelly) => {
         bigJelly.draw();
       });
+      skyHurdle.draw();
     }
     mapTest();
   </script>

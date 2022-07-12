@@ -102,6 +102,6 @@ let floor = [
 ];
 
 let floatFloor = [
-  new floatFloor5({ x: 2350, y: 410, width: 400, height: 17 }),
+  new floatFloor5({ x: 350, y: 450, width: 400, height: 17 }),
   new floatFloor5({ x: 2750, y: 410, width: 400, height: 17 }),
 ];

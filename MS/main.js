@@ -155,7 +155,7 @@ function jumpSkill() {
   //더블점프
   if (dbjump == true) {
     jumpTimer++;
-    player.y -= 5.55;
+    player.y -= 0.45;
   }
 
   //더블 점프 이미지 변경
@@ -226,6 +226,7 @@ document.addEventListener("keydown", function (key) {
     switch (key.code) {
       case "Space":
         jumpTimer = 0;
+        player.yspeed = 0;
         player.state = "dbjumpstart";
         dbjump = true;
         break;
@@ -290,6 +291,7 @@ function game() {
 
   //땅 올라타기
 
+  //밑에 땅  
   for (let i = 0; i < floor.length; i++) {
     if (
       player.y + player.height >= floor[i].y &&
@@ -306,22 +308,27 @@ function game() {
       }
     }
   }
-  for (let i = 0; i < floatFloor.length; i++) {
-    if (
-      player.y + player.height >= floatFloor[i].y &&
-      player.x + player.width - 10 >= floatFloor[i].x &&
-      player.x + 30 <= floatFloor[i].x + floatFloor[i].width
-    ) {
-      player.y = floatFloor[i].y - player.height;
-      player.yspeed = 0;
-      jumpTimer = 0;
-      jump = false;
-      dbjump = false;
-      if (player.state != "slide") {
-        player.state = "run";
+  //위에 땅 play.y값이랑 floatFloor의 y값의 차이가 조금 있음
+  if(player.y+50 <= floatFloor[0].y && player.state != "dbjumpstart") {
+    for (let i = 0; i < floatFloor.length; i++) {
+      if (
+        player.y + player.height >= floatFloor[i].y &&
+        player.x + player.width - 10 >= floatFloor[i].x &&
+        player.x + 30 <= floatFloor[i].x + floatFloor[i].width
+      ) {
+        player.y = floatFloor[i].y - player.height;
+        player.yspeed = 0;
+        jumpTimer = 0;
+        jump = false;
+        dbjump = false;
+        if (player.state != "slide") {
+          player.state = "run";
+        }
       }
     }
   }
+  console.log(floatFloor[0].y);
+  console.log(player.y);
 
   for (let i = 0; i < whiteJelly.length; i++) {
     if (whiteJelly[i].getEater() == false) {
@@ -354,9 +361,17 @@ function game() {
   floatFloor.forEach((floor) => {
     floor.draw();
   });
+  // console.log(player.y);
+  
+  //함수 실행
   drawScore.draw();
   player.update();
-  console.log(player.y);
+
+  //hp.js함수 실행
+  breadDraw();
+  jamDraw();
+  clear.clearDraw();
+  toggle.toggle();
 }
 
 //실행

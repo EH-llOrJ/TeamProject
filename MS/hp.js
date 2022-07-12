@@ -82,50 +82,50 @@ class Toggle {
     let imageData = ctxJam.getImageData(35, 30, 233, 50);
     let raster = imageData.data;
     this.time++;
-    this.res1 -= 1;
+    this.res1;
+    this.temp;
 
-    // switch ((this.res1, this.res2)) {
-    //   case "this.res1 > 0":
-    //     for (let i = 0; i < raster.length; i += 4) {
-    //       raster[i] = this.res1 + raster[i];
-    //       raster[i + 1] = this.res1 + raster[i + 1];
-    //       raster[i + 2] = this.res1 + raster[i + 2];
-    //     }
-    //     console.log(this.res1);
-    //     ctxJam.putImageData(imageData, 35, 30);
-
-    //   case "this.res1 <= 0":
-    //     for (let i = 0; i < raster.length; i += 4) {
-    //       raster[i] = this.res2 + raster[i];
-    //       raster[i + 1] = this.res2 + raster[i + 1];
-    //       raster[i + 2] = this.res2 + raster[i + 2];
-    //     }
-    //     console.log(this.res2);
-    //     ctxJam.putImageData(imageData, 35, 30);
-
-    //   default:
-    //     return;
+    // if (this.res1 > 0) {
+    //   this.res1--;
+    //   for (let i = 0; i < raster.length; i += 4) {
+    //     raster[i] = this.res1 + raster[i];
+    //     raster[i + 1] = this.res1 + raster[i + 1];
+    //     raster[i + 2] = this.res1 + raster[i + 2];
+    //   }
+    //   console.log(this.res1);
+    //   ctxJam.putImageData(imageData, 35, 30);
     // }
 
-    if (this.res1 >= 0) {
+    // if (this.res1 == 0) {
+    //   this.temp = this.res1;
+      
+    //   for (let i = 0; i < raster.length; i += 4) {
+    //     raster[i] = this.res1 + raster[i];
+    //     raster[i + 1] = this.res1 + raster[i + 1];
+    //     raster[i + 2] = this.res1 + raster[i + 2];
+    //   }
+    //   ctxJam.putImageData(imageData, 35, 30);
+    // }
+
+    if (this.res1 > 0) {
+      this.res1--;
+      // this.temp = res1;
       for (let i = 0; i < raster.length; i += 4) {
         raster[i] = this.res1 + raster[i];
         raster[i + 1] = this.res1 + raster[i + 1];
         raster[i + 2] = this.res1 + raster[i + 2];
       }
-      console.log(this.res1);
-      ctxJam.putImageData(imageData, 35, 30);
-    }
-
-    if (this.res1 < 0) {
-      this.res2 += 1;
-      for (let i = 0; i < raster.length; i += 4) {
-        raster[i] = this.res2 + raster[i];
-        raster[i + 1] = this.res2 + raster[i + 1];
-        raster[i + 2] = this.res2 + raster[i + 2];
+      // console.log(this.res1);
+      if (this.temp
+        == 0) {
+        this.res1++;
+        for (let i = 0; i < raster.length; i += 4) {
+          raster[i] = this.res1 + raster[i];
+          raster[i + 1] = this.res1 + raster[i + 1];
+          raster[i + 2] = this.res1 + raster[i + 2];
+        }
+        // console.log(this.res1);
       }
-      console.log(this.res2);
-      ctxJam.putImageData(imageData, 35, 30);
     }
   }
 }

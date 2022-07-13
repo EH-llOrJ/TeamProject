@@ -49,6 +49,8 @@ let player = {
         ? dbjumpPlayer[this.index]
         : this.state == "dbjumplast"
         ? dbjumplastPlayer[this.index]
+        : this.state == "fallen"
+        ? fallenPlayer[this.index]
         : null,
       this.x,
       this.y,
@@ -175,21 +177,6 @@ function jumpSkill() {
 let point = 0;
 let pointImg = new Image();
 pointImg.src = "images/Map/point.png";
-
-//폰트적용 점수
-let font = new FontFace("pointFont", "url(images/Font/CookieRunRegular.ttf)");
-font.load().then(function () {
-  ctxMain.font = "25px pointFont";
-});
-
-//점수표
-let drawScore = {
-  draw() {
-    ctxMain.fillStyle = "black";
-    ctxMain.fillText(point.toLocaleString("ko-KR"), 450, 120, 300);
-    ctxMain.drawImage(pointImg, 410, 97, 30, 30);
-  },
-};
 
 //전역변수(frame=프레임, jumpTimer = 점프시간)
 let frame = 0;
@@ -343,7 +330,12 @@ function game() {
   skyHurdle.forEach((skyHurdle) => {
     skyHurdle.draw();
   });
-  drawScore.draw();
+  floorlowHurdle.forEach((floorlowHurdle) => {
+    floorlowHurdle.draw();
+  });
+  floorhighHurdle.forEach((floorhighHurdle) => {
+    floorhighHurdle.draw();
+  });
   player.update();
 
   //hp.js함수 실행

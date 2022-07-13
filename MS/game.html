@@ -39,6 +39,21 @@
       position: absolute;
       font-family: "pointFont";
     }
+    #point {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      top: 25%;
+      width: 300px;
+      height: 30px;
+    }
+    #pointImg {
+      display: flex;
+    }
+    #pointBox {
+      font-family: "pointFont";
+      font-size: 25px;
+    }
     @font-face {
       font-family: "pointFont";
       src: url(images/Font/CookieRunRegular.ttf);
@@ -48,6 +63,16 @@
     <div id="canvasBox">
       <canvas id="background"></canvas>
       <canvas id="main"></canvas>
+    </div>
+    <div id="point">
+      <div id="pointImg">
+        <img
+          src="/MS/images/Map/point.png"
+          width="30px"
+          height="30px"
+        />&nbsp;&nbsp;
+        <div id="pointBox">0</div>
+      </div>
     </div>
   </body>
   <script src="background.js"></script>

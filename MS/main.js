@@ -1,3 +1,16 @@
+// function falljum(){
+//   document.addEventListener('keydown', function(Space){
+//     const keyCode = Space.keyCode;
+//     console.log('pushed key ' + Space.key);
+
+//     if(player.y + player.height > canvasMain.height){ // Enter key
+//       document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Space'}));
+//       // document.dispatchEvent(new KeyboardEvent('keyup', {key: 'e'}));
+//     }
+//   })
+// }
+
+
 //캔버스 변수 선언, 할당
 let canvasMain = document.getElementById("main");
 let ctxMain = canvasMain.getContext("2d");
@@ -49,7 +62,8 @@ let player = {
         ? dbjumpPlayer[this.index]
         : this.state == "dbjumplast"
         ? dbjumplastPlayer[this.index]
-        : null,
+        : this.state == "falling"
+        ? falling[this.index] : null,
       this.x,
       this.y,
       this.width,
@@ -62,10 +76,26 @@ let player = {
     this.yspeed += gravity;
 
     //땅에 붙으면 하락값 0
-    for (let i = 0; i < floor.length; i++)
-      if (this.y + this.height > floor[i].height) {
+    for (let i = 0; i < floor.length; i++) {
+      console.log(`thisy ${this.y} thisheight ${this.height} floor[i]height ${canvasMain.height}`)
+      if (this.y + this.height < canvasMain.height) {
         this.yspeed += gravity;
-      } else this.yspeed = 0;
+      } else {
+        gravity = 0.02
+        this.yspeed = 0;
+        player.state = "falling";
+      }
+    }
+    // for (let i = 0; i < floor.length; i++) {
+    //   console.log(`thisy ${this.y} thisheight ${this.height} floor[i]height ${canvasMain.height}`)
+    //   if (this.y + this.height < canvasMain.height) {
+    //     this.yspeed += gravity;
+    //   } else {
+    //     gravity = 0.02
+    //     this.yspeed = 0;
+    //     player.state = "falling";
+    //   }
+    // }
   },
 };
 
@@ -141,7 +171,17 @@ for (let i = 0; i < 4; i++) {
   dbjumplastPlayer.push(new Image());
   dbjumplastPlayer[i].src = imglinkDbjumplast[i];
 }
-
+let falling = new Array();
+let imglinkfalling = [
+  "images/Character/Taehoon/Fall/Fall1.png",
+  "images/Character/Taehoon/Fall/Fall2.png",
+  "images/Character/Taehoon/Fall/Fall1.png",
+  "images/Character/Taehoon/Fall/Fall2.png"
+]
+for (let i = 0; i < 4; i++) {
+  falling.push(new Image());
+  falling[i].src = imglinkfalling[i];
+}
 //피격시 이미지
 
 //점프기능

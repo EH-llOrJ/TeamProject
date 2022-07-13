@@ -85,7 +85,7 @@ class floatFloor1 extends Floor {
 }
 
 let floor = [
-  //스테이지 1 바닥 땅
+  // 스테이지 1 바닥 땅
   new Floor({ x: 0, y: 510, width: 800, height: 90 }),
   new Floor({ x: 800, y: 510, width: 800, height: 90 }),
   new Floor({ x: 1600, y: 510, width: 800, height: 90 }),
@@ -102,6 +102,6 @@ let floor = [
 ];
 
 let floatFloor = [
-  new floatFloor5({ x: 2350, y: 410, width: 400, height: 17 }),
-  new floatFloor5({ x: 2750, y: 410, width: 400, height: 17 }),
+  new floatFloor5({ x: 2350, y: 390, width: 400, height: 17 }),
+  new floatFloor5({ x: 2850, y: 340, width: 400, height: 17 }),
 ];

@@ -59,15 +59,14 @@ class Clear {
 
   clearDraw() {
     this.time++;
-    this.x -= 0.05;
-    this.width += 1;
+    this.x -= 0.08;
+    this.width += 0.5;
     if (this.x >= 30) {
       ctxJam.clearRect(this.x, this.y, this.width, this.height);
     } else if (this.x < 30) {
       ctxJam.clearRect(35, 30, 233, 50);
       this.x = 30;
     }
-    // console.log(this.x);
   }
 }
 
@@ -113,7 +112,6 @@ class Toggle {
         raster[i + 1] = this.res1 + raster[i + 1];
         raster[i + 2] = this.res1 + raster[i + 2];
       }
-      console.log(this.res1);
       ctxJam.putImageData(imageData, 35, 30);
     }
 
@@ -124,7 +122,6 @@ class Toggle {
         raster[i + 1] = this.res2 + raster[i + 1];
         raster[i + 2] = this.res2 + raster[i + 2];
       }
-      console.log(this.res2);
       ctxJam.putImageData(imageData, 35, 30);
     }
   }

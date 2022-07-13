@@ -81,21 +81,9 @@ let player = {
       if (this.y + this.height < canvasMain.height) {
         this.yspeed += gravity;
       } else {
-        gravity = 0.02
-        this.yspeed = 0;
-        player.state = "falling";
+          player.state = "falling"
       }
     }
-    // for (let i = 0; i < floor.length; i++) {
-    //   console.log(`thisy ${this.y} thisheight ${this.height} floor[i]height ${canvasMain.height}`)
-    //   if (this.y + this.height < canvasMain.height) {
-    //     this.yspeed += gravity;
-    //   } else {
-    //     gravity = 0.02
-    //     this.yspeed = 0;
-    //     player.state = "falling";
-    //   }
-    // }
   },
 };
 
@@ -274,7 +262,6 @@ document.addEventListener("keydown", function (key) {
         break;
     }
   }
-
   switch (key.code) {
     case "KeyA":
       player.x -= 10;

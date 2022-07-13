@@ -292,6 +292,7 @@ function game() {
   ctxBackground.clearRect(0, 0, canvasBackground.width, canvasBackground.width);
 
   //땅 올라타기
+  //밑에 땅  
   for (let i = 0; i < floor.length; i++) {
     if (
       player.y + player.height >= floor[i].y &&
@@ -309,8 +310,8 @@ function game() {
       }
     }
   }
-
-  if (floatPlayer == true) {
+  //위에 땅 play.y값이랑 floatFloor의 y값의 차이가 조금 있음
+  if(player.y+50 <= floatFloor[0].y && player.state != "dbjumpstart") {
     for (let i = 0; i < floatFloor.length; i++) {
       if (
         player.y + player.height >= floatFloor[i].y &&
@@ -328,6 +329,8 @@ function game() {
       }
     }
   }
+  console.log(floatFloor[0].y);
+  console.log(player.y);
 
   jellyEat();
   jumpSkill();

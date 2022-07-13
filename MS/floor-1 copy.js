@@ -88,5 +88,12 @@ let floor = [
 let floatFloor = [
   new floatFloor5({ x: 2350, y: 390, width: 400, height: 17 }),
   new floatFloor5({ x: 2850, y: 340, width: 400, height: 17 }),
+
   new floatFloor5({ x: 4650, y: 390, width: 400, height: 17 }),
+
+  new floatFloor5({ x: 6250, y: 390, width: 400, height: 17 }),
+  new floatFloor1({ x: 6700, y: 340, width: 80, height: 17 }),
+  new floatFloor1({ x: 6820, y: 290, width: 80, height: 17 }),
+  new floatFloor5({ x: 6950, y: 190, width: 400, height: 17 }),
+  new floatFloor5({ x: 7550, y: 290, width: 400, height: 17 }),
 ];

@@ -72,4 +72,6 @@ let floorlowHurdle = [
 let floorhighHurdle = [
   new highHurdle({ x: 4550, y: 360, width: 70, height: 150 }),
   new highHurdle({ x: 4950, y: 240, width: 70, height: 150 }),
+  new highHurdle({ x: 630, y: 360, width: 70, height: 150 }),
+  new highHurdle({ x: 830, y: 360, width: 70, height: 150 }),
 ];

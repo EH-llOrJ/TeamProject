@@ -7,17 +7,21 @@ canvasMain.width = 2000;
 canvasMain.height = 600;
 
 //중력설정
-let gravity = 0.02;
+const gravity = 0.02;
 
+let hi = 0;
+let hihi = "";
+
+let aaa = 1;
 //플레이어 설정 speed 낮추면 플레이어 움직임 속도 up
 let player = {
   x: 120,
-  y: 400,
+  y: 410,
   width: 80,
   height: 90,
-  yspeed: 0,
+  yspeed: 15,
   index: 0,
-  speed: 3,
+  speed: 13,
   time: 0,
   state: "run",
   draw() {
@@ -62,10 +66,36 @@ let player = {
     this.yspeed += gravity;
 
     //바닥에 캐릭터 닿으면 순간 yspeed를 0으로 만들어서 띄움
-    for (let i = 0; i < floor.length; i++)
-      if (this.y + this.height >= floor[i].height - 1) {
-        this.yspeed += gravity;
-      } else this.yspeed = 0;
+    if (this.y + this.height <= canvasMain.height) {
+      this.yspeed += gravity;
+    } else {
+      if (aaa == 1) {
+        this.yspeed = 0;
+        this.y = 600 
+        hi = 3
+        hihi = "die"
+        if (this.state != "dbjump" && this.state != "dbjumplast" && this.state != "dbjumpstart" && this.state != "jump") {
+          for (let i = 0; i < floor.length * 3.2 ; i++){
+            this.yspeed -= 0.2;
+            console.log(this.yspeed)
+          }
+        } else {
+          if (this.state != "jump") {
+            for (let i = 0; i < floor.length * 1.7 ; i++){
+              this.yspeed -= 0.2;
+              console.log(this.yspeed)
+            }
+          } else {
+            for (let i = 0; i < floor.length * 2.2 ; i++){
+              this.yspeed -= 0.2;
+              console.log(this.yspeed)
+            }
+            
+          }
+        }
+        aaa++
+      }
+    }
   },
 };
 
@@ -148,24 +178,25 @@ for (let i = 0; i < 4; i++) {
 function jumpSkill() {
   //점프시 점프값 증가 & 이미지 변경
   if (jump == true) {
-    player.y -= 7.57;
+    player.y -= 2;
     jumpTimer++;
   }
-
+  //점프시간이 100 넘어가면 상승 끝
+  if (jumpTimer > 10 && player.state == "jump") {
+    player.y -= 0;
+  }
   //더블점프
   if (dbjump == true) {
+    player.y -= 1.5;
     jumpTimer++;
-    player.y -= 5.55;
   }
-
-  //더블 점프 이미지 변경
-  if (player.state == "dbjumpstart" && jumpTimer > 30) {
+  if (player.state == "dbjumpstart" && jumpTimer > 50) {
     player.state = "dbjump";
   }
-  if (player.state == "dbjump" && jumpTimer > 120) {
+  if (player.state == "dbjump" && jumpTimer > 300) {
     player.state = "dbjumplast";
   }
-  //더블 점프 & 점프타이머 100 넘어가면 상승 끝
+  //더블 점프 & 점프타이머 100 넘어가면 상승 끝  
   if (player.state == "dbjump" && jumpTimer > 10) {
     player.y -= 0;
   }
@@ -216,13 +247,13 @@ document.addEventListener("keydown", function (key) {
           player.width = 80;
           player.state = "jump";
         }
-        player.y = player.y - 0.1;
+        player.y = player.y + 0.5;
         player.state = "jump";
         jump = true;
         break;
     }
   }
-  if (player.state == "jump" && jumpTimer > 10) {
+  if (player.state == "jump" && jumpTimer > 1) {
     switch (key.code) {
       case "Space":
         jumpTimer = 0;
@@ -292,7 +323,8 @@ function game() {
 
   for (let i = 0; i < floor.length; i++) {
     if (
-      player.y + player.height >= floor[i].y &&
+      player.y + player.height <= floor[i].y &&
+      player.y + player.height + player.yspeed >= floor[i].y &&
       player.x + player.width - 10 >= floor[i].x &&
       player.x + 30 <= floor[i].x + floor[i].width
     ) {
@@ -302,45 +334,13 @@ function game() {
       dbjump = false;
       if (player.state != "slide") {
         player.state = "run";
-        player.y = 420;
-      }
-    }
-  }
-  for (let i = 0; i < floatFloor.length; i++) {
-    if (
-      player.y + player.height >= floatFloor[i].y &&
-      player.x + player.width - 10 >= floatFloor[i].x &&
-      player.x + 30 <= floatFloor[i].x + floatFloor[i].width
-    ) {
-      player.y = floatFloor[i].y - player.height;
-      player.yspeed = 0;
-      jumpTimer = 0;
-      jump = false;
-      dbjump = false;
-      if (player.state != "slide") {
-        player.state = "run";
       }
     }
   }
 
-  for (let i = 0; i < whiteJelly.length; i++) {
-    if (whiteJelly[i].getEater() == false) {
-      whitejellyEat(player, whiteJelly[i]);
-    }
-  }
-  for (let i = 0; i < yellowJelly.length; i++) {
-    if (yellowJelly[i].getEater() == false) {
-      yellowjellyEat(player, yellowJelly[i]);
-    }
-  }
-  for (let i = 0; i < redJelly.length; i++) {
-    if (redJelly[i].getEater() == false) {
-      redjellyEat(player, redJelly[i]);
-    }
-  }
-  for (let i = 0; i < bigJelly.length; i++) {
-    if (bigJelly[i].getEater() == false) {
-      bigjellyEat(player, bigJelly[i]);
+  for (let i = 0; i < jellyDraw.length; i++) {
+    if (jellyDraw[i].getEater() == false) {
+      jellyEat(player, jellyDraw[i]);
     }
   }
 
@@ -348,15 +348,12 @@ function game() {
 
   //맵그리기, 땅그리기, 점수 그리기, 젤리 그리기, 캐릭터 그리기
   background.draw();
+
   floor.forEach((floor) => {
-    floor.draw();
-  });
-  floatFloor.forEach((floor) => {
     floor.draw();
   });
   drawScore.draw();
   player.update();
-  console.log(player.y);
 }
 
 //실행

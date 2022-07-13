@@ -17,9 +17,9 @@ let background = {
   a: 1,
   draw() {
     this.time++;
-    this.x -= 0.05;
+    this.x -= 0.01;
     if (this.time % 1000 == 0) {
-      this.a -= 0.01;
+      this.a -= 0.5;
     }
     ctxBackground.globalAlpha = this.a;
     // ctxMap.fillStyle = "black";

@@ -339,7 +339,9 @@ function game() {
   floatFloor.forEach((floor) => {
     floor.draw();
   });
-  skyHurdle.draw();
+  skyHurdle.forEach((skyHurdle) => {
+    skyHurdle.draw();
+  });
   drawScore.draw();
   player.update();
 

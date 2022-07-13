@@ -154,8 +154,8 @@ function jumpSkill() {
 
   //더블점프
   if (dbjump == true) {
+    player.y -= 0.45;
     jumpTimer++;
-    player.y -= 4.55;
   }
 
   //더블 점프 이미지 변경
@@ -228,6 +228,7 @@ document.addEventListener("keydown", function (key) {
     switch (key.code) {
       case "Space":
         jumpTimer = 0;
+        player.yspeed = 0;
         player.state = "dbjumpstart";
         dbjump = true;
         break;

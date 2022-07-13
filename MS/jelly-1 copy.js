@@ -261,6 +261,6 @@ let bigJelly = [
   new BigJelly({ x: 1530, y: 260, width: 100, height: 100 }),
 
   new BigJelly({ x: 3310, y: 110, width: 100, height: 100 }),
-  new BigJelly({ x: 3410, y: 80, width: 100, height: 100 }),
-  new BigJelly({ x: 3510, y: 110, width: 100, height: 100 }),
+  new BigJelly({ x: 3390, y: 80, width: 100, height: 100 }),
+  new BigJelly({ x: 3470, y: 110, width: 100, height: 100 }),
 ];

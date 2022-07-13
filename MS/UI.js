@@ -2,10 +2,19 @@ let continueAnimating = true;
 
 playBtn.onclick = function () {
     continueAnimating = true;
-    console.log("클릭했다");
+    game();
+
+    console.log("감사합니다 재생버튼 클릭했다");
 };
 
 pauseBtn.onclick = function () {
-    console.log("클릭했다");
+    continueAnimating = false;
+    console.log("정지버튼 클릭했다");
 };
 
+// if (continueAnimating == false) {
+//     return;
+//   }
+//   else {
+//     requestAnimationFrame(game);
+//   }

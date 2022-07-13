@@ -284,8 +284,15 @@ document.addEventListener("keyup", function (key) {
 
 //게임실행
 function game() {
+  // if (!continueAnimating) { return; }
+  //멈춤 버튼 클릭시 애니메이션 멈춤
+  if (!continueAnimating) {
+    cancelAnimationFrame(game);
+  } else { requestAnimationFrame(game) }; 
+  
   frame++;
-  requestAnimationFrame(game);
+  console.log(frame);
+  // requestAnimationFrame(game);
 
   //전체 영역 클리어
   ctxMain.clearRect(0, 0, canvasMain.width, canvasMain.height);
@@ -329,8 +336,9 @@ function game() {
       }
     }
   }
-  console.log(floatFloor[0].y);
-  console.log(player.y);
+  // console.log(skyHurdle[0].x);
+  // console.log(player.y);
+  
 
   jellyEat();
   jumpSkill();
@@ -352,8 +360,6 @@ function game() {
   //hp.js함수 실행
   breadDraw();
   jamDraw();
-  clear.clearDraw();
-  toggle.toggle();
 }
 //실행
 game();

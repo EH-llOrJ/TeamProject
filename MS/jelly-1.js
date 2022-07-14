@@ -252,19 +252,18 @@ function clearjellyEat(player, _jelly) {
   let eatJellyY = _jelly.y - player.y;
   let eatJellyHeight = _jelly.y + _jelly.height - (player.y + player.height);
   if (
-    eatJellyX < 55 &&
-    eatJellyX > -55 &&
-    eatJellyY < 55 &&
-    eatJellyY > -55 &&
-    eatJellyWidth < 55 &&
-    eatJellyWidth > -55 &&
-    eatJellyHeight < 55 &&
-    eatJellyHeight > -55
+    eatJellyX < 100 &&
+    eatJellyX > -100 &&
+    eatJellyY < 100 &&
+    eatJellyY > -100 &&
+    eatJellyWidth < 100 &&
+    eatJellyWidth > -100 &&
+    eatJellyHeight < 100 &&
+    eatJellyHeight > -100
   ) {
     _jelly.setEater();
     ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
     point += 333333;
-    cancelAnimationFrame(game);
   } else if (_jelly.getEater() == false) {
     _jelly.draw();
   }
@@ -723,5 +722,7 @@ let hpPotion = [
 ];
 
 let clearJelly = [
+  new ClearJelly({ x: 19600, y: 330, width: 200, height: 150 }),
   new ClearJelly({ x: 19700, y: 330, width: 200, height: 150 }),
+  new ClearJelly({ x: 19800, y: 330, width: 200, height: 150 }),
 ];

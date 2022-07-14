@@ -722,7 +722,5 @@ let hpPotion = [
 ];
 
 let clearJelly = [
-  new ClearJelly({ x: 19600, y: 330, width: 200, height: 150 }),
   new ClearJelly({ x: 19700, y: 330, width: 200, height: 150 }),
-  new ClearJelly({ x: 19800, y: 330, width: 200, height: 150 }),
 ];

@@ -30,86 +30,100 @@ router.post('/signUpPro', (req, res) => {
         }
         
     })
-
+    
 })
 router.get('/logout123', (req, res) => {
     res.render('logout123.ejs')
 })
 
 router.get('/login', (req, res) => {
-//     const signupid = "select * from members order by registDate desc;"
+    //     const signupid = "select * from members order by registDate desc;"
     
-//     connection.query(signupid, (err, result) => {
-//         if (err) console.log('err');
-//         else {
-//             res.render(("login.ejs"), {
-//                 data: result[0]
-//             });
-//         }
-//     }) 
-let token = req.cookies.token;
-console.log(token)
-// let decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET);
-// console.log(decoded)
-try {
-    jwt.verify(token, process.env.JWT_TOKEN_SECRET,);
-    res.redirect('/kg/logout1')
-} catch(err) {
-    res.render('login.ejs')
-}
-})
-
-router.post('/login', (req, res) => {
-    console.log(req.body.id);
-    console.log(req.body.pw);
-    const user = {
-        id: req.body.id
-    }
-    //                  select id,pw from members where id = "a or 1=1 --" and pw = "req.body.password'
-    // const logincheck = process.env.db_loginquery + req.body.id + process.env.db_loginquery2 + req.body.pw + '";'
-    const logincheck = process.env.db_loginquery + req.body.id + '";'
-    connection.query(logincheck, (err, result) => {
-        if (err) console.log(err)
-        else {
-            console.log('query suc')
-            if (result[0] === undefined) {
-                console.log(result)
-                console.log("none ID")
-                res.send('loginfail')
-                // res.redirect('/login');
-            }
-            else if (!bcrypt.compareSync(req.body.pw, result[0].pw)) {
-                res.send('loginfail')
-            }
-            else if(bcrypt.compareSync(req.body.pw, result[0].pw)){
-                console.log('login suc')
-                // res.cookie('token', token, { // user 라는 이름 및 req.body.id 라는 값을 가진 쿠키 발급 중괄호 안은 속성 부여
-                //     httpOnly: true, // 자바 스크립트에서 document.cookie 시 확인되지 않음
-                //     expires: new Date(Date.now() + 1000*60*60) // 쿠키 발급 후 얼마나 쿠키를 가지고 있을 지
-                // })
-                const token = jwt.sign({ user }, process.env.JWT_TOKEN_SECRET, { expiresIn: "1h" });
-                // var decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET) // 동기적으로 디코딩 == 복호화
-                // console.log(decoded.user);
-                jwt.verify(token, process.env.JWT_TOKEN_SECRET, (err, decoded) => {
-                    if (err) console.log(err);
-                    else console.log(decoded); // decoded.user.id == 로그인 한 이메일 일거임
+    //     connection.query(signupid, (err, result) => {
+        //         if (err) console.log('err');
+        //         else {
+            //             res.render(("login.ejs"), {
+                //                 data: result[0]
+                //             });
+                //         }
+                //     }) 
+                let token = req.cookies.token;
+                console.log(token)
+                // let decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET);
+                // console.log(decoded)
+                try {
+                    jwt.verify(token, process.env.JWT_TOKEN_SECRET,);
+                    res.redirect('/kg/logout1')
+                } catch(err) {
+                    res.render('login.ejs')
+                }
+                // let name1 = process.env.db_namecheck + "'" + req.body.id + "';"
+                //     connection.query(name1, (err, result) => {
+                //         if (err) console.log(err)
+                //         else {
+                //             console.log('query sucsuc')
+                //             if (result[0] == undefined) {
+                //                 console.log('fucking')
+                //             }
+                //             else {
+                //                 res.render('logoutPage.ejs',{
+                //                     isName: result[0].name
+                //                 })
+                //             }
+                //         }
+                //     })
+            })
+            router.post('/login', (req, res) => {
+                console.log(req.body.id);
+                console.log(req.body.pw);
+                const user = {
+                    id: req.body.id
+                }
+                //                  select id,pw from members where id = "a or 1=1 --" and pw = "req.body.password'
+                // const logincheck = process.env.db_loginquery + req.body.id + process.env.db_loginquery2 + req.body.pw + '";'
+                const logincheck = process.env.db_loginquery + req.body.id + '";'
+                connection.query(logincheck, (err, result) => {
+                    if (err) console.log(err)
+                    else {
+                        console.log('query suc')
+                        if (result[0] === undefined) {
+                            console.log(result)
+                            console.log("none ID")
+                            res.send('loginfail')
+                            // res.redirect('/login');
+                        }
+                        else if (!bcrypt.compareSync(req.body.pw, result[0].pw)) {
+                            res.send('loginfail')
+                        }
+                        else if(bcrypt.compareSync(req.body.pw, result[0].pw)){
+                            console.log('login suc')
+                            // res.cookie('token', token, { // user 라는 이름 및 req.body.id 라는 값을 가진 쿠키 발급 중괄호 안은 속성 부여
+                            //     httpOnly: true, // 자바 스크립트에서 document.cookie 시 확인되지 않음
+                            //     expires: new Date(Date.now() + 1000*60*60) // 쿠키 발급 후 얼마나 쿠키를 가지고 있을 지
+                            // })
+                            const token = jwt.sign({ user }, process.env.JWT_TOKEN_SECRET, { expiresIn: "1h" });
+                            // var decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET) // 동기적으로 디코딩 == 복호화
+                            // console.log(decoded.user);
+                            jwt.verify(token, process.env.JWT_TOKEN_SECRET, (err, decoded) => {
+                                if (err) console.log(err);
+                                else console.log(decoded); // decoded.user.id == 로그인 한 이메일 일거임
+                            })
+                            res.cookie('token', token)
+                            res.send('loginsuc')
+                        }
+                    }
                 })
-                res.cookie('token', token)
-                res.send('loginsuc')
-            }
-        }
-    })
-})
-router.get('/logout', (req,res) => {
-    res.cookie('token', null, {
-        maxAge: 0,
-    });
-    res.redirect('/')
-})
-
-
-router.get('/logout1', (req, res) => {
-    let token = req.cookies.token;
+            })
+            router.get('/logout', (req,res) => {
+                res.cookie('token', null, {
+                    maxAge: 0,
+                });
+                res.redirect('/')
+            })
+            
+            
+            router.get('/logout1', (req, res) => {
+                let token = req.cookies.token;
     
     try {
         let decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET);
@@ -121,9 +135,11 @@ router.get('/logout1', (req, res) => {
             connection.query(timecheck, (err, result) => {
                 if (err) console.log(err)
                 else {
+                    
                     res.render('logoutPage.ejs', {
                         isId: decoded.user.id,
                         time: result[0].registDate
+                        
                     })
                 }
                 

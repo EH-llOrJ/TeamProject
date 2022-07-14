@@ -365,7 +365,7 @@ function game() {
       }
     }
   }
-  //위에 땅 play.y값이랑 floatFloor의 y값의 차이가 조금 있음
+  //위에 땅
   if(player.y+50 <= floatFloor[0].y && player.state != "dbjumpstart") {
     for (let i = 0; i < floatFloor.length; i++) {
       if (

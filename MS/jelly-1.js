@@ -11,6 +11,9 @@ redJellyImg.src = "images/Jelly/빨간젤리1.png";
 let bigJellyImg = new Image();
 bigJellyImg.src = "images/Jelly/왕젤리1.png";
 
+const pointUp = document.getElementById("pointBox");
+let pointHTML = pointUp.innerHTML;
+
 //젤리 클래스
 class WhiteJelly {
   constructor({ x, y, width, height }) {
@@ -108,7 +111,8 @@ function whitejellyEat(player, _jelly) {
   ) {
     _jelly.setEater();
     ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
-    point += 1111;
+    pointHTML = parseInt(pointHTML) + 1111;
+    pointUp.innerHTML = pointHTML.toLocaleString("ko-KR");
   } else if (_jelly.getEater() == false) {
     _jelly.draw();
   }
@@ -130,7 +134,8 @@ function yellowjellyEat(player, _jelly) {
   ) {
     _jelly.setEater();
     ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
-    point += 3333;
+    pointHTML = parseInt(pointHTML) + 3333;
+    pointUp.innerHTML = pointHTML.toLocaleString("ko-KR");
   } else if (_jelly.getEater() == false) {
     _jelly.draw();
   }
@@ -152,7 +157,8 @@ function redjellyEat(player, _jelly) {
   ) {
     _jelly.setEater();
     ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
-    point += 5555;
+    pointHTML = parseInt(pointHTML) + 5555;
+    pointUp.innerHTML = pointHTML.toLocaleString("ko-KR");
   } else if (_jelly.getEater() == false) {
     _jelly.draw();
   }
@@ -174,7 +180,8 @@ function bigjellyEat(player, _jelly) {
   ) {
     _jelly.setEater();
     ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
-    point += 33333;
+    pointHTML = parseInt(pointHTML) + 33333;
+    pointUp.innerHTML = pointHTML.toLocaleString("ko-KR");
   } else if (_jelly.getEater() == false) {
     _jelly.draw();
   }

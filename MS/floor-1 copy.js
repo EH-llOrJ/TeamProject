@@ -34,60 +34,36 @@ class Floor {
     this.time = 0;
   }
   draw() {
-    // this.time++;
-    // if (this.time % 1 == 0) {
-    //   this.x -= 2.35;
-    // }
     ctxMain.drawImage(floor10Img, this.x, this.y, this.width, this.height);
   }
 }
 
 class Floor5 extends Floor {
   draw() {
-    // this.time++;
-    // if (this.time % 1 == 0) {
-    //   this.x -= 2.35;
-    // }
     ctxMain.drawImage(floor5Img, this.x, this.y, this.width, this.height);
   }
 }
 
 class Floor1 extends Floor {
   draw() {
-    // this.time++;
-    // if (this.time % 1 == 0) {
-    //   this.x -= 2.35;
-    // }
     ctxMain.drawImage(floor1Img, this.x, this.y, this.width, this.height);
   }
 }
 
 class floatFloor10 extends Floor {
   draw() {
-    // this.time++;
-    // if (this.time % 1 == 0) {
-    //   this.x -= 2.35;
-    // }
     ctxMain.drawImage(_floor10Img, this.x, this.y, this.width, this.height);
   }
 }
 
 class floatFloor5 extends Floor {
   draw() {
-    // this.time++;
-    // if (this.time % 1 == 0) {
-    //   this.x -= 2.35;
-    // }
     ctxMain.drawImage(_floor5Img, this.x, this.y, this.width, this.height);
   }
 }
 
 class floatFloor1 extends Floor {
   draw() {
-    // this.time++;
-    // if (this.time % 1 == 0) {
-    //   this.x -= 2.35;
-    // }
     ctxMain.drawImage(_floor1Img, this.x, this.y, this.width, this.height);
   }
 }
@@ -112,4 +88,12 @@ let floor = [
 let floatFloor = [
   new floatFloor5({ x: 2350, y: 390, width: 400, height: 17 }),
   new floatFloor5({ x: 2850, y: 340, width: 400, height: 17 }),
+
+  new floatFloor5({ x: 4650, y: 390, width: 400, height: 17 }),
+
+  new floatFloor5({ x: 6250, y: 390, width: 400, height: 17 }),
+  new floatFloor1({ x: 6700, y: 340, width: 80, height: 17 }),
+  new floatFloor1({ x: 6820, y: 290, width: 80, height: 17 }),
+  new floatFloor5({ x: 6950, y: 190, width: 400, height: 17 }),
+  new floatFloor5({ x: 7550, y: 290, width: 400, height: 17 }),
 ];

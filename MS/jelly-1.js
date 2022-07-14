@@ -110,7 +110,7 @@ function whitejellyEat(player, _jelly) {
     eatJellyHeight > -55
   ) {
     _jelly.setEater();
-    ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
+    // ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
     pointHTML = parseInt(pointHTML) + 1111;
     pointUp.innerHTML = pointHTML.toLocaleString("ko-KR");
   } else if (_jelly.getEater() == false) {

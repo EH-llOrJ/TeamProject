@@ -7,7 +7,7 @@ canvasMain.width = 2000;
 canvasMain.height = 600;
 
 //중력설정
-let gravity = 0.02;
+let gravity = 0.009;
 
 //플레이어 설정 speed 낮추면 플레이어 움직임 속도 up
 let player = {
@@ -327,15 +327,10 @@ function game() {
   floatFloor.forEach((floor) => {
     floor.draw();
   });
-  skyHurdle.forEach((skyHurdle) => {
-    skyHurdle.draw();
+  hurdle.forEach((hurdle) => {
+    hurdle.draw();
   });
-  floorlowHurdle.forEach((floorlowHurdle) => {
-    floorlowHurdle.draw();
-  });
-  floorhighHurdle.forEach((floorhighHurdle) => {
-    floorhighHurdle.draw();
-  });
+
   player.update();
 
   //hp.js함수 실행
@@ -345,4 +340,5 @@ function game() {
   toggle.toggle();
 }
 //실행
+game();
 game();

@@ -23,12 +23,13 @@ canvasJam.classList.add("jam");
 canvasJam.style.position = "absolute";
 canvasJam.style.left = "27%";
 canvasJam.style.top = "10px";
-canvasJam.style.width = "431px";
+canvasJam.style.width = "430px";
 canvasJam.style.height = "70px";
 document.getElementById("canvasBox").appendChild(canvasJam);
 
 let ctxJam = canvasJam.getContext("2d");
 
+// jam image
 let jamImg = new Image();
 jamImg.src = "images/HP/hp.png";
 function jamDraw() {
@@ -44,19 +45,51 @@ class HP {
     this.height = height;
     this.time = 0;
   }
-
-  // HP decrease
+  // game ~ing
   draw() {
     this.time++;
-    this.x -= 0.05;
-    this.width += 1;
+    this.x -= 0.1;
+    this.width += 0.1;
+
     if (this.x >= 30) {
       ctxJam.clearRect(this.x, this.y, this.width, this.height);
     } else if (this.x < 30) {
       ctxJam.clearRect(35, 30, 233, 50);
       this.x = 30;
+      // cancelAnimationFrame(game());
     }
-    // console.log(this.x);
+  }
+}
+
+// HP restore
+function hpRestore() {
+  let state = 10;
+  let add = 0;
+  let set = setInterval(() => {
+    if (state <= add || HpDecrease.x > 267) {
+      clearInterval(set);
+    } else {
+      HpDecrease.x += 0.1;
+      HpDecrease.width -= 0.1;
+      add += 0.1;
+    }
+  }, 1);
+}
+
+// HP remove
+function hpRemove() {
+  HpDecrease.x -= 30;
+  HpDecrease.width += 30;
+
+  for (let i = 0; i < 1000; i++) {
+    setTimeout(() => (canvasJam.style.top = "7px"), 100);
+    setTimeout(() => (canvasJam.style.top = "13px"), 100);
+    setTimeout(() => (canvasJam.style.top = "7px"), 100);
+    setTimeout(() => (canvasJam.style.top = "13px"), 100);
+    setTimeout(() => (canvasJam.style.top = "7px"), 100);
+    setTimeout(() => (canvasJam.style.top = "13px"), 100);
+    setTimeout(() => (canvasJam.style.top = "7px"), 100);
+    setTimeout(() => (canvasJam.style.top = "10px"), 100);
   }
 }
 
@@ -75,7 +108,7 @@ class Light {
     let raster = imageData.data;
     this.time++;
     if (this.selectres == 0) {
-      if (this.selectres < 60) {
+      if (this.selectres < this.res1) {
         this.selectres += 1;
         for (let i = 0; i < raster.length; i += 4) {
           raster[i] = this.selectres + raster[i];

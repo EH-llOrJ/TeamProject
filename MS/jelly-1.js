@@ -151,6 +151,7 @@ function bigjellyEat(player, _jelly) {
     _jelly.setEater();
     ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
     point += 9999;
+    hpRemove();
   } else if (_jelly.getEater() == false) {
     _jelly.draw();
   }

@@ -360,8 +360,9 @@ function game() {
   jamDraw();
   HpDecrease.draw();
   HpLight.draw();
-  console.log(player.y);
+  // console.log(player.y);
 }
 
 //실행
 game();
+// game();

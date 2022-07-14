@@ -173,11 +173,6 @@ function jumpSkill() {
   }
 }
 
-//점수선언
-let point = 0;
-let pointImg = new Image();
-pointImg.src = "images/Map/point.png";
-
 //전역변수(frame=프레임, jumpTimer = 점프시간)
 let frame = 0;
 let jumpTimer = 0;
@@ -272,7 +267,6 @@ document.addEventListener("keyup", function (key) {
 //게임실행
 function game() {
   frame++;
-  requestAnimationFrame(game);
 
   //전체 영역 클리어
   ctxMain.clearRect(0, 0, canvasMain.width, canvasMain.height);
@@ -338,6 +332,12 @@ function game() {
   jamDraw();
   HpDecrease.draw();
   HpLight.draw();
+
+  if (HpDecrease.x <= 30) {
+    cancelAnimationFrame(game);
+  } else {
+    requestAnimationFrame(game);
+  }
 }
 //실행
 game();

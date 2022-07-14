@@ -57,7 +57,7 @@ class HP {
       ctxJam.clearRect(35, 30, 233, 50);
       this.x = 30;
       this.width = 238;
-      // cancelAnimationFrame(game());
+      gameEnd();
     }
   }
 }
@@ -92,6 +92,10 @@ function hpRemove() {
     setTimeout(() => (canvasJam.style.top = "7px"), 100);
     setTimeout(() => (canvasJam.style.top = "10px"), 100);
   }
+}
+
+function gameEnd() {
+  document.getElementById("endGame").style.zIndex = "100";
 }
 
 // HP light

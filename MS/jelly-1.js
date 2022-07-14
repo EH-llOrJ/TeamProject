@@ -14,6 +14,9 @@ bigJellyImg.src = "images/Jelly/왕젤리1.png";
 const pointUp = document.getElementById("pointBox");
 let pointHTML = pointUp.innerHTML;
 
+const scoreUp = document.getElementById("endGame_score");
+let scoreHTML = scoreUp.innerHTML;
+
 //젤리 클래스
 class WhiteJelly {
   constructor({ x, y, width, height }) {
@@ -112,7 +115,9 @@ function whitejellyEat(player, _jelly) {
     _jelly.setEater();
     // ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
     pointHTML = parseInt(pointHTML) + 1111;
+    scoreHTML = parseInt(scoreHTML) + 1111;
     pointUp.innerHTML = pointHTML.toLocaleString("ko-KR");
+    scoreUp.innerHTML = scoreHTML.toLocaleString("ko-KR");
   } else if (_jelly.getEater() == false) {
     _jelly.draw();
   }
@@ -135,7 +140,9 @@ function yellowjellyEat(player, _jelly) {
     _jelly.setEater();
     ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
     pointHTML = parseInt(pointHTML) + 3333;
+    scoreHTML = parseInt(scoreHTML) + 3333;
     pointUp.innerHTML = pointHTML.toLocaleString("ko-KR");
+    scoreUp.innerHTML = scoreHTML.toLocaleString("ko-KR");
   } else if (_jelly.getEater() == false) {
     _jelly.draw();
   }
@@ -158,7 +165,9 @@ function redjellyEat(player, _jelly) {
     _jelly.setEater();
     ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
     pointHTML = parseInt(pointHTML) + 5555;
+    scoreHTML = parseInt(scoreHTML) + 5555;
     pointUp.innerHTML = pointHTML.toLocaleString("ko-KR");
+    scoreUp.innerHTML = scoreHTML.toLocaleString("ko-KR");
   } else if (_jelly.getEater() == false) {
     _jelly.draw();
   }
@@ -181,7 +190,9 @@ function bigjellyEat(player, _jelly) {
     _jelly.setEater();
     ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
     pointHTML = parseInt(pointHTML) + 33333;
+    scoreHTML = parseInt(scoreHTML) + 33333;
     pointUp.innerHTML = pointHTML.toLocaleString("ko-KR");
+    scoreUp.innerHTML = scoreHTML.toLocaleString("ko-KR");
   } else if (_jelly.getEater() == false) {
     _jelly.draw();
   }

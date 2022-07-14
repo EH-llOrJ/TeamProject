@@ -56,6 +56,7 @@ class HP {
     } else if (this.x < 30) {
       ctxJam.clearRect(35, 30, 233, 50);
       this.x = 30;
+      this.width = 238;
       // cancelAnimationFrame(game());
     }
   }

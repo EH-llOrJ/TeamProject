@@ -334,12 +334,11 @@ let col_temp = 100;
 function game() {
   // if (!continueAnimating) { return; }
   //멈춤 버튼 클릭시 애니메이션 멈춤
-  if (!continueAnimating) {
-    cancelAnimationFrame(game);
-  } else { requestAnimationFrame(game) }; 
+  // if (!continueAnimating) {
+  //   cancelAnimationFrame(game);
+  // } else { requestAnimationFrame(game) }; 
   
   frame++;
-  // requestAnimationFrame(game);
 
   //전체 영역 클리어
   ctxMain.clearRect(0, 0, canvasMain.width, canvasMain.height);
@@ -426,6 +425,12 @@ function game() {
   jamDraw();
   HpDecrease.draw();
   HpLight.draw();
+
+  if (HpDecrease.x <= 30) {
+    cancelAnimationFrame(game);
+  } else {
+    requestAnimationFrame(game);
+  }
 }
 //실행
 game();

@@ -336,6 +336,3 @@ function game() {
 }
 //실행
 game();
-game();
-game();
-game();

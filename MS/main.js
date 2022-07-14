@@ -65,7 +65,7 @@ let player = {
     this.yspeed += gravity;
     
     // falling()
-    console.log(this.yspeed)
+    console.log(player.y)
     //땅에 붙으면 하락값 0
     for (let i = 0; i < floor.length; i++)
     // hi(); 
@@ -92,19 +92,19 @@ let player = {
   },
 };
 function hi() {
-  if (player.y < 140 && player.state == "falling" && abc == true) {
+  if (player.y < 230 && player.state == "falling" && abc == true) {
     abc = false;
     let fallingfin = setInterval(() => {
       abc = false;
       gravity = 0;
-      player.y = 140;
+      player.y = 230;
       }, 10);
       setTimeout(() => {
         player.state = "dbjumplast"
         clearInterval(fallingfin)
         console.log('종료 씨발아')
         yspeed = 0;
-        gravity = 0.02
+        gravity = 0.009
         abc = true;
       }, 500);
     }

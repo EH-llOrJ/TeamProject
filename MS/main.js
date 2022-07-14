@@ -1,3 +1,4 @@
+let abc = true;
 //캔버스 변수 선언, 할당
 let canvasMain = document.getElementById("main");
 let ctxMain = canvasMain.getContext("2d");
@@ -38,41 +39,83 @@ let player = {
     //조건 ? 맞는거 : 틀린거
     ctxMain.drawImage(
       this.state == "run"
-        ? runPlayer[this.index]
-        : this.state == "slide"
-        ? slidePlayer[this.index]
-        : this.state == "jump"
-        ? jumpPlayer[this.index]
-        : this.state == "dbjumpstart"
-        ? dbjumpstartPlayer[this.index]
-        : this.state == "dbjump"
-        ? dbjumpPlayer[this.index]
-        : this.state == "dbjumplast"
-        ? dbjumplastPlayer[this.index]
-        : this.state == "fallen"
-        ? fallenPlayer[this.index]
-        : null,
-        
+      ? runPlayer[this.index]
+      : this.state == "slide"
+      ? slidePlayer[this.index]
+      : this.state == "jump"
+      ? jumpPlayer[this.index]
+      : this.state == "dbjumpstart"
+      ? dbjumpstartPlayer[this.index]
+      : this.state == "dbjump"
+      ? dbjumpPlayer[this.index]
+      : this.state == "dbjumplast"
+      ? dbjumplastPlayer[this.index]
+      : this.state == "falling"
+      ? fallingPlayer[this.index]
+      : null,
       this.x,
       this.y,
       this.width,
       this.height
-    );
+      );
   },
   update() {
     this.draw();
     this.y += this.yspeed;
     this.yspeed += gravity;
-
+    
+    // falling()
+    console.log(this.yspeed)
     //땅에 붙으면 하락값 0
     for (let i = 0; i < floor.length; i++)
-      if (this.y + this.height > floor[i].height) {
-        this.yspeed += gravity;
-      } else this.yspeed = 0;
+    // hi(); 
+    if (this.y + this.height > canvasMain.height + 100 && player.state == "run") {
+      player.y = player.y - 0.1;
+      player.state = "jump";
+      jump = true;
+      floatPlayer = true;
+      jumpTimer = 0;
+      falling = true
+      player.state = "falling"
+      this.yspeed = -7;
+    } else if (this.y + this.height > canvasMain.height + 100){
+      jumpTimer = 0;
+      falling = true
+      player.state = "falling"
+      this.yspeed = -7;
+    } else {
+      this.yspeed += gravity;
+      falling = false;
+    }
+    hi()
+    // clearInterval(fallingfin)
   },
 };
-
-//플레이어 이미지 프레임변경
+function hi() {
+  if (player.y < 140 && player.state == "falling" && abc == true) {
+    abc = false;
+    let fallingfin = setInterval(() => {
+      abc = false;
+      gravity = 0;
+      player.y = 140;
+      }, 10);
+      setTimeout(() => {
+        player.state = "dbjumplast"
+        clearInterval(fallingfin)
+        console.log('종료 씨발아')
+        yspeed = 0;
+        gravity = 0.02
+        abc = true;
+      }, 500);
+    }
+  }
+  // function falling() {
+    //   if (this.y + this.height > canvasMain.height) {
+      //     this.yspeed = 0;
+      //   }
+      // }
+      
+      //플레이어 이미지 프레임변경
 //달리기 이미지
 let runPlayer = new Array();
 let imglinkRun = [
@@ -144,6 +187,17 @@ for (let i = 0; i < 4; i++) {
   dbjumplastPlayer.push(new Image());
   dbjumplastPlayer[i].src = imglinkDbjumplast[i];
 }
+let fallingPlayer = new Array();
+let imglinkfallingPlayer = [
+  "images/Character/Taehoon/Fall/Fall1.png",
+  "images/Character/Taehoon/Fall/Fall2.png",
+  "images/Character/Taehoon/Fall/Fall1.png",
+  "images/Character/Taehoon/Fall/Fall2.png",
+];
+for (let i = 0; i < 4; i++) {
+  fallingPlayer.push(new Image());
+  fallingPlayer[i].src = imglinkfallingPlayer[i];
+}
 
 //피격시 이미지
 
@@ -161,6 +215,11 @@ function jumpSkill() {
     jumpTimer++;
   }
 
+  if (falling == true) {
+    player.y -= 7.57;
+    jumpTimer++;
+  }
+
   //더블 점프 이미지 변경
   if (player.state == "dbjumpstart" && jumpTimer > 30) {
     player.state = "dbjump";
@@ -171,6 +230,14 @@ function jumpSkill() {
   //더블 점프 & 점프타이머 100 넘어가면 상승 끝
   if (player.state == "dbjump" && jumpTimer > 10) {
     player.y -= 0;
+  }
+  if (player.state == "falling" && jumpTimer > 100) {
+    let fallingcome = setInterval(() => {
+      player.y -= 0
+    }, 1);
+    setTimeout(() => {
+      clearInterval(fallingcome)
+    }, 3000);
   }
 }
 
@@ -184,6 +251,7 @@ let frame = 0;
 let jumpTimer = 0;
 let jump = false;
 let dbjump = false;
+let falling = false;
 let isSliding = false;
 let floatPlayer = false;
 
@@ -266,7 +334,7 @@ document.addEventListener("keyup", function (key) {
 
 let a = true;
 let b = 0;
-let abc = 100;
+let col_temp = 100;
 //게임실행
 function game() {
   // if (!continueAnimating) { return; }
@@ -324,8 +392,8 @@ function game() {
   //충돌시
     for (let i = 0; i < hurdle.length; i++) {
       if (hurdle[i].x < 200 && hurdle[i].x > 0 && player.height == 90 && a == true) {
-      abc--
-        console.log(abc);
+      col_temp--
+        console.log(col_temp);
         a = false;
       let hi = setInterval(() => {
         a = false;

@@ -291,7 +291,6 @@ function game() {
   } else { requestAnimationFrame(game) }; 
   
   frame++;
-  console.log(frame);
   // requestAnimationFrame(game);
 
   //전체 영역 클리어
@@ -336,8 +335,15 @@ function game() {
       }
     }
   }
-  // console.log(skyHurdle[0].x);
+  
+  // console.log(obs[0].x);
   // console.log(player.y);
+  // console.log(skyHurdle[0].x); //200 쯤
+  //허들이 높은 값에서 200으로 좁혀지고 play.x값 120 차 80 80~90사이쯤?
+  //console.log(skyHurdle[0].height); height 0~430(지정값)
+  //console.log(player.height);//평상시 90 앉을 때만 55
+  //충돌은 x값의 차와 height55가 아닐 때로?
+  
   
 
   jellyEat();
@@ -353,7 +359,17 @@ function game() {
   });
   skyHurdle.forEach((skyHurdle) => {
     skyHurdle.draw();
+    skyHurdle.coll();
   });
+  // obs.forEach((obs) => {
+  //   obs.draw();
+  // });
+  // MM_obs.forEach((MM_obs) => {
+  //   MM_obs.draw();
+  // })
+  
+
+
   drawScore.draw();
   player.update();
 

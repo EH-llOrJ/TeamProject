@@ -17,8 +17,6 @@ floorlowHurdleImg2.src = "images/Hurdle/hurdle2-2.png";
 let floorhighHurdleImg2 = new Image();
 floorhighHurdleImg2.src = "images/Hurdle/hurdle2-3.png";
 
-//캐릭터 충돌 상태 추가
-
 //장애물 클래스
 class Hurdle {
   constructor({ x, y, width, height }) {
@@ -27,24 +25,14 @@ class Hurdle {
     this.width = width;
     this.height = height;
     this.time = 0;
-    this.a = true;
-    this.b = 1;
   }
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
     ctxMain.drawImage(skyHurdleImg, this.x, this.y, this.width, this.height);
   }
 }
 
 class lowHurdle extends Hurdle {
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
     ctxMain.drawImage(
       floorlowHurdleImg,
       this.x,
@@ -56,10 +44,6 @@ class lowHurdle extends Hurdle {
 }
 class highHurdle extends Hurdle {
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
     ctxMain.drawImage(
       floorhighHurdleImg,
       this.x,
@@ -78,10 +62,6 @@ class Hurdle2 extends Hurdle {
 
 class lowHurdle2 extends Hurdle {
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
     ctxMain.drawImage(
       floorlowHurdleImg2,
       this.x,
@@ -93,10 +73,6 @@ class lowHurdle2 extends Hurdle {
 }
 class highHurdle2 extends Hurdle {
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
     ctxMain.drawImage(
       floorhighHurdleImg2,
       this.x,
@@ -179,4 +155,3 @@ let hurdle = [
   new Hurdle2({ x: 18700, y: 15, width: 100, height: 430 }),
   new Hurdle2({ x: 18800, y: 15, width: 100, height: 430 }),
 ];
-

@@ -18,12 +18,10 @@ let background = {
   draw() {
     this.time++;
     this.x -= 0.05;
-    if (this.time % 1000 == 0) {
-      this.a -= 0.01;
+    if (this.time % 100 == 0) {
+      this.a -= 0.1;
     }
-    // ctxBackground.globalAlpha = this.a;
-    // ctxMap.fillStyle = "black";
-    // ctxMap.fillRect(this.x, this.y, this.width, this.height);
+    ctxBackground.globalAlpha = this.a;
     ctxBackground.drawImage(
       backgroundImg,
       this.x,

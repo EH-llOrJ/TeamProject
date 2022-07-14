@@ -11,6 +11,9 @@ redJellyImg.src = "images/Jelly/빨간젤리1.png";
 let bigJellyImg = new Image();
 bigJellyImg.src = "images/Jelly/왕젤리1.png";
 
+let hpPotionImg = new Image();
+hpPotionImg.src = "images/HP/potion.png";
+
 //젤리 클래스
 class WhiteJelly {
   constructor({ x, y, width, height }) {
@@ -63,6 +66,16 @@ class BigJelly extends WhiteJelly {
     //   this.x -= 2.35;
     // }
     ctxMain.drawImage(bigJellyImg, this.x, this.y, this.width, this.height);
+  }
+}
+
+class HpPotion extends WhiteJelly {
+  draw() {
+    // this.time++;
+    // if (this.time % 1 == 0) {
+    //   this.x -= 2.35;
+    // }
+    ctxMain.drawImage(hpPotionImg, this.x, this.y, this.width, this.height);
   }
 }
 
@@ -156,6 +169,28 @@ function bigjellyEat(player, _jelly) {
   }
 }
 
+function hppotionEat(player, _potion) {
+  let eatJellyX = _potion.x - player.x;
+  let eatJellyWidth = _potion.x + _potion.width - (player.x + player.width);
+  let eatJellyY = _potion.y - player.y;
+  let eatJellyHeight = _potion.y + _potion.height - (player.y + player.height);
+  if (
+    eatJellyX < 55 &&
+    eatJellyX > -55 &&
+    eatJellyY < 55 &&
+    eatJellyY > -55 &&
+    eatJellyWidth < 55 &&
+    eatJellyWidth > -55 &&
+    eatJellyHeight < 55 &&
+    eatJellyHeight > -55
+  ) {
+    _potion.setEater();
+    ctxMain.clearRect(_potion.x, _potion.y, _potion.width, _potion.height);
+  } else if (_potion.getEater() == false) {
+    _potion.draw();
+  }
+}
+
 let whiteJelly = [
   new WhiteJelly({ x: 510, y: 380, width: 40, height: 40 }),
   new WhiteJelly({ x: 535, y: 355, width: 40, height: 40 }),
@@ -194,6 +229,29 @@ let whiteJelly = [
   new WhiteJelly({ x: 3110, y: 450, width: 40, height: 40 }),
   new WhiteJelly({ x: 3160, y: 450, width: 40, height: 40 }),
   new WhiteJelly({ x: 3210, y: 450, width: 40, height: 40 }),
+
+  new WhiteJelly({ x: 4315, y: 370, width: 40, height: 40 }),
+  new WhiteJelly({ x: 4355, y: 360, width: 40, height: 40 }),
+  new WhiteJelly({ x: 4395, y: 370, width: 40, height: 40 }),
+
+  new WhiteJelly({ x: 4920, y: 190, width: 40, height: 40 }),
+  new WhiteJelly({ x: 4970, y: 160, width: 40, height: 40 }),
+  new WhiteJelly({ x: 5020, y: 190, width: 40, height: 40 }),
+
+  new WhiteJelly({ x: 5230, y: 460, width: 40, height: 40 }),
+  new WhiteJelly({ x: 5270, y: 460, width: 40, height: 40 }),
+  new WhiteJelly({ x: 5310, y: 460, width: 40, height: 40 }),
+  new WhiteJelly({ x: 5350, y: 460, width: 40, height: 40 }),
+  new WhiteJelly({ x: 5390, y: 460, width: 40, height: 40 }),
+
+  new WhiteJelly({ x: 5490, y: 460, width: 40, height: 40 }),
+  new WhiteJelly({ x: 5560, y: 460, width: 40, height: 40 }),
+  new WhiteJelly({ x: 5570, y: 390, width: 40, height: 40 }),
+  new WhiteJelly({ x: 5590, y: 320, width: 40, height: 40 }),
+  new WhiteJelly({ x: 5650, y: 290, width: 40, height: 40 }),
+  new WhiteJelly({ x: 5710, y: 320, width: 40, height: 40 }),
+  new WhiteJelly({ x: 5730, y: 390, width: 40, height: 40 }),
+  new WhiteJelly({ x: 5750, y: 460, width: 40, height: 40 }),
 ];
 
 let yellowJelly = [
@@ -229,6 +287,10 @@ let yellowJelly = [
   new YellowJelly({ x: 4060, y: 460, width: 40, height: 40 }),
   new YellowJelly({ x: 4110, y: 460, width: 40, height: 40 }),
   new YellowJelly({ x: 4160, y: 460, width: 40, height: 40 }),
+
+  new YellowJelly({ x: 4520, y: 310, width: 40, height: 40 }),
+  new YellowJelly({ x: 4570, y: 290, width: 40, height: 40 }),
+  new YellowJelly({ x: 4620, y: 310, width: 40, height: 40 }),
 ];
 
 let redJelly = [
@@ -251,6 +313,11 @@ let redJelly = [
   new RedJelly({ x: 3660, y: 450, width: 40, height: 40 }),
   new RedJelly({ x: 3710, y: 450, width: 40, height: 40 }),
   new RedJelly({ x: 3760, y: 450, width: 40, height: 40 }),
+
+  new RedJelly({ x: 4710, y: 320, width: 40, height: 40 }),
+  new RedJelly({ x: 4770, y: 320, width: 40, height: 40 }),
+  new RedJelly({ x: 4830, y: 320, width: 40, height: 40 }),
+  new RedJelly({ x: 4890, y: 320, width: 40, height: 40 }),
 ];
 
 let bigJelly = [
@@ -263,4 +330,10 @@ let bigJelly = [
   new BigJelly({ x: 3310, y: 110, width: 100, height: 100 }),
   new BigJelly({ x: 3390, y: 80, width: 100, height: 100 }),
   new BigJelly({ x: 3470, y: 110, width: 100, height: 100 }),
+
+  new BigJelly({ x: 5070, y: 180, width: 100, height: 100 }),
+  new BigJelly({ x: 5070, y: 290, width: 100, height: 100 }),
+  new BigJelly({ x: 5070, y: 400, width: 100, height: 100 }),
 ];
+
+let hpPotion = [new HpPotion({ x: 3610, y: 320, width: 40, height: 45 })];

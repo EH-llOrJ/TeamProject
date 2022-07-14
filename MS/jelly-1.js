@@ -69,6 +69,16 @@ class BigJelly extends WhiteJelly {
   }
 }
 
+class HpPotion extends WhiteJelly {
+  draw() {
+    this.time++;
+    if (this.time % 1 == 0) {
+      this.x -= 2.35;
+    }
+    ctxMain.drawImage(bigJellyImg, this.x, this.y, this.width, this.height);
+  }
+}
+
 //젤리먹기 함수
 function jellyEat() {
   for (let i = 0; i < whiteJelly.length; i++) {
@@ -89,6 +99,11 @@ function jellyEat() {
   for (let i = 0; i < bigJelly.length; i++) {
     if (bigJelly[i].getEater() == false) {
       bigjellyEat(player, bigJelly[i]);
+    }
+  }
+  for (let i = 0; i < hpPotion.length; i++) {
+    if (hpPotion[i].getEater() == false) {
+      hppotionEat(player, hpPotion[i]);
     }
   }
 }
@@ -184,6 +199,27 @@ function bigjellyEat(player, _jelly) {
     pointUp.innerHTML = pointHTML.toLocaleString("ko-KR");
   } else if (_jelly.getEater() == false) {
     _jelly.draw();
+  }
+}
+function hppotionEat(player, _potion) {
+  let eatJellyX = _potion.x - player.x;
+  let eatJellyWidth = _potion.x + _potion.width - (player.x + player.width);
+  let eatJellyY = _potion.y - player.y;
+  let eatJellyHeight = _potion.y + _potion.height - (player.y + player.height);
+  if (
+    eatJellyX < 55 &&
+    eatJellyX > -55 &&
+    eatJellyY < 55 &&
+    eatJellyY > -55 &&
+    eatJellyWidth < 55 &&
+    eatJellyWidth > -55 &&
+    eatJellyHeight < 55 &&
+    eatJellyHeight > -55
+  ) {
+    _potion.setEater();
+    ctxMain.clearRect(_potion.x, _potion.y, _potion.width, _potion.height);
+  } else if (_potion.getEater() == false) {
+    _potion.draw();
   }
 }
 

@@ -124,7 +124,7 @@ function jellyEat() {
   }
   for (let i = 0; i < clearJelly.length; i++) {
     if (clearJelly[i].getEater() == false) {
-      hppotionEat(player, clearJelly[i]);
+      clearjellyEat(player, clearJelly[i]);
     }
   }
 }

@@ -48,8 +48,8 @@ let player = {
         : this.state == "dbjump"
         ? dbjumpPlayer[this.index]
         : this.state == "dbjumplast"
-        ? collPlayer[this.index]
-        : this.state == "coll"
+        //? collPlayer[this.index]
+        //: this.state == "coll"
         ? dbjumplastPlayer[this.index]
         : null,
         

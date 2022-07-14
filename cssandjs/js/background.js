@@ -15,9 +15,9 @@ canvasBackground.width = 2000;
 canvasBackground.height = 600;
 
 let backgroundImg1 = new Image();
-backgroundImg1.src = "images/Map/first.png";
+backgroundImg1.src = "/image/images/Map/first.png";
 let backgroundImg2 = new Image();
-backgroundImg2.src = "images/Map/second.png";
+backgroundImg2.src = "/image/images/Map/second.png";
 
 //배경 객체선언 및 할당
 let background = {

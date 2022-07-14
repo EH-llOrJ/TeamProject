@@ -1,21 +1,21 @@
 //젤리 기본 이미지
 let skyHurdleImg = new Image();
-skyHurdleImg.src = "images/Hurdle/hurdle1-1.png";
+skyHurdleImg.src = "/image/images/Hurdle/hurdle1-1.png";
 
 let floorlowHurdleImg = new Image();
-floorlowHurdleImg.src = "images/Hurdle/hurdle1-2.png";
+floorlowHurdleImg.src = "/image/images/Hurdle/hurdle1-2.png";
 
 let floorhighHurdleImg = new Image();
-floorhighHurdleImg.src = "images/Hurdle/hurdle1-3.png";
+floorhighHurdleImg.src = "/image/images/Hurdle/hurdle1-3.png";
 
 let skyHurdleImg2 = new Image();
-skyHurdleImg2.src = "images/Hurdle/hurdle2-1.png";
+skyHurdleImg2.src = "/image/images/Hurdle/hurdle2-1.png";
 
 let floorlowHurdleImg2 = new Image();
-floorlowHurdleImg2.src = "images/Hurdle/hurdle2-2.png";
+floorlowHurdleImg2.src = "/image/images/Hurdle/hurdle2-2.png";
 
 let floorhighHurdleImg2 = new Image();
-floorhighHurdleImg2.src = "images/Hurdle/hurdle2-3.png";
+floorhighHurdleImg2.src = "/image/images/Hurdle/hurdle2-3.png";
 
 //캐릭터 충돌 상태 추가
 

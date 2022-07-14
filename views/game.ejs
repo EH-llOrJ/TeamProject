@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <style>
     * {
@@ -63,7 +64,7 @@
     }
     @font-face {
       font-family: "pointFont";
-      src: url(images/Font/CookieRunRegular.ttf);
+      src: url(/image/images/Font/CookieRunRegular.ttf);
     }
 
     .Btn {
@@ -180,55 +181,57 @@
           <div class="endGameContent">
             <div class="endGame_score_content">
               <div id="endGame_score">0</div>
+              
             </div>
           </div>
           <div class="endGameContent">
             <a
               class="move"
-              href="http://127.0.0.1:5500/SH/login/loginPage/login.html"
+              href="/"
             >
               <button class="endGameContent1">로그인 페이지로</button>
             </a>
-            <a class="move" href="http://127.0.0.1:5500/MS/game.html">
+            <a class="move" href="/kg/maingame">
               <button class="endGameContent1">다시 시작</button>
             </a>
             <a class="move">
-              <button class="endGameContent1">점수 등록</button>
+              <button class="endGameContent1" onclick="updateScore()">점수 등록</button>
             </a>
           </div>
         </main>
       </div>
-      <img src="images/playicon2.png" alt="" id="playBtn" class="Btn">
-      <img src="images/pauseicon.png" alt="" id="pauseBtn" class="Btn">
+      <img src="/image/images/playicon2.png" alt="" id="playBtn" class="Btn">
+      <img src="/image/images/pauseicon.png" alt="" id="pauseBtn" class="Btn">
     </div>
     <div id="point">
       <div id="pointImg">
         <img
-          src="/MS/images/Map/point.png"
+          src="/image/images/Map/point.png"
           width="30px"
           height="30px"
         />&nbsp;&nbsp;
         <div id="pointBox">0</div>
+        <input type="hidden" id="pointFinal" value="0">
       </div>
     </div>
       
     </div>    
       <!-- <div id="UI">
-        <img src="images/mapback.jpg" alt="" id="UI-background">
+        <img src="/image/images/mapback.jpg" alt="" id="UI-background">
         <div class="map" id="map1">
-          <img src="images/Map/first.png" alt="">
+          <img src="/image/images/Map/first.png" alt="">
         </div>
         <div class="map" id="map2">
-          <img src="images/Map/second.png" alt="">
+          <img src="/image/images/Map/second.png" alt="">
         </div>
         <div class="map" id="map3">
-          <img src="images/Map/third.png" alt="">
+          <img src="/image/images/Map/third.png" alt="">
         </div>
         <div class="map" id="map4">
-          <img src="images/Map/forth.png" alt="">
+          <img src="/image/images/Map/forth.png" alt="">
         </div>
         <div class="map" id="map5">
-          <img src="images/Map/fifth.png" alt="">
+          <img src="/image/images/Map/fifth.png" alt="">
         </div>
       </div> -->
   </body>
@@ -239,4 +242,25 @@
   <script src="/js/UI.js"></script>
   <script src="/js/hp.js"></script>
   <script src="/js/main.js"></script>
+  <script>
+    function updateScore() {
+    let scoreFinal = document.getElementById("endGame_score");
+    $.ajax({
+      url: "/kg/updateScore",
+      type: "POST",
+      data: {
+        scoreFinal: scoreFinal.innerText, // 태그 사이 들어간 값을 가져옴
+      },
+      success: function(data) {
+        if (data == "updateSuc"){
+          alert('점수 적용 완료!!!!!!!!!!')
+          window.location="/kg/logout1"
+        } else if(data == "soSmall") alert("현재 점수가 최고 점수보다 낮습니다.")
+        else {alert('잘못된 요청입니다.')}
+      }
+    })
+  }
+  </script>
+  
+
 </html>

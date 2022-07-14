@@ -5,7 +5,7 @@ canvasBackground.width = 2000;
 canvasBackground.height = 600;
 
 let backgroundImg = new Image();
-backgroundImg.src = "images/Map/first.png";
+backgroundImg.src = "/image/images/Map/first.png";
 
 //배경 객체선언 및 할당
 let background = {

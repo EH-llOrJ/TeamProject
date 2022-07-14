@@ -1,3 +1,5 @@
+// const { TokenExpiredError } = require("jsonwebtoken");
+
 let abc = true;
 //캔버스 변수 선언, 할당
 let canvasMain = document.getElementById("main");
@@ -65,7 +67,7 @@ let player = {
     this.yspeed += gravity;
     
     // falling()
-    console.log(player.y)
+    // console.log(player.y)
     //땅에 붙으면 하락값 0
     for (let i = 0; i < floor.length; i++)
     // hi(); 
@@ -102,7 +104,6 @@ function hi() {
       setTimeout(() => {
         player.state = "dbjumplast"
         clearInterval(fallingfin)
-        console.log('종료 씨발아')
         yspeed = 0;
         gravity = 0.009
         abc = true;
@@ -119,10 +120,10 @@ function hi() {
 //달리기 이미지
 let runPlayer = new Array();
 let imglinkRun = [
-  "images/Character/Taehoon/Run/Run1.png",
-  "images/Character/Taehoon/Run/Run2.png",
-  "images/Character/Taehoon/Run/Run3.png",
-  "images/Character/Taehoon/Run/Run4.png",
+  "/image/images/Character/Taehoon/Run/Run1.png",
+  "/image/images/Character/Taehoon/Run/Run2.png",
+  "/image/images/Character/Taehoon/Run/Run3.png",
+  "/image/images/Character/Taehoon/Run/Run4.png",
 ];
 for (let i = 0; i < 4; i++) {
   runPlayer.push(new Image());
@@ -131,10 +132,10 @@ for (let i = 0; i < 4; i++) {
 //슬라이드 이미지
 let slidePlayer = new Array();
 let imglinkSlide = [
-  "images/Character/Taehoon/Slide/Slide1.png",
-  "images/Character/Taehoon/Slide/Slide2.png",
-  "images/Character/Taehoon/Slide/Slide1.png",
-  "images/Character/Taehoon/Slide/Slide2.png",
+  "/image/images/Character/Taehoon/Slide/Slide1.png",
+  "/image/images/Character/Taehoon/Slide/Slide2.png",
+  "/image/images/Character/Taehoon/Slide/Slide1.png",
+  "/image/images/Character/Taehoon/Slide/Slide2.png",
 ];
 for (let i = 0; i < 4; i++) {
   slidePlayer.push(new Image());
@@ -143,10 +144,10 @@ for (let i = 0; i < 4; i++) {
 //점프 이미지
 let jumpPlayer = new Array();
 let imglinkJump = [
-  "images/Character/Taehoon/Jump/Jump1.png",
-  "images/Character/Taehoon/Jump/Jump2.png",
-  "images/Character/Taehoon/Jump/Jump1.png",
-  "images/Character/Taehoon/Jump/Jump2.png",
+  "/image/images/Character/Taehoon/Jump/Jump1.png",
+  "/image/images/Character/Taehoon/Jump/Jump2.png",
+  "/image/images/Character/Taehoon/Jump/Jump1.png",
+  "/image/images/Character/Taehoon/Jump/Jump2.png",
 ];
 for (let i = 0; i < 4; i++) {
   jumpPlayer.push(new Image());
@@ -156,10 +157,10 @@ for (let i = 0; i < 4; i++) {
 //더블점프 스타트
 let dbjumpstartPlayer = new Array();
 let imglinkDbjumpstart = [
-  "images/Character/Taehoon/Jump/DbjumpStart.png",
-  "images/Character/Taehoon/Jump/DbjumpStart.png",
-  "images/Character/Taehoon/Jump/DbjumpStart.png",
-  "images/Character/Taehoon/Jump/DbjumpStart.png",
+  "/image/images/Character/Taehoon/Jump/DbjumpStart.png",
+  "/image/images/Character/Taehoon/Jump/DbjumpStart.png",
+  "/image/images/Character/Taehoon/Jump/DbjumpStart.png",
+  "/image/images/Character/Taehoon/Jump/DbjumpStart.png",
 ];
 for (let i = 0; i < 4; i++) {
   dbjumpstartPlayer.push(new Image());
@@ -167,10 +168,10 @@ for (let i = 0; i < 4; i++) {
 }
 let dbjumpPlayer = new Array();
 let imglinkDbjump = [
-  "images/Character/Taehoon/Jump/Dbjump1.png",
-  "images/Character/Taehoon/Jump/Dbjump2.png",
-  "images/Character/Taehoon/Jump/Dbjump3.png",
-  "images/Character/Taehoon/Jump/Dbjump4.png",
+  "/image/images/Character/Taehoon/Jump/Dbjump1.png",
+  "/image/images/Character/Taehoon/Jump/Dbjump2.png",
+  "/image/images/Character/Taehoon/Jump/Dbjump3.png",
+  "/image/images/Character/Taehoon/Jump/Dbjump4.png",
 ];
 for (let i = 0; i < 4; i++) {
   dbjumpPlayer.push(new Image());
@@ -178,10 +179,10 @@ for (let i = 0; i < 4; i++) {
 }
 let dbjumplastPlayer = new Array();
 let imglinkDbjumplast = [
-  "images/Character/Taehoon/Jump/Dbjumplast.png",
-  "images/Character/Taehoon/Jump/Dbjumplast.png",
-  "images/Character/Taehoon/Jump/Dbjumplast.png",
-  "images/Character/Taehoon/Jump/Dbjumplast.png",
+  "/image/images/Character/Taehoon/Jump/Dbjumplast.png",
+  "/image/images/Character/Taehoon/Jump/Dbjumplast.png",
+  "/image/images/Character/Taehoon/Jump/Dbjumplast.png",
+  "/image/images/Character/Taehoon/Jump/Dbjumplast.png",
 ];
 for (let i = 0; i < 4; i++) {
   dbjumplastPlayer.push(new Image());
@@ -189,10 +190,10 @@ for (let i = 0; i < 4; i++) {
 }
 let fallingPlayer = new Array();
 let imglinkfallingPlayer = [
-  "images/Character/Taehoon/Fall/Fall1.png",
-  "images/Character/Taehoon/Fall/Fall2.png",
-  "images/Character/Taehoon/Fall/Fall1.png",
-  "images/Character/Taehoon/Fall/Fall2.png",
+  "/image/images/Character/Taehoon/Fall/Fall1.png",
+  "/image/images/Character/Taehoon/Fall/Fall2.png",
+  "/image/images/Character/Taehoon/Fall/Fall1.png",
+  "/image/images/Character/Taehoon/Fall/Fall2.png",
 ];
 for (let i = 0; i < 4; i++) {
   fallingPlayer.push(new Image());
@@ -381,8 +382,8 @@ function game() {
       }
     }
   }
-  console.log(floatFloor[0].y);
-  console.log(player.y);
+  // console.log(floatFloor[0].y);
+  // console.log(player.y);
 
   //충돌시
     for (let i = 0; i < hurdle.length; i++) {
@@ -425,8 +426,13 @@ function game() {
   HpDecrease.draw();
   HpLight.draw();
 
+  
+
   if (HpDecrease.x <= 30) {
     cancelAnimationFrame(game);
+    let scoreFinal = document.getElementById("endGame_score")
+    
+    
   } else {
     requestAnimationFrame(game);
   }

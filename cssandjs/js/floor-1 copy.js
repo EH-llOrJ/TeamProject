@@ -8,48 +8,48 @@ canvasMain.height = 600;
 
 //스테이지 1 바닥땅 이미지
 let floor1_10Img = new Image();
-floor1_10Img.src = "images/Hurdle/floor1_10.png";
+floor1_10Img.src = "/image/images/Hurdle/floor1_10.png";
 
 let floor1_5Img = new Image();
-floor1_5Img.src = "images/Hurdle/floor1_5.png";
+floor1_5Img.src = "/image/images/Hurdle/floor1_5.png";
 
 let floor1_1Img = new Image();
-floor1_1Img.src = "images/Hurdle/floor1_1.png";
+floor1_1Img.src = "/image/images/Hurdle/floor1_1.png";
 
 //스테이지 1 떠있는땅 이미지
 let _floor1_10Img = new Image();
-_floor1_10Img.src = "images/Hurdle/floor1-10.png";
+_floor1_10Img.src = "/image/images/Hurdle/floor1-10.png";
 
 let _floor1_5Img = new Image();
-_floor1_5Img.src = "images/Hurdle/floor1-5.png";
+_floor1_5Img.src = "/image/images/Hurdle/floor1-5.png";
 
 let _floor1_1Img = new Image();
-_floor1_1Img.src = "images/Hurdle/floor1-1.png";
+_floor1_1Img.src = "/image/images/Hurdle/floor1-1.png";
 
 //스테이지 2 바닥땅 이미지
 let floor2_10Img = new Image();
-floor2_10Img.src = "images/Hurdle/floor2_10.png";
+floor2_10Img.src = "/image/images/Hurdle/floor2_10.png";
 
 let floor2_5Img = new Image();
-floor2_5Img.src = "images/Hurdle/floor2_5.png";
+floor2_5Img.src = "/image/images/Hurdle/floor2_5.png";
 
 let floor2_1Img = new Image();
-floor2_1Img.src = "images/Hurdle/floor2_1.png";
+floor2_1Img.src = "/image/images/Hurdle/floor2_1.png";
 
 //스테이지 2 떠있는땅 이미지
 let _floor2_10Img = new Image();
-_floor2_10Img.src = "images/Hurdle/floor2-10.png";
+_floor2_10Img.src = "/image/images/Hurdle/floor2-10.png";
 
 let _floor2_5Img = new Image();
-_floor2_5Img.src = "images/Hurdle/floor2-5.png";
+_floor2_5Img.src = "/image/images/Hurdle/floor2-5.png";
 
 let _floor2_1Img = new Image();
-_floor2_1Img.src = "images/Hurdle/floor2-1.png";
+_floor2_1Img.src = "/image/images/Hurdle/floor2-1.png";
 
 //투명 땅 이미지
 
 let invisualFloor_1Img = new Image();
-invisualFloor_1Img.src = "images/Hurdle/invisualFloor_1.png";
+invisualFloor_1Img.src = "/image/images/Hurdle/invisualFloor_1.png";
 
 //땅 설정
 class Floor1_10 {

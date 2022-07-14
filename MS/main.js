@@ -241,10 +241,6 @@ function jumpSkill() {
   }
 }
 
-//점수선언
-let point = 0;
-let pointImg = new Image();
-pointImg.src = "images/Map/point.png";
 
 //전역변수(frame=프레임, jumpTimer = 점프시간)
 let frame = 0;

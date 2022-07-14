@@ -241,10 +241,6 @@ function jumpSkill() {
   }
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 4881ffe (game)
 //전역변수(frame=프레임, jumpTimer = 점프시간)
 let frame = 0;
 let jumpTimer = 0;
@@ -369,8 +365,8 @@ function game() {
     }
   }
   //위에 땅
-  if(player.y+50 <= floatFloor[0].y && player.state != "dbjumpstart") {
-    for (let i = 0; i < floatFloor.length; i++) {
+  for (let i = 0; i < floatFloor.length; i++) {
+      if(player.y+50 <= floatFloor[i].y && player.state != "dbjumpstart") {
       if (
         player.y + player.height >= floatFloor[i].y &&
         player.x + player.width - 10 >= floatFloor[i].x &&
@@ -433,9 +429,3 @@ function game() {
 }
 //실행
 game();
-<<<<<<< HEAD
-=======
-game();
-game();
-game();
->>>>>>> 4881ffe (game)

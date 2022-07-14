@@ -11,9 +11,6 @@ redJellyImg.src = "images/Jelly/빨간젤리1.png";
 let bigJellyImg = new Image();
 bigJellyImg.src = "images/Jelly/왕젤리1.png";
 
-const pointUp = document.getElementById("pointBox");
-let pointHTML = pointUp.innerHTML;
-
 //젤리 클래스
 class WhiteJelly {
   constructor({ x, y, width, height }) {
@@ -31,65 +28,41 @@ class WhiteJelly {
     return this.eat;
   }
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
+    // this.time++;
+    // if (this.time % 1 == 0) {
+    //   this.x -= 2.35;
+    // }
     ctxMain.drawImage(whiteJellyImg, this.x, this.y, this.width, this.height);
   }
 }
 
 class YellowJelly extends WhiteJelly {
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
+    // this.time++;
+    // if (this.time % 1 == 0) {
+    //   this.x -= 2.35;
+    // }
     ctxMain.drawImage(yellowJellyImg, this.x, this.y, this.width, this.height);
   }
 }
 
 class RedJelly extends WhiteJelly {
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
+    // this.time++;
+    // if (this.time % 1 == 0) {
+    //   this.x -= 2.35;
+    // }
     ctxMain.drawImage(redJellyImg, this.x, this.y, this.width, this.height);
   }
 }
 
 class BigJelly extends WhiteJelly {
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
+    // this.time++;
+    // if (this.time % 1 == 0) {
+    //   this.x -= 2.35;
+    // }
     ctxMain.drawImage(bigJellyImg, this.x, this.y, this.width, this.height);
-  }
-}
-
-//젤리먹기 함수
-function jellyEat() {
-  for (let i = 0; i < whiteJelly.length; i++) {
-    if (whiteJelly[i].getEater() == false) {
-      whitejellyEat(player, whiteJelly[i]);
-    }
-  }
-  for (let i = 0; i < yellowJelly.length; i++) {
-    if (yellowJelly[i].getEater() == false) {
-      yellowjellyEat(player, yellowJelly[i]);
-    }
-  }
-  for (let i = 0; i < redJelly.length; i++) {
-    if (redJelly[i].getEater() == false) {
-      redjellyEat(player, redJelly[i]);
-    }
-  }
-  for (let i = 0; i < bigJelly.length; i++) {
-    if (bigJelly[i].getEater() == false) {
-      bigjellyEat(player, bigJelly[i]);
-    }
   }
 }
 
@@ -110,9 +83,8 @@ function whitejellyEat(player, _jelly) {
     eatJellyHeight > -55
   ) {
     _jelly.setEater();
-    // ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
-    pointHTML = parseInt(pointHTML) + 1111;
-    pointUp.innerHTML = pointHTML.toLocaleString("ko-KR");
+    ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
+    point += 1111;
   } else if (_jelly.getEater() == false) {
     _jelly.draw();
   }
@@ -134,8 +106,7 @@ function yellowjellyEat(player, _jelly) {
   ) {
     _jelly.setEater();
     ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
-    pointHTML = parseInt(pointHTML) + 3333;
-    pointUp.innerHTML = pointHTML.toLocaleString("ko-KR");
+    point += 3333;
   } else if (_jelly.getEater() == false) {
     _jelly.draw();
   }
@@ -157,8 +128,7 @@ function redjellyEat(player, _jelly) {
   ) {
     _jelly.setEater();
     ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
-    pointHTML = parseInt(pointHTML) + 5555;
-    pointUp.innerHTML = pointHTML.toLocaleString("ko-KR");
+    point += 5555;
   } else if (_jelly.getEater() == false) {
     _jelly.draw();
   }
@@ -180,8 +150,7 @@ function bigjellyEat(player, _jelly) {
   ) {
     _jelly.setEater();
     ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
-    pointHTML = parseInt(pointHTML) + 33333;
-    pointUp.innerHTML = pointHTML.toLocaleString("ko-KR");
+    point += 33333;
   } else if (_jelly.getEater() == false) {
     _jelly.draw();
   }

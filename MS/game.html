@@ -12,9 +12,18 @@
       width: 100vw;
       height: 100vh;
       display: flex;
+      position: relative;
       justify-content: center;
       align-items: center;
     }
+
+    .backImg {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      opacity: 0.7;
+    }
+
     #canvasBox {
       width: 1000px;
       height: 600px;
@@ -39,21 +48,47 @@
       position: absolute;
       font-family: "pointFont";
     }
+    #point {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      top: 25%;
+      width: 300px;
+      height: 30px;
+    }
+    #pointImg {
+      display: flex;
+    }
+    #pointBox {
+      font-family: "pointFont";
+      font-size: 25px;
+    }
     @font-face {
       font-family: "pointFont";
       src: url(images/Font/CookieRunRegular.ttf);
     }
   </style>
   <body>
+    <img class="backImg" src="images/background/back6.png" />
     <div id="canvasBox">
       <canvas id="background"></canvas>
       <canvas id="main"></canvas>
     </div>
+    <div id="point">
+      <div id="pointImg">
+        <img
+          src="/MS/images/Map/point.png"
+          width="30px"
+          height="30px"
+        />&nbsp;&nbsp;
+        <div id="pointBox">0</div>
+      </div>
+    </div>
   </body>
   <script src="background.js"></script>
+  <script src="hp.js"></script>
   <script src="floor-1.js"></script>
   <script src="hurdle-1.js"></script>
   <script src="jelly-1.js"></script>
-  <script src="hp.js"></script>
   <script src="main.js"></script>
 </html>

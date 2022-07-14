@@ -27,7 +27,7 @@ class Hurdle {
       this.x -= 2.35;
     }
     ctxMain.drawImage(skyHurdleImg, this.x, this.y, this.width, this.height);
-  } 
+  }
 }
 
 let skyHurdle = [

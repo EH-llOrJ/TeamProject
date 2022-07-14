@@ -322,7 +322,8 @@ document.addEventListener("keyup", function (key) {
 });
 
 let a = true;
-
+let b = 0;
+let abc = 100;
 //게임실행
 function game() {
   // if (!continueAnimating) { return; }
@@ -377,18 +378,29 @@ function game() {
     }
   }
 
-  for (let i = 0; i < skyHurdle.length; i++) {
-    if (skyHurdle[i].x < 200 && skyHurdle[i].x > 0 && player.height == 90 && a == true) {
-      console.log("충돌");
-      a = false;
+    for (let i = 0; i < skyHurdle.length; i++) {
+      if (skyHurdle[i].x < 200 && skyHurdle[i].x > 0 && player.height == 90 && a == true) {
+      abc--
+        console.log(abc);
+        a = false;
+      let hi = setInterval(() => {
+        a = false;
+      }, 1);
+      setTimeout(() => {
+        clearInterval(hi)
+        a = true;
+      }, 1000);
+      // a = false;
       console.log(skyHurdle[i].x);
-      console.log(a);
+      // console.log(a);
     }
-  }
+    // else if (a == false) {
+    //   a = true;
+    // }
+  }    
   
   
-
-  
+  // 부딪 > 
   
   // console.log(obs[0].x);
   // console.log(player.y);

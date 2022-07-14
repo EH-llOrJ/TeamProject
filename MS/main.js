@@ -332,7 +332,6 @@ let b = 0;
 let col_temp = 100;
 //게임실행
 function game() {
-  // if (!continueAnimating) { return; }
   //멈춤 버튼 클릭시 애니메이션 멈춤
   // if (!continueAnimating) {
   //   cancelAnimationFrame(game);

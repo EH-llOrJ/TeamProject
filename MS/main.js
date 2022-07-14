@@ -65,7 +65,7 @@ let player = {
     this.yspeed += gravity;
     
     // falling()
-    console.log(player.y)
+    // console.log(player.y)
     //땅에 붙으면 하락값 0
     for (let i = 0; i < floor.length; i++)
     // hi(); 
@@ -333,9 +333,9 @@ let col_temp = 100;
 //게임실행
 function game() {
   //멈춤 버튼 클릭시 애니메이션 멈춤
-  // if (!continueAnimating) {
-  //   cancelAnimationFrame(game);
-  // } else { requestAnimationFrame(game) }; 
+  if (!continueAnimating) {
+    cancelAnimationFrame(game);
+  } else { requestAnimationFrame(game) }; 
   
   frame++;
 
@@ -381,14 +381,21 @@ function game() {
       }
     }
   }
-  console.log(floatFloor[0].y);
-  console.log(player.y);
 
-  //충돌시
+  //일어나서 하자
     for (let i = 0; i < hurdle.length; i++) {
-      if (hurdle[i].x < 200 && hurdle[i].x > 0 && player.height == 90 && a == true) {
+      col_left_X = hurdle[i].x - player.x;
+      col_right_X = (hurdle[i].x + hurdle[i].width) - player.x;
+      col_top_Y = hurdle[i].y - player.y;
+      col_bottom_Y = (hurdle[i].y + hurdle[i].height) - player.y;
+      
+      if (
+        col_top_Y < 100 && col_bottom_Y > 100 &&
+        col_left_X < 50 && col_right_X > 55
+      ) {        
       col_temp--
         console.log(col_temp);
+      // console.log(hurdle[i].y);
         a = false;
       let hi = setInterval(() => {
         a = false;
@@ -397,9 +404,9 @@ function game() {
         clearInterval(hi)
         a = true;
       }, 1000);
-      console.log(hurdle[i].x);
+      // console.log(hurdle[i].x);
     }
-  }    
+  }
     
   
 
@@ -425,11 +432,11 @@ function game() {
   HpDecrease.draw();
   HpLight.draw();
 
-  if (HpDecrease.x <= 30) {
-    cancelAnimationFrame(game);
-  } else {
-    requestAnimationFrame(game);
-  }
+  // if (HpDecrease.x <= 30) {
+  //   cancelAnimationFrame(game);
+  // } else {
+  //   requestAnimationFrame(game);
+  // }
 }
 //실행
 game();

@@ -108,7 +108,7 @@ class highHurdle2 extends Hurdle {
 }
 
 let hurdle = [
-  new Hurdle({ x: 3850, y: 15, width: 100, height: 430 }),
+  new Hurdle({ x: 600, y: 300, width: 100, height: 100 }),
   new Hurdle({ x: 3970, y: 15, width: 100, height: 430 }),
   new Hurdle({ x: 4090, y: 15, width: 100, height: 430 }),
 

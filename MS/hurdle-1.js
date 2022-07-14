@@ -8,6 +8,8 @@ floorlowHurdleImg.src = "images/Hurdle/hurdle1.png";
 let floorhighHurdleImg = new Image();
 floorhighHurdleImg.src = "images/Hurdle/hurdle1.png";
 
+//캐릭터 충돌 상태 추가
+
 //장애물 클래스
 class Hurdle {
   constructor({ x, y, width, height }) {
@@ -46,6 +48,10 @@ class Hurdle {
       console.log("충돌");
       // console.log(tempX);
       console.log(this.b);
+    } else if (
+      this.a == false && tempX > 320
+    ) {
+      this.a = true;
     } else {
       // console.log("걸어감");
     };

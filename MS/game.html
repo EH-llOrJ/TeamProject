@@ -14,6 +14,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      /* outline: none; */
     }
     #canvasBox {
       width: 1000px;
@@ -58,6 +59,62 @@
       font-family: "pointFont";
       src: url(images/Font/CookieRunRegular.ttf);
     }
+
+    .Btn {
+      position: absolute;
+      right: 120px;
+      width: 20px;
+      height: 20px;
+      z-index: 1;
+      cursor: pointer;
+    }
+    #playBtn {     
+      top: 30px;      
+    }    
+    #pauseBtn {      
+      top: 60px;      
+    }        
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    #UI {
+      position: absolute;
+      top: 100px;
+      left: 100px;      
+      width: 80vh;
+      height: 40vh;
+      border: 1px solid black;
+      z-index: 1;
+    }
+    .map {
+      position: absolute;
+      border: 1px solid black;
+      width: 150px;
+      height: 100px;
+      top: 80px;
+      left: 20px;
+    }
+    #map1 {
+      left: 70px;
+    }
+    #map2 {
+      left: 270px;
+    }
+    #map3 {
+      left: 470px;
+    }
+    #map4 {
+      top: 230px;
+      left: 70px;
+    }
+    #map5 {
+      top: 230px;
+      left: 270px;
+    }
+    #UI-background {
+      position: absolute;      
+    }
   </style>
   <body>
     <div id="canvasBox">
@@ -74,11 +131,43 @@
         <div id="pointBox">0</div>
       </div>
     </div>
+      <img src="images/playicon2.png" alt="" id="playBtn" class="Btn">
+      <img src="images/pauseicon.png" alt="" id="pauseBtn" class="Btn">
+      </div>
+    <div id="point">
+      <div id="pointImg">
+        <img
+          src="/MS/images/Map/point.png"
+          width="30px"
+          height="30px"
+        />&nbsp;&nbsp;
+        <div id="pointBox">0</div>
+      </div>
+    </div>
+      <!-- <div id="UI">
+        <img src="images/mapback.jpg" alt="" id="UI-background">
+        <div class="map" id="map1">
+          <img src="images/Map/first.png" alt="">
+        </div>
+        <div class="map" id="map2">
+          <img src="images/Map/second.png" alt="">
+        </div>
+        <div class="map" id="map3">
+          <img src="images/Map/third.png" alt="">
+        </div>
+        <div class="map" id="map4">
+          <img src="images/Map/forth.png" alt="">
+        </div>
+        <div class="map" id="map5">
+          <img src="images/Map/fifth.png" alt="">
+        </div> -->
+      </div>
   </body>
   <script src="background.js"></script>
-  <script src="hp.js"></script>
   <script src="floor-1.js"></script>
   <script src="hurdle-1.js"></script>
   <script src="jelly-1.js"></script>
+  <script src="UI.js"></script>
+  <script src="hp.js"></script>
   <script src="main.js"></script>
 </html>

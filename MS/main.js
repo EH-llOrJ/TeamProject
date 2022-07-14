@@ -52,6 +52,7 @@ let player = {
         : this.state == "fallen"
         ? fallenPlayer[this.index]
         : null,
+        
       this.x,
       this.y,
       this.width,
@@ -183,12 +184,6 @@ let frame = 0;
 let jumpTimer = 0;
 let jump = false;
 let dbjump = false;
-
-//키 코드 확인3
-// addEventListener("keydown", function () {
-//   console.log(this.event);
-// });
-
 let isSliding = false;
 let floatPlayer = false;
 
@@ -269,16 +264,26 @@ document.addEventListener("keyup", function (key) {
   }
 });
 
+let a = true;
+let b = 0;
+let abc = 100;
 //게임실행
 function game() {
+  // if (!continueAnimating) { return; }
+  //멈춤 버튼 클릭시 애니메이션 멈춤
+  if (!continueAnimating) {
+    cancelAnimationFrame(game);
+  } else { requestAnimationFrame(game) }; 
+  
   frame++;
-  requestAnimationFrame(game);
+  // requestAnimationFrame(game);
 
   //전체 영역 클리어
   ctxMain.clearRect(0, 0, canvasMain.width, canvasMain.height);
   ctxBackground.clearRect(0, 0, canvasBackground.width, canvasBackground.width);
 
   //땅 올라타기
+  //밑에 땅  
   for (let i = 0; i < floor.length; i++) {
     if (
       player.y + player.height >= floor[i].y &&
@@ -296,8 +301,8 @@ function game() {
       }
     }
   }
-
-  if (floatPlayer == true) {
+  //위에 땅 play.y값이랑 floatFloor의 y값의 차이가 조금 있음
+  if(player.y+50 <= floatFloor[0].y && player.state != "dbjumpstart") {
     for (let i = 0; i < floatFloor.length; i++) {
       if (
         player.y + player.height >= floatFloor[i].y &&
@@ -316,6 +321,25 @@ function game() {
     }
   }
 
+  //충돌시
+    for (let i = 0; i < hurdle.length; i++) {
+      if (hurdle[i].x < 200 && hurdle[i].x > 0 && player.height == 90 && a == true) {
+      abc--
+        console.log(abc);
+        a = false;
+      let hi = setInterval(() => {
+        a = false;
+      }, 1);
+      setTimeout(() => {
+        clearInterval(hi)
+        a = true;
+      }, 1000);
+      console.log(hurdle[i].x);
+    }
+  }    
+    
+  
+
   jellyEat();
   jumpSkill();
 
@@ -330,7 +354,6 @@ function game() {
   hurdle.forEach((hurdle) => {
     hurdle.draw();
   });
-
   player.update();
 
   //hp.js함수 실행
@@ -340,5 +363,4 @@ function game() {
   HpLight.draw();
 }
 //실행
-game();
 game();

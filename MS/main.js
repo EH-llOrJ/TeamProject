@@ -48,8 +48,8 @@ let player = {
         : this.state == "dbjump"
         ? dbjumpPlayer[this.index]
         : this.state == "dbjumplast"
-        ? collPlayer[this.index]
-        : this.state == "coll"
+        // ? collPlayer[this.index]
+        // : this.state == "coll"
         ? dbjumplastPlayer[this.index]
         : null,
         
@@ -174,6 +174,42 @@ function jumpSkill() {
   }
 }
 
+// //충돌 클래스
+// class Collision {
+//   constructor({ x, y, width, height }) {
+//     this.x = x;
+//     this.y = y;
+//     this.width = width;
+//     this.height = height;
+//     this.aaa = true;
+//     this.time = 0;
+//     this.a = false;
+//   }
+//   set() {
+//     this.a = true;
+//   }
+//   get() {
+//     return this.a;
+//   }
+// }
+
+// function skycoll(player, _obs) {
+//   let tempX = player.x - _obs.x;
+//   if (player.height == 55 && tempX > -110 && tempX < 320) {
+//     // console.log("정상");//정상적으로 장애물 통과하는 과정
+//   } else if (player.height == 90 && tempX > -82 && tempX < 320 && this.a == true) {
+//     //충돌일 때
+//     console.log("충돌");
+//     this.aaa = false; 
+//     //this.time++;
+//   } else if (this.aaa == false && tempX > 320) {
+//     // this.a = true;
+//     this.aaa = true;
+//   }
+// }
+
+
+
 //점수선언
 let point = 0;
 let pointImg = new Image();
@@ -285,6 +321,8 @@ document.addEventListener("keyup", function (key) {
   }
 });
 
+let a = true;
+
 //게임실행
 function game() {
   // if (!continueAnimating) { return; }
@@ -338,6 +376,19 @@ function game() {
       }
     }
   }
+
+  for (let i = 0; i < skyHurdle.length; i++) {
+    if (skyHurdle[i].x < 200 && skyHurdle[i].x > 0 && player.height == 90 && a == true) {
+      console.log("충돌");
+      a = false;
+      console.log(skyHurdle[i].x);
+      console.log(a);
+    }
+  }
+  
+  
+
+  
   
   // console.log(obs[0].x);
   // console.log(player.y);
@@ -362,7 +413,6 @@ function game() {
   });
   skyHurdle.forEach((skyHurdle) => {
     skyHurdle.draw();
-    skyHurdle.coll();
   });
   // obs.forEach((obs) => {
   //   obs.draw();

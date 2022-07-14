@@ -17,7 +17,7 @@ floorlowHurdleImg2.src = "images/Hurdle/hurdle2-2.png";
 let floorhighHurdleImg2 = new Image();
 floorhighHurdleImg2.src = "images/Hurdle/hurdle2-3.png";
 
-//젤리 클래스
+//장애물 클래스
 class Hurdle {
   constructor({ x, y, width, height }) {
     this.x = x;

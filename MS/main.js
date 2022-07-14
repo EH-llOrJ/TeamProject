@@ -336,8 +336,8 @@ function game() {
   //hp.js함수 실행
   breadDraw();
   jamDraw();
-  clear.clearDraw();
-  toggle.toggle();
+  HpDecrease.draw();
+  HpLight.draw();
 }
 //실행
 game();

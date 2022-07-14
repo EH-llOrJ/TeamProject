@@ -291,6 +291,44 @@ let yellowJelly = [
   new YellowJelly({ x: 4520, y: 310, width: 40, height: 40 }),
   new YellowJelly({ x: 4570, y: 290, width: 40, height: 40 }),
   new YellowJelly({ x: 4620, y: 310, width: 40, height: 40 }),
+
+  new YellowJelly({ x: 5790, y: 330, width: 40, height: 40 }),
+  new YellowJelly({ x: 5840, y: 290, width: 40, height: 40 }),
+  new YellowJelly({ x: 5890, y: 290, width: 40, height: 40 }),
+  new YellowJelly({ x: 5940, y: 330, width: 40, height: 40 }),
+  new YellowJelly({ x: 5970, y: 400, width: 40, height: 40 }),
+
+  new YellowJelly({ x: 6700, y: 430, width: 40, height: 40 }),
+  new YellowJelly({ x: 6700, y: 450, width: 40, height: 40 }),
+  new YellowJelly({ x: 6750, y: 430, width: 40, height: 40 }),
+  new YellowJelly({ x: 6750, y: 450, width: 40, height: 40 }),
+  new YellowJelly({ x: 6800, y: 430, width: 40, height: 40 }),
+  new YellowJelly({ x: 6800, y: 450, width: 40, height: 40 }),
+  new YellowJelly({ x: 6850, y: 430, width: 40, height: 40 }),
+  new YellowJelly({ x: 6850, y: 450, width: 40, height: 40 }),
+  new YellowJelly({ x: 6900, y: 450, width: 40, height: 40 }),
+  new YellowJelly({ x: 6900, y: 430, width: 40, height: 40 }),
+
+  new YellowJelly({ x: 6950, y: 390, width: 40, height: 40 }),
+  new YellowJelly({ x: 6950, y: 370, width: 40, height: 40 }),
+  new YellowJelly({ x: 7000, y: 310, width: 40, height: 40 }),
+  new YellowJelly({ x: 7000, y: 290, width: 40, height: 40 }),
+  new YellowJelly({ x: 7050, y: 310, width: 40, height: 40 }),
+  new YellowJelly({ x: 7050, y: 290, width: 40, height: 40 }),
+  new YellowJelly({ x: 7100, y: 390, width: 40, height: 40 }),
+  new YellowJelly({ x: 7100, y: 370, width: 40, height: 40 }),
+  new YellowJelly({ x: 7150, y: 450, width: 40, height: 40 }),
+  new YellowJelly({ x: 7150, y: 430, width: 40, height: 40 }),
+  new YellowJelly({ x: 7200, y: 390, width: 40, height: 40 }),
+  new YellowJelly({ x: 7200, y: 370, width: 40, height: 40 }),
+  new YellowJelly({ x: 7250, y: 310, width: 40, height: 40 }),
+  new YellowJelly({ x: 7250, y: 290, width: 40, height: 40 }),
+  new YellowJelly({ x: 7300, y: 310, width: 40, height: 40 }),
+  new YellowJelly({ x: 7300, y: 290, width: 40, height: 40 }),
+  new YellowJelly({ x: 7350, y: 390, width: 40, height: 40 }),
+  new YellowJelly({ x: 7350, y: 370, width: 40, height: 40 }),
+  new YellowJelly({ x: 7400, y: 450, width: 40, height: 40 }),
+  new YellowJelly({ x: 7400, y: 430, width: 40, height: 40 }),
 ];
 
 let redJelly = [
@@ -318,6 +356,25 @@ let redJelly = [
   new RedJelly({ x: 4770, y: 320, width: 40, height: 40 }),
   new RedJelly({ x: 4830, y: 320, width: 40, height: 40 }),
   new RedJelly({ x: 4890, y: 320, width: 40, height: 40 }),
+
+  new RedJelly({ x: 6050, y: 370, width: 40, height: 40 }),
+  new RedJelly({ x: 6110, y: 390, width: 40, height: 40 }),
+  new RedJelly({ x: 6150, y: 450, width: 40, height: 40 }),
+
+  new RedJelly({ x: 6250, y: 450, width: 40, height: 40 }),
+  new RedJelly({ x: 6320, y: 450, width: 40, height: 40 }),
+  new RedJelly({ x: 6390, y: 450, width: 40, height: 40 }),
+  new RedJelly({ x: 6460, y: 450, width: 40, height: 40 }),
+  new RedJelly({ x: 6530, y: 450, width: 40, height: 40 }),
+  new RedJelly({ x: 6600, y: 450, width: 40, height: 40 }),
+
+  new RedJelly({ x: 6700, y: 270, width: 40, height: 40 }),
+  new RedJelly({ x: 6720, y: 270, width: 40, height: 40 }),
+  new RedJelly({ x: 6740, y: 270, width: 40, height: 40 }),
+
+  new RedJelly({ x: 6820, y: 220, width: 40, height: 40 }),
+  new RedJelly({ x: 6820, y: 220, width: 40, height: 40 }),
+  new RedJelly({ x: 6820, y: 220, width: 40, height: 40 }),
 ];
 
 let bigJelly = [
@@ -334,6 +391,20 @@ let bigJelly = [
   new BigJelly({ x: 5070, y: 180, width: 100, height: 100 }),
   new BigJelly({ x: 5070, y: 290, width: 100, height: 100 }),
   new BigJelly({ x: 5070, y: 400, width: 100, height: 100 }),
+
+  new BigJelly({ x: 6270, y: 250, width: 100, height: 100 }),
+  new BigJelly({ x: 6330, y: 190, width: 100, height: 100 }),
+  new BigJelly({ x: 6390, y: 150, width: 100, height: 100 }),
+  new BigJelly({ x: 6450, y: 190, width: 100, height: 100 }),
+  new BigJelly({ x: 6510, y: 250, width: 100, height: 100 }),
+
+  new BigJelly({ x: 7550, y: 400, width: 100, height: 100 }),
+  new BigJelly({ x: 7600, y: 400, width: 100, height: 100 }),
+  new BigJelly({ x: 7650, y: 400, width: 100, height: 100 }),
+  new BigJelly({ x: 7700, y: 400, width: 100, height: 100 }),
+  new BigJelly({ x: 7750, y: 400, width: 100, height: 100 }),
+  new BigJelly({ x: 7800, y: 400, width: 100, height: 100 }),
+  new BigJelly({ x: 7850, y: 400, width: 100, height: 100 }),
 ];
 
 let hpPotion = [new HpPotion({ x: 3610, y: 320, width: 40, height: 45 })];

@@ -241,7 +241,10 @@ function jumpSkill() {
   }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4881ffe (game)
 //전역변수(frame=프레임, jumpTimer = 점프시간)
 let frame = 0;
 let jumpTimer = 0;
@@ -430,3 +433,9 @@ function game() {
 }
 //실행
 game();
+<<<<<<< HEAD
+=======
+game();
+game();
+game();
+>>>>>>> 4881ffe (game)

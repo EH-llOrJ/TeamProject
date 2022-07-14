@@ -7,6 +7,12 @@
     <title>Document</title>
   </head>
   <style>
+    * {
+      box-sizing: border-box;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
     body {
       margin: 0;
       width: 100vw;
@@ -67,12 +73,61 @@
       font-family: "pointFont";
       src: url(images/Font/CookieRunRegular.ttf);
     }
+
+    #endGame {
+      background-color: white;
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      left: 25%;
+      top: 25%;
+      border-radius: 30px;
+    }
+
+    .endGameHead {
+      margin: auto 0;
+    }
+
+    .endGame_word {
+      font-size: 30px;
+      margin-top: 55px;
+    }
+    .endGameMain {
+      height: 220px;
+      width: 100%;
+    }
+    .endGameContent {
+      width: 100%;
+      height: 100%;
+      margin: auto 0;
+      display: flex;
+      justify-content: space-around;
+    }
+    .endGameContent1 {
+      width: 50px;
+      height: 50px;
+      background-color: beige;
+      border: solid 1px black;
+      margin-top: 70px;
+    }
   </style>
   <body>
     <img class="backImg" src="images/background/back6.png" />
     <div id="canvasBox">
       <canvas id="background"></canvas>
       <canvas id="main"></canvas>
+      <div id="endGame">
+        <header class="endGameHead">
+          <div class="endGame_word">게임 종료</div>
+        </header>
+        <main class="endGameMain">
+          <div class="endGameContent">
+            <button class="endGameContent1">로그인</button>
+            <button class="endGameContent1"></button>
+            <button class="endGameContent1"></button>
+          </div>
+        </main>
+      </div>
     </div>
     <div id="point">
       <div id="pointImg">

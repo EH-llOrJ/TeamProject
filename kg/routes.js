@@ -177,7 +177,7 @@ let oScore = ""; // 기존 최고 점수
 router.post('/updateScore', (req, res) => {
     let token = req.cookies.token;
     let decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET);
-    const score = (req.body.scoreFinal).replace(",", ""); // 문자열 점수에서 , 제거 // 실시간 점수 
+    const score = (req.body.scoreFinal).replaceAll(',', ""); // 문자열 점수에서 , 제거 // 실시간 점수 
 
     const originalScore = process.env.db_originalScore + decoded.user.id + '";';
     connection.query(originalScore, (err, origin) => {

@@ -348,10 +348,10 @@ function MiddleHurdle() {
       highhurdle[i].y + highhurdle[i].height - (player.y + player.height);
 
     if (
-      col_left_X > -70 &&
-      col_left_X < 70 &&
-      col_right_X > -70 &&
-      col_right_X < 70 &&
+      col_left_X > -65 &&
+      col_left_X < 65 &&
+      col_right_X > -65 &&
+      col_right_X < 65 &&
       col_top_Y < 90 &&
       col_top_Y > -90 &&
       col_bottom_Y > -90 &&
@@ -570,7 +570,12 @@ document.getElementById("gmes").onclick = function () {
   document.getElementById("intro").style.zIndex = "-100";
 };
 
-document.getElementById("tutorial").onclick = function () {
-  document.getElementById("tutorial").style.zIndex = "-99";
-  game();
+let test = function () {
+  if (test !== null)
+  {
+    document.getElementById("tutorial").style.zIndex = "-99";  
+    game();
+  }
+  test = null;
 }
+document.getElementById("tutorial").onclick = test;

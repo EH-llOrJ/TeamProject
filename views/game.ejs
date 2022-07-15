@@ -19,10 +19,18 @@
       width: 100vw;
       height: 100vh;
       display: flex;
+      position: relative;
       justify-content: center;
       align-items: center;
-      outline: none;
     }
+
+    .backImg {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      opacity: 0.7;
+    }
+
     #canvasBox {
       width: 1000px;
       height: 600px;
@@ -67,61 +75,6 @@
       src: url(/image/images/Font/CookieRunRegular.ttf);
     }
 
-    .Btn {
-      position: absolute;
-      right: 120px;
-      width: 20px;
-      height: 20px;
-      z-index: 1;
-      cursor: pointer;
-    }
-    #playBtn {     
-      top: 30px;      
-    }    
-    #pauseBtn {      
-      top: 60px;      
-    }        
-    img {
-      width: 100%;
-      height: 100%;
-    }
-    #UI {
-      position: absolute;
-      top: 100px;
-      left: 100px;      
-      width: 80vh;
-      height: 40vh;
-      border: 1px solid black;
-      z-index: 1;
-    }
-    .map {
-      position: absolute;
-      border: 1px solid black;
-      width: 150px;
-      height: 100px;
-      top: 80px;
-      left: 20px;
-    }
-    #map1 {
-      left: 70px;
-    }
-    #map2 {
-      left: 270px;
-    }
-    #map3 {
-      left: 470px;
-    }
-    #map4 {
-      top: 230px;
-      left: 70px;
-    }
-    #map5 {
-      top: 230px;
-      left: 270px;
-    }
-    #UI-background {
-      position: absolute;
-    }     
     #endGame {
       background-color: white;
       position: absolute;
@@ -168,9 +121,59 @@
       height: 50px;
       font-size: 30px;
     }
+
+    #tutorial {
+      position: absolute;
+      width: 60%;
+      height: 85%;
+      z-index: 99;
+      left: 200px;
+      top: 40px;
+    }
+
+    #tutorial:hover {
+      border-image: linear-gradient(to right, red 0%, orange 100%);
+      border-image-slice: 1;
+    }
+
+    .tu_img {
+      width: 100%;
+      height: 100%;
+    }
+    #intro {
+      position: absolute;
+      z-index: 100;
+      width: 100%;
+      height: 100%;
+      background-image: url("/image/images/intro/intro.png");
+      background-size: cover;
+    }
+    #gmes {
+      width: 200px;
+      height: 100px;
+      top: 63%;
+      left: 40%;
+      position: absolute;
+      border-radius: 25px;
+      font-size: 25px;
+      font-weight: 900;
+      background-color: antiquewhite;
+      opacity: 0.6;
+      transition: 0.7s;
+    }
+    #gmes:hover {
+      opacity: 1;
+    }
   </style>
   <body>
+      <img class="backImg" src="/image/images/background/back6.jpeg" alt="slsnrh?"/>
     <div id="canvasBox">
+      <div id="intro">
+        <button id="gmes">Game Start</button>
+      </div>
+      <button id="tutorial">
+        <img class="tu_img" src="/image/images/intro/tutorial.png" alt="123123" />
+      </button>
       <canvas id="background"></canvas>
       <canvas id="main"></canvas>
       <div id="endGame">
@@ -187,7 +190,7 @@
           <div class="endGameContent">
             <a
               class="move"
-              href="/"
+              href="/kg/logout1"
             >
               <button class="endGameContent1">로그인 페이지로</button>
             </a>
@@ -200,9 +203,11 @@
           </div>
         </main>
       </div>
-      <img src="/image/images/playicon2.png" alt="" id="playBtn" class="Btn">
-      <img src="/image/images/pauseicon.png" alt="" id="pauseBtn" class="Btn">
-    </div>
+      <div>
+         <img src="/image/images/playicon2.png" alt="ss" id="playBtn" class="Btn">
+          <img src="/image/images/pauseicon.png" alt="dd" id="pauseBtn" class="Btn">
+        </div>
+    </div> 
     <div id="point">
       <div id="pointImg">
         <img

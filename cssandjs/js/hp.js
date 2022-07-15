@@ -48,8 +48,8 @@ class HP {
   // game ~ing
   draw() {
     this.time++;
-    this.x -= 0.05;
-    this.width += 0.05;
+    this.x -= 0.001;
+    this.width += 0.001;
 
     if (this.x >= 34) {
       ctxJam.clearRect(this.x, this.y, this.width, this.height);

@@ -64,24 +64,15 @@ router.get('/login', (req, res) => {
         setTimeout(() => {
             res.render('login.ejs', { scoreData: dbScoreData })
         }, 200);
-        }
-    // let name1 = process.env.db_namecheck + "'" + req.body.id + "';"
-    // connection.query(name1, (err, result) => {         if (err) console.log(err)
-    // else {             console.log('query sucsuc')             if (result[0] ==
-    // undefined) {                 console.log('fucking')             }
-    // else {                 res.render('logoutPage.ejs',{
-    // isName: result[0].name                 })             }         }     })
+    }
+    
 })
 router.post('/login', (req, res) => {
     let token = "";
-    console.log(req.body.id);
-    console.log(req.body.pw);
     const user = {
         id: req.body.id
     }
-    // select id,pw from members where id = "a or 1=1 --" and pw =
-    // "req.body.password' const logincheck = process.env.db_loginquery +
-    // req.body.id + process.env.db_loginquery2 + req.body.pw + '";'
+
     const logincheck = process.env.db_loginquery + req.body.id + '";'
     connection.query(logincheck, (err, result) => {
         if (err) 

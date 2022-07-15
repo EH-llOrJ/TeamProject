@@ -1,4 +1,4 @@
-//젤리 기본 이미지
+//장애물 기본 이미지
 let skyHurdleImg = new Image();
 skyHurdleImg.src = "images/Hurdle/hurdle1-1.png";
 
@@ -108,7 +108,7 @@ class highHurdle2 extends Hurdle {
 }
 
 let hurdle = [
-  new Hurdle({ x: 850, y: 15, width: 100, height: 430 }),
+  new Hurdle({ x: 3850, y: 15, width: 100, height: 430 }),
   new Hurdle({ x: 3970, y: 15, width: 100, height: 430 }),
   new Hurdle({ x: 4090, y: 15, width: 100, height: 430 }),
 

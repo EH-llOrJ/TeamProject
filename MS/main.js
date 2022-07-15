@@ -70,7 +70,6 @@ let player = {
     this.y += this.yspeed;
     this.yspeed += gravity;
 
-    // falling()
     //땅에 붙으면 하락값 0
     for (let i = 0; i < floor.length; i++)
       // hi();
@@ -118,11 +117,6 @@ function hi() {
     }, 500);
   }
 }
-// function falling() {
-//   if (this.y + this.height > canvasMain.height) {
-//     this.yspeed = 0;
-//   }
-// }
 
 //플레이어 이미지 프레임변경
 //달리기 이미지
@@ -345,10 +339,10 @@ function MiddleHurdle() {
       highhurdle[i].y + highhurdle[i].height - (player.y + player.height);
 
     if (
-      col_left_X > -55 &&
-      col_left_X < 55 &&
-      col_right_X > -55 &&
-      col_right_X < 55 &&
+      col_left_X > -70 &&
+      col_left_X < 70 &&
+      col_right_X > -70 &&
+      col_right_X < 70 &&
       col_top_Y < 90 &&
       col_top_Y > -90 &&
       col_bottom_Y > -90 &&
@@ -580,5 +574,6 @@ function game() {
     floor[26].x = 0;
   }
 }
+
 //실행
 game();

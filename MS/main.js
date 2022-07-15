@@ -570,7 +570,12 @@ document.getElementById("gmes").onclick = function () {
   document.getElementById("intro").style.zIndex = "-100";
 };
 
-document.getElementById("tutorial").onclick = function () {
-  document.getElementById("tutorial").style.zIndex = "-99";
-  game();
+let test = function () {
+  if (test !== null)
+  {
+    document.getElementById("tutorial").style.zIndex = "-99";  
+    game();
+  }
+  test = null;
 }
+document.getElementById("tutorial").onclick = test;

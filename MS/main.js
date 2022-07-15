@@ -340,7 +340,11 @@ function game() {
   }
 }
 //실행
-game();
-game();
-game();
-game();
+document.getElementById("gmes").onclick = function () {
+  document.getElementById("intro").style.zIndex = "-100";
+};
+
+document.getElementById("tutorial").onclick = function () {
+  game();
+  document.getElementById("tutorial").style.zIndex = "-1";
+};

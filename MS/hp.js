@@ -51,11 +51,11 @@ class HP {
     this.x -= 0.1;
     this.width += 0.1;
 
-    if (this.x >= 30) {
+    if (this.x >= 28) {
       ctxJam.clearRect(this.x, this.y, this.width, this.height);
-    } else if (this.x < 30) {
+    } else if (this.x < 28) {
       ctxJam.clearRect(35, 30, 233, 50);
-      this.x = 30;
+      this.x = 28;
       this.width = 238;
       gameEnd();
     }
@@ -77,7 +77,7 @@ function hpRestore() {
   }, 1);
 }
 
-// HP remove
+// crash HP remove
 function hpRemove() {
   HpDecrease.x -= 30;
   HpDecrease.width += 30;

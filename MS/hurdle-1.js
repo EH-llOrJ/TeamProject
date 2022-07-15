@@ -27,8 +27,6 @@ class Hurdle {
     this.width = width;
     this.height = height;
     this.time = 0;
-    this.a = true;
-    this.b = 1;
   }
   draw() {
     this.time++;

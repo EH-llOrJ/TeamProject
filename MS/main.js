@@ -107,6 +107,7 @@ function hi() {
       abc = false;
       gravity = 0;
       player.y = 230;
+      hpRemove();
     }, 10);
     setTimeout(() => {
       player.state = "dbjumplast";
@@ -114,7 +115,7 @@ function hi() {
       yspeed = 0;
       gravity = 0.009;
       abc = true;
-    }, 500);
+    }, 700);
   }
 }
 
@@ -277,6 +278,7 @@ function TopHurdle() {
       console.log("충돌");
       player.state = "coll";
       a = false;
+      hpRemove()
       let hi = setInterval(() => {
         a = false;
         player.state = "coll";
@@ -285,7 +287,7 @@ function TopHurdle() {
         clearInterval(hi);
         player.state = "run";
         a = true;
-      }, 1000);
+      }, 700);
     }
   }
 }
@@ -315,6 +317,7 @@ function LowHurdle() {
       console.log("충돌");
       player.state = "coll";
       a = false;
+      hpRemove();
       let hi = setInterval(() => {
         a = false;
         player.state = "coll";
@@ -323,7 +326,7 @@ function LowHurdle() {
         clearInterval(hi);
         a = true;
         player.state = "run";
-      }, 1000);
+      }, 700);
     }
   }
 }
@@ -354,6 +357,7 @@ function MiddleHurdle() {
       console.log("충돌");
       player.state = "coll";
       a = false;
+      hpRemove();
       let hi = setInterval(() => {
         a = false;
         player.state = "coll";
@@ -362,7 +366,7 @@ function MiddleHurdle() {
         clearInterval(hi);
         a = true;
         player.state = "run";
-      }, 1000);
+      }, 700);
     }
   }
 }
@@ -519,25 +523,6 @@ function game() {
     }
   }
 
-  //충돌시
-  for (let i = 0; i < hurdle.length; i++) {
-    if (
-      hurdle[i].x < 200 &&
-      hurdle[i].x > 0 &&
-      player.height == 90 &&
-      a == true
-    ) {
-      col_temp--;
-      a = false;
-      let hi = setInterval(() => {
-        a = false;
-      }, 1);
-      setTimeout(() => {
-        clearInterval(hi);
-        a = true;
-      }, 1000);
-    }
-  }
 
   jellyEat();
   jumpSkill();
@@ -571,9 +556,21 @@ function game() {
   MiddleHurdle();
 
   if (floor[26].x < 0) {
-    floor[26].x = 0;
+    floor[26].x = 0;    
   }
 }
 
 //실행
-game();
+document.getElementById("gmes").onclick = function () {
+  document.getElementById("intro").style.zIndex = "-100";
+};
+
+let test = function () {
+  if (test !== null)
+  {
+    document.getElementById("tutorial").style.zIndex = "-99";  
+    game();
+  }
+  test = null;
+}
+document.getElementById("tutorial").onclick = test;

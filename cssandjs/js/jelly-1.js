@@ -22,8 +22,6 @@ let pointHTML = pointUp.innerHTML;
 
 const scoreUp = document.getElementById("endGame_score");
 let scoreHTML = scoreUp.innerHTML;
-// let scoreFinal = $('#pointFinal').val();
-
 
 //젤리 클래스
 class WhiteJelly {
@@ -129,7 +127,7 @@ function jellyEat() {
   }
   for (let i = 0; i < clearJelly.length; i++) {
     if (clearJelly[i].getEater() == false) {
-      hppotionEat(player, clearJelly[i]);
+      clearjellyEat(player, clearJelly[i]);
     }
   }
 }
@@ -265,19 +263,18 @@ function clearjellyEat(player, _jelly) {
   let eatJellyY = _jelly.y - player.y;
   let eatJellyHeight = _jelly.y + _jelly.height - (player.y + player.height);
   if (
-    eatJellyX < 55 &&
-    eatJellyX > -55 &&
-    eatJellyY < 55 &&
-    eatJellyY > -55 &&
-    eatJellyWidth < 55 &&
-    eatJellyWidth > -55 &&
-    eatJellyHeight < 55 &&
-    eatJellyHeight > -55
+    eatJellyX < 100 &&
+    eatJellyX > -100 &&
+    eatJellyY < 100 &&
+    eatJellyY > -100 &&
+    eatJellyWidth < 100 &&
+    eatJellyWidth > -100 &&
+    eatJellyHeight < 100 &&
+    eatJellyHeight > -100
   ) {
     _jelly.setEater();
     ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
     point += 333333;
-    cancelAnimationFrame(game);
   } else if (_jelly.getEater() == false) {
     _jelly.draw();
   }

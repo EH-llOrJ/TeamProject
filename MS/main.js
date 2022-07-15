@@ -235,7 +235,7 @@ function TopHurdle() {
             clearInterval(hi)
             player.state = "run";
           a = true;
-        }, 1000);
+        }, 500);
     }
   }
 }
@@ -266,7 +266,7 @@ function LowHurdle() {
              clearInterval(hi)
            a = true;
            player.state = "run";
-         }, 1000);
+         }, 500);
      }
   }
 }
@@ -297,7 +297,7 @@ function MiddleHurdle() {
              clearInterval(hi)
            a = true;
           player.state = "run";
-         }, 1000);
+         }, 500);
      }
   }
 }
@@ -459,11 +459,13 @@ function game() {
       jumpTimer = 0;
       jump = false;
       dbjump = false;
-      if (player.state != "slide") {
+      if (player.state == "coll") {
+        player.state = "coll";
+      } else if (player.state != "slide") {
         player.state = "run";
         player.y = 420;
       }
-    }
+    }      
   }
   //위에 땅
   for (let i = 0; i < floatFloor.length; i++) {

@@ -10,7 +10,6 @@
   <style>
     * {
       box-sizing: border-box;
-      text-align: center;
       margin: 0;
       padding: 0;
     }
@@ -22,6 +21,7 @@
       position: relative;
       justify-content: center;
       align-items: center;
+      outline: none;
     }
 
     .backImg {
@@ -59,9 +59,12 @@
       position: absolute;
       display: flex;
       justify-content: center;
-      top: 25%;
+      top: 15%;
+      left: 50%;
       width: 300px;
       height: 30px;
+      transform: translate(-50%,-50%);
+      z-index: 10;
     }
     #pointImg {
       display: flex;
@@ -93,6 +96,7 @@
     .endGame_word {
       line-height: 100px;
       font-size: 30px;
+      text-align: center;
     }
     .endGameMain {
       height: 70%;
@@ -120,6 +124,7 @@
       width: 150px;
       height: 50px;
       font-size: 30px;
+      text-align: center;
     }
 
     #tutorial {
@@ -135,7 +140,20 @@
       border-image: linear-gradient(to right, red 0%, orange 100%);
       border-image-slice: 1;
     }
-
+    .Btn {
+      position: absolute;
+      right: 120px;
+      width: 20px;
+      height: 20px;
+      z-index: 1;
+      cursor: pointer;
+    }
+    #playBtn {     
+      top: 30px;      
+    }    
+    #pauseBtn {      
+      top: 60px;      
+    }        
     .tu_img {
       width: 100%;
       height: 100%;
@@ -164,10 +182,21 @@
     #gmes:hover {
       opacity: 1;
     }
-  </style>
+    </style>
   <body>
-      <img class="backImg" src="/image/images/background/back6.jpeg" alt="slsnrh?"/>
+    <img class="backImg" src="/image/images/background/back6.jpeg" alt="slsnrh?"/>
     <div id="canvasBox">
+      <div id="point">
+        <div id="pointImg">
+          <img
+            src="/image/images/Map/point.png"
+            width="30px"
+            height="30px"
+          />&nbsp;&nbsp;
+          <div id="pointBox">0</div>
+          <input type="hidden" id="pointFinal" value="0">
+        </div>
+      </div>
       <div id="intro">
         <button id="gmes">Game Start</button>
       </div>
@@ -208,16 +237,6 @@
           <img src="/image/images/pauseicon.png" alt="dd" id="pauseBtn" class="Btn">
         </div>
     </div> 
-    <div id="point">
-      <div id="pointImg">
-        <img
-          src="/image/images/Map/point.png"
-          width="30px"
-          height="30px"
-        />&nbsp;&nbsp;
-        <div id="pointBox">0</div>
-        <input type="hidden" id="pointFinal" value="0">
-      </div>
     </div>
       
     </div>    

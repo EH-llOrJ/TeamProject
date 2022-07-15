@@ -71,7 +71,6 @@ let player = {
     this.yspeed += gravity;
 
     // falling()
-
     //땅에 붙으면 하락값 0
     for (let i = 0; i < floor.length; i++)
       // hi();

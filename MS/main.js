@@ -52,6 +52,10 @@ let player = {
       ? dbjumplastPlayer[this.index]
       : this.state == "falling"
       ? fallingPlayer[this.index]
+      : this.state == "coll"
+      ? collPlayer[this.index]
+      : this.state == "end"
+      ? runPlayer[this.index]
       : null,
       this.x,
       this.y,
@@ -102,7 +106,6 @@ function hi() {
       setTimeout(() => {
         player.state = "dbjumplast"
         clearInterval(fallingfin)
-        console.log('종료 씨발아')
         yspeed = 0;
         gravity = 0.009
         abc = true;
@@ -200,6 +203,104 @@ for (let i = 0; i < 4; i++) {
 }
 
 //피격시 이미지
+let collPlayer = new Array();
+let imglinkcollPlayer = [
+  "images/Character/Taehoon/Collision/Collision1.png",
+  "images/Character/Taehoon/Collision/Collision2.png",
+  "images/Character/Taehoon/Collision/Collision1.png",
+  "images/Character/Taehoon/Collision/Collision2.png",
+];
+for (let i = 0; i < 4; i++) {
+  collPlayer.push(new Image());
+  collPlayer[i].src = imglinkcollPlayer[i];
+}
+
+//허들 충돌 및 피격
+function TopHurdle() {
+  //앉는 허들
+  for (let i = 0; i < hurdle.length; i++) {
+    col_left_X = hurdle[i].x - player.x;
+    col_right_X = (hurdle[i].x + hurdle[i].width) - (player.x + player.width);
+    if (col_left_X < 85 && col_left_X > -100 && col_right_X < 100 & col_right_X > -30 && player.state != "slide" && a == true) {
+        col_temp--
+        console.log(col_temp);
+      console.log("충돌");
+      player.state = "coll";
+      a = false;
+        let hi = setInterval(() => {
+          a = false;
+          player.state = "coll";
+        }, 1);
+        setTimeout(() => {
+            clearInterval(hi)
+            player.state = "run";
+          a = true;
+        }, 1000);
+    }
+  }
+}
+ 
+function LowHurdle() {
+   //Low 허들
+   for (let i = 0; i < lowhurdle.length; i++) {
+     col_left_X = lowhurdle[i].x - player.x;
+     col_right_X = (lowhurdle[i].x + lowhurdle[i].width) - (player.x + player.width);
+     col_top_Y = lowhurdle[i].y - player.y;
+     col_bottom_Y = (lowhurdle[i].y + lowhurdle[i].height) - (player.y + player.height);
+   if (
+     col_left_X > -50 && col_left_X < 50 &&
+     col_right_X < 50 && col_right_X > -50 &&
+     col_top_Y < 55 && col_top_Y > -55 &&
+     col_bottom_Y > -55 && col_bottom_Y < 55 &&
+     a == true) {
+         col_temp--
+         console.log(col_temp);
+     console.log("충돌");
+     player.state = "coll";
+         a = false;
+         let hi = setInterval(() => {
+           a = false;
+           player.state = "coll";
+         }, 1);
+         setTimeout(() => {
+             clearInterval(hi)
+           a = true;
+           player.state = "run";
+         }, 1000);
+     }
+  }
+}
+ 
+function MiddleHurdle() {
+   //high 허들
+   for (let i = 0; i < highhurdle.length; i++) {
+     col_left_X = highhurdle[i].x - player.x;
+     col_right_X = (highhurdle[i].x + highhurdle[i].width) - (player.x + player.width);
+     col_top_Y = highhurdle[i].y - player.y;
+     col_bottom_Y = (highhurdle[i].y + highhurdle[i].height) - (player.y + player.height);
+ 
+   if (col_left_X > -55 && col_left_X < 55 &&
+     col_right_X > -55 && col_right_X < 55 &&
+     col_top_Y < 90 && col_top_Y > -90 && 
+     col_bottom_Y > -90 && col_bottom_Y < 90 &&
+     a == true) {
+         col_temp--
+         console.log(col_temp);
+     console.log("충돌");
+     player.state = "coll";
+         a = false;
+         let hi = setInterval(() => {
+           a = false;
+           player.state = "coll";
+         }, 1);
+         setTimeout(() => {
+             clearInterval(hi)
+           a = true;
+          player.state = "run";
+         }, 1000);
+     }
+  }
+}
 
 //점프기능
 function jumpSkill() {
@@ -327,6 +428,87 @@ document.addEventListener("keyup", function (key) {
   }
 });
 
+
+  //앉는 허들
+  for (let i = 0; i < hurdle.length; i++) {
+   col_left_X = hurdle[i].x - player.x;
+   col_right_X = (hurdle[i].x + hurdle[i].width) - (player.x + player.width);
+   if (col_left_X < 85 && col_left_X > -100 && col_right_X < 100 & col_right_X > -30 && player.state != "slide" && a == true) {
+       col_temp--
+       console.log(col_temp);
+       console.log(col_right_X);
+       console.log("충돌");
+        // console.log(hurdle[i].y);
+       a = false;
+       let hi = setInterval(() => {
+           a = false;
+       }, 1);
+       setTimeout(() => {
+           clearInterval(hi)
+           a = true;
+       }, 1000);
+      //  console.log(hurdle[i].x);
+   }
+  }
+
+  //Low 허들
+  for (let i = 0; i < lowhurdle.length; i++) {
+    col_left_X = lowhurdle[i].x - player.x;
+    col_right_X = (lowhurdle[i].x + lowhurdle[i].width) - (player.x + player.width);
+    col_top_Y = lowhurdle[i].y - player.y;
+    col_bottom_Y = (lowhurdle[i].y + lowhurdle[i].height) - (player.y + player.height);
+  if (
+    col_left_X > -50 && col_left_X < 50 &&
+    col_right_X < 50 && col_right_X > -50 &&
+    col_top_Y < 55 && col_top_Y > -55 &&
+    col_bottom_Y > -55 && col_bottom_Y < 55 &&
+    a == true) {
+        col_temp--
+        console.log(col_temp);
+        console.log("충돌");
+        // console.log(lowhurdle[i].y);
+        a = false;
+        let hi = setInterval(() => {
+            a = false;
+        }, 1);
+        setTimeout(() => {
+            clearInterval(hi)
+            a = true;
+        }, 1000);
+        // console.log(hurdle[i].x);
+    }
+}
+
+  //high 허들
+  for (let i = 0; i < highhurdle.length; i++) {
+    col_left_X = highhurdle[i].x - player.x;
+    col_right_X = (highhurdle[i].x + highhurdle[i].width) - (player.x + player.width);
+    col_top_Y = highhurdle[i].y - player.y;
+    col_bottom_Y = (highhurdle[i].y + highhurdle[i].height) - (player.y + player.height);
+    // console.log(col_left_X);  console.log(col_right_X);
+    // console.log(col_top_Y);    console.log(col_bottom_Y);
+
+  if (col_left_X > -55 && col_left_X < 55 &&
+    col_right_X > -55 && col_right_X < 55 &&
+    col_top_Y < 90 && col_top_Y > -90 && 
+    col_bottom_Y > -90 && col_bottom_Y < 90 &&
+    a == true) {
+        col_temp--
+        console.log(col_temp);
+        console.log("충돌");
+        // console.log(highhurdle[i].y);
+        a = false;
+        let hi = setInterval(() => {
+            a = false;
+        }, 1);
+        setTimeout(() => {
+            clearInterval(hi)
+            a = true;
+        }, 1000);
+        // console.log(hurdle[i].x);
+    }
+}
+
 let a = true;
 let b = 0;
 let col_temp = 100;
@@ -382,84 +564,6 @@ function game() {
     }
   }
 
- //앉는 허들
-  for (let i = 0; i < hurdle.length; i++) {
-   col_left_X = hurdle[i].x - player.x;
-   col_right_X = (hurdle[i].x + hurdle[i].width) - (player.x + player.width);
-   if (col_left_X < 85 && col_left_X > -100 && col_right_X < 100 & col_right_X > -30 && player.state != "slide" && a == true) {
-       col_temp--
-       console.log(col_temp);
-       console.log(col_right_X);
-       console.log("충돌");
-        // console.log(hurdle[i].y);
-       a = false;
-       let hi = setInterval(() => {
-           a = false;
-       }, 1);
-       setTimeout(() => {
-           clearInterval(hi)
-           a = true;
-       }, 1000);
-      //  console.log(hurdle[i].x);
-   }
-  }
-
-    //Low
-  for (let i = 0; i < lowhurdle.length; i++) {
-    col_left_X = lowhurdle[i].x - player.x;
-    col_right_X = (lowhurdle[i].x + lowhurdle[i].width) - (player.x + player.width);
-    col_top_Y = lowhurdle[i].y - player.y;
-    col_bottom_Y = (lowhurdle[i].y + lowhurdle[i].height) - (player.y + player.height);
-  if (
-    col_left_X > -50 && col_left_X < 50 &&
-    col_right_X < 50 && col_right_X > -50 &&
-    col_top_Y < 55 && col_top_Y > -55 &&
-    col_bottom_Y > -55 && col_bottom_Y < 55 &&
-    a == true) {
-        col_temp--
-        console.log(col_temp);
-        console.log("충돌");
-        // console.log(lowhurdle[i].y);
-        a = false;
-        let hi = setInterval(() => {
-            a = false;
-        }, 1);
-        setTimeout(() => {
-            clearInterval(hi)
-            a = true;
-        }, 1000);
-        // console.log(hurdle[i].x);
-    }
-}
-
-  for (let i = 0; i < highhurdle.length; i++) {
-    col_left_X = highhurdle[i].x - player.x;
-    col_right_X = (highhurdle[i].x + highhurdle[i].width) - (player.x + player.width);
-    col_top_Y = highhurdle[i].y - player.y;
-    col_bottom_Y = (highhurdle[i].y + highhurdle[i].height) - (player.y + player.height);
-    // console.log(col_left_X);  console.log(col_right_X);
-    // console.log(col_top_Y);    console.log(col_bottom_Y);
-
-  if (col_left_X > -55 && col_left_X < 55 &&
-    col_right_X > -55 && col_right_X < 55 &&
-    col_top_Y < 90 && col_top_Y > -90 && 
-    col_bottom_Y > -90 && col_bottom_Y < 90 &&
-    a == true) {
-        col_temp--
-        console.log(col_temp);
-        console.log("충돌");
-        // console.log(highhurdle[i].y);
-        a = false;
-        let hi = setInterval(() => {
-            a = false;
-        }, 1);
-        setTimeout(() => {
-            clearInterval(hi)
-            a = true;
-        }, 1000);
-        // console.log(hurdle[i].x);
-    }
-}
 
   
 
@@ -490,6 +594,9 @@ function game() {
   jamDraw();
   HpDecrease.draw();
   HpLight.draw();
+  TopHurdle();
+  LowHurdle();
+  MiddleHurdle();
 
   // if (HpDecrease.x <= 30) {
   //   cancelAnimationFrame(game);

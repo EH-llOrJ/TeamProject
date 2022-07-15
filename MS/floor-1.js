@@ -213,6 +213,11 @@ let floor = [
 
   new Floor2_1({ x: 12100, y: 510, width: 80, height: 90 }),
 
+<<<<<<< HEAD
+=======
+  new Floor2_1({ x: 12260, y: 510, width: 80, height: 90 }),
+
+>>>>>>> MS_hp
   new Floor2_1({ x: 12420, y: 510, width: 80, height: 90 }),
 
   new Floor2_10({ x: 12600, y: 510, width: 800, height: 90 }),
@@ -227,6 +232,11 @@ let floor = [
 
   new Floor2_1({ x: 17800, y: 510, width: 80, height: 90 }),
 
+<<<<<<< HEAD
+=======
+  new Floor2_1({ x: 18000, y: 510, width: 80, height: 90 }),
+
+>>>>>>> MS_hp
   new Floor2_1({ x: 18200, y: 510, width: 80, height: 90 }),
 
   new Floor2_5({ x: 18600, y: 510, width: 400, height: 90 }),

@@ -48,6 +48,7 @@ class HP {
   // game ~ing
   draw() {
     this.time++;
+<<<<<<< HEAD
     this.x -= 0.05;
     this.width += 0.05;
 
@@ -56,6 +57,16 @@ class HP {
     } else if (this.x < 34) {
       ctxJam.clearRect(35, 30, 233, 50);
       this.x = 34;
+=======
+    this.x -= 0.1;
+    this.width += 0.1;
+
+    if (this.x >= 28) {
+      ctxJam.clearRect(this.x, this.y, this.width, this.height);
+    } else if (this.x < 28) {
+      ctxJam.clearRect(35, 30, 233, 50);
+      this.x = 28;
+>>>>>>> MS_hp
       this.width = 238;
       gameEnd();
     }
@@ -70,14 +81,23 @@ function hpRestore() {
     if (state <= add || HpDecrease.x > 267) {
       clearInterval(set);
     } else {
+<<<<<<< HEAD
       HpDecrease.x += 0.3;
       HpDecrease.width -= 0.3;
+=======
+      HpDecrease.x += 0.1;
+      HpDecrease.width -= 0.1;
+>>>>>>> MS_hp
       add += 0.1;
     }
   }, 1);
 }
 
+<<<<<<< HEAD
 // HP remove
+=======
+// crash HP remove
+>>>>>>> MS_hp
 function hpRemove() {
   HpDecrease.x -= 30;
   HpDecrease.width += 30;
@@ -120,6 +140,10 @@ class Light {
           raster[i + 1] = this.selectres + raster[i + 1];
           raster[i + 2] = this.selectres + raster[i + 2];
         }
+<<<<<<< HEAD
+=======
+        // console.log(this.selectres);
+>>>>>>> MS_hp
         ctxJam.putImageData(imageData, 35, 30);
         if (this.selectres == 59) {
           if (this.switch == true) {
@@ -139,6 +163,10 @@ class Light {
           raster[i + 1] = this.selectres + raster[i + 1];
           raster[i + 2] = this.selectres + raster[i + 2];
         }
+<<<<<<< HEAD
+=======
+        // console.log(this.selectres);
+>>>>>>> MS_hp
         ctxJam.putImageData(imageData, 35, 30);
         if (this.selectres == 0) {
           if (this.switch == true) {

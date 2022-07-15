@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 //젤리 기본 이미지
+=======
+//장애물 기본 이미지
+>>>>>>> MS_hp
 let skyHurdleImg = new Image();
 skyHurdleImg.src = "images/Hurdle/hurdle1-1.png";
 
@@ -8,6 +12,7 @@ floorlowHurdleImg.src = "images/Hurdle/hurdle1-2.png";
 let floorhighHurdleImg = new Image();
 floorhighHurdleImg.src = "images/Hurdle/hurdle1-3.png";
 
+<<<<<<< HEAD
 let skyHurdleImg2 = new Image();
 skyHurdleImg2.src = "images/Hurdle/hurdle2-1.png";
 
@@ -19,6 +24,8 @@ floorhighHurdleImg2.src = "images/Hurdle/hurdle2-3.png";
 
 //캐릭터 충돌 상태 추가
 
+=======
+>>>>>>> MS_hp
 //장애물 클래스
 class Hurdle {
   constructor({ x, y, width, height }) {
@@ -27,8 +34,11 @@ class Hurdle {
     this.width = width;
     this.height = height;
     this.time = 0;
+<<<<<<< HEAD
     this.a = true;
     this.b = 1;
+=======
+>>>>>>> MS_hp
   }
   draw() {
     this.time++;
@@ -70,6 +80,7 @@ class highHurdle extends Hurdle {
   }
 }
 
+<<<<<<< HEAD
 class Hurdle2 extends Hurdle {
   draw() {
     ctxMain.drawImage(skyHurdleImg2, this.x, this.y, this.width, this.height);
@@ -157,10 +168,19 @@ let lowhurdle = [
 ];
 
 let highhurdle = [
+=======
+let hurdle = [
+  new Hurdle({ x: 3850, y: 15, width: 120, height: 430 }),
+  new Hurdle({ x: 3970, y: 15, width: 120, height: 430 }),
+  new Hurdle({ x: 4090, y: 15, width: 120, height: 430 }),
+
+  new lowHurdle({ x: 4350, y: 455, width: 45, height: 55 }),
+>>>>>>> MS_hp
   new highHurdle({ x: 4550, y: 360, width: 70, height: 150 }),
 
   new highHurdle({ x: 4950, y: 240, width: 70, height: 150 }),
 
+<<<<<<< HEAD
   new highHurdle({ x: 5630, y: 360, width: 70, height: 150 }),
 
   new highHurdle({ x: 7000, y: 360, width: 70, height: 150 }),
@@ -183,4 +203,12 @@ let highhurdle = [
   new highHurdle2({ x: 16060, y: 100, width: 80, height: 150 }),
   new highHurdle2({ x: 16300, y: 100, width: 80, height: 150 }),
   new highHurdle2({ x: 16550, y: 100, width: 80, height: 150 }),
+=======
+  new Hurdle({ x: 5220, y: 15, width: 120, height: 430 }),
+  new Hurdle({ x: 5340, y: 15, width: 120, height: 430 }),
+
+  new lowHurdle({ x: 5950, y: 455, width: 45, height: 55 }),
+  new highHurdle({ x: 5630, y: 360, width: 70, height: 150 }),
+  new highHurdle({ x: 5830, y: 360, width: 70, height: 150 }),
+>>>>>>> MS_hp
 ];

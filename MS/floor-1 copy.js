@@ -217,11 +217,7 @@ let floatFloor = [
 
   new floatFloor2_1({ x: 10850, y: 370, width: 80, height: 17 }),
 
-<<<<<<< HEAD
   new floatFloor2_1({ x: 11150, y: 420, width: 80, height: 17 }),
-=======
-  new floatFloor2_1({ x: 11200, y: 420, width: 80, height: 17 }),
->>>>>>> MS_hp
 
   new floatFloor2_1({ x: 11460, y: 450, width: 80, height: 17 }),
 

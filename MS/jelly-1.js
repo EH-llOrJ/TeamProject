@@ -11,15 +11,12 @@ redJellyImg.src = "images/Jelly/빨간젤리1.png";
 let bigJellyImg = new Image();
 bigJellyImg.src = "images/Jelly/왕젤리1.png";
 
-<<<<<<< HEAD
 let clearJellyImg = new Image();
 clearJellyImg.src = "images/Jelly/클리어젤리.png";
 
 let hpPotionImg = new Image();
 hpPotionImg.src = "images/HP/potion.png";
 
-=======
->>>>>>> MS_hp
 const pointUp = document.getElementById("pointBox");
 let pointHTML = pointUp.innerHTML;
 
@@ -81,7 +78,6 @@ class BigJelly extends WhiteJelly {
   }
 }
 
-<<<<<<< HEAD
 class ClearJelly extends WhiteJelly {
   draw() {
     this.time++;
@@ -102,8 +98,6 @@ class HpPotion extends WhiteJelly {
   }
 }
 
-=======
->>>>>>> MS_hp
 //젤리먹기 함수
 function jellyEat() {
   for (let i = 0; i < whiteJelly.length; i++) {
@@ -126,7 +120,6 @@ function jellyEat() {
       bigjellyEat(player, bigJelly[i]);
     }
   }
-<<<<<<< HEAD
   for (let i = 0; i < hpPotion.length; i++) {
     if (hpPotion[i].getEater() == false) {
       hppotionEat(player, hpPotion[i]);
@@ -137,8 +130,6 @@ function jellyEat() {
       clearjellyEat(player, clearJelly[i]);
     }
   }
-=======
->>>>>>> MS_hp
 }
 
 //젤리먹기 충돌체크
@@ -158,11 +149,7 @@ function whitejellyEat(player, _jelly) {
     eatJellyHeight > -55
   ) {
     _jelly.setEater();
-<<<<<<< HEAD
     ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
-=======
-    // ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
->>>>>>> MS_hp
     pointHTML = parseInt(pointHTML) + 1111;
     scoreHTML = parseInt(scoreHTML) + 1111;
     pointUp.innerHTML = pointHTML.toLocaleString("ko-KR");
@@ -242,7 +229,6 @@ function bigjellyEat(player, _jelly) {
     scoreHTML = parseInt(scoreHTML) + 33333;
     pointUp.innerHTML = pointHTML.toLocaleString("ko-KR");
     scoreUp.innerHTML = scoreHTML.toLocaleString("ko-KR");
-<<<<<<< HEAD
   } else if (_jelly.getEater() == false) {
     _jelly.draw();
   }
@@ -291,8 +277,6 @@ function clearjellyEat(player, _jelly) {
     point += 333333;
     player.state = "end";
     gameEnd();
-=======
->>>>>>> MS_hp
   } else if (_jelly.getEater() == false) {
     _jelly.draw();
   }
@@ -336,7 +320,6 @@ let whiteJelly = [
   new WhiteJelly({ x: 3110, y: 450, width: 40, height: 40 }),
   new WhiteJelly({ x: 3160, y: 450, width: 40, height: 40 }),
   new WhiteJelly({ x: 3210, y: 450, width: 40, height: 40 }),
-<<<<<<< HEAD
 
   new WhiteJelly({ x: 4315, y: 370, width: 40, height: 40 }),
   new WhiteJelly({ x: 4355, y: 360, width: 40, height: 40 }),
@@ -432,8 +415,6 @@ let whiteJelly = [
   new WhiteJelly({ x: 11850, y: 460, width: 40, height: 40 }),
   new WhiteJelly({ x: 11900, y: 460, width: 40, height: 40 }),
   new WhiteJelly({ x: 11950, y: 460, width: 40, height: 40 }),
-=======
->>>>>>> MS_hp
 ];
 
 let yellowJelly = [
@@ -469,7 +450,6 @@ let yellowJelly = [
   new YellowJelly({ x: 4060, y: 460, width: 40, height: 40 }),
   new YellowJelly({ x: 4110, y: 460, width: 40, height: 40 }),
   new YellowJelly({ x: 4160, y: 460, width: 40, height: 40 }),
-<<<<<<< HEAD
 
   new YellowJelly({ x: 4520, y: 310, width: 40, height: 40 }),
   new YellowJelly({ x: 4570, y: 290, width: 40, height: 40 }),
@@ -558,8 +538,6 @@ let yellowJelly = [
   new YellowJelly({ x: 14700, y: 450, width: 40, height: 40 }),
   new YellowJelly({ x: 14900, y: 450, width: 40, height: 40 }),
   new YellowJelly({ x: 14700, y: 450, width: 40, height: 40 }),
-=======
->>>>>>> MS_hp
 ];
 
 let redJelly = [
@@ -582,7 +560,6 @@ let redJelly = [
   new RedJelly({ x: 3660, y: 450, width: 40, height: 40 }),
   new RedJelly({ x: 3710, y: 450, width: 40, height: 40 }),
   new RedJelly({ x: 3760, y: 450, width: 40, height: 40 }),
-<<<<<<< HEAD
 
   new RedJelly({ x: 4710, y: 320, width: 40, height: 40 }),
   new RedJelly({ x: 4770, y: 320, width: 40, height: 40 }),
@@ -687,8 +664,6 @@ let redJelly = [
   new RedJelly({ x: 17350, y: 450, width: 40, height: 40 }),
 
   new RedJelly({ x: 17470, y: 320, width: 40, height: 40 }),
-=======
->>>>>>> MS_hp
 ];
 
 let bigJelly = [
@@ -701,7 +676,6 @@ let bigJelly = [
   new BigJelly({ x: 3310, y: 110, width: 100, height: 100 }),
   new BigJelly({ x: 3390, y: 80, width: 100, height: 100 }),
   new BigJelly({ x: 3470, y: 110, width: 100, height: 100 }),
-<<<<<<< HEAD
 
   new BigJelly({ x: 5070, y: 180, width: 100, height: 100 }),
   new BigJelly({ x: 5070, y: 290, width: 100, height: 100 }),
@@ -762,6 +736,4 @@ let hpPotion = [
 
 let clearJelly = [
   new ClearJelly({ x: 19700, y: 330, width: 200, height: 150 }),
-=======
->>>>>>> MS_hp
 ];

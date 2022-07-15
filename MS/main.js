@@ -52,17 +52,12 @@ let player = {
         ? dbjumpPlayer[this.index]
         : this.state == "dbjumplast"
         ? dbjumplastPlayer[this.index]
-<<<<<<< HEAD
         : this.state == "falling"
         ? fallingPlayer[this.index]
         : this.state == "coll"
         ? collPlayer[this.index]
         : this.state == "end"
         ? runPlayer[this.index]
-=======
-        : this.state == "fallen"
-        ? fallenPlayer[this.index]
->>>>>>> MS_hp
         : null,
       this.x,
       this.y,
@@ -75,7 +70,6 @@ let player = {
     this.y += this.yspeed;
     this.yspeed += gravity;
 
-<<<<<<< HEAD
     // falling()
     //땅에 붙으면 하락값 0
     for (let i = 0; i < floor.length; i++)
@@ -98,11 +92,6 @@ let player = {
         player.state = "falling";
         this.yspeed = -7;
       } else {
-=======
-    //땅에 붙으면 하락값 0
-    for (let i = 0; i < floor.length; i++)
-      if (this.y + this.height > floor[i].height) {
->>>>>>> MS_hp
         this.yspeed += gravity;
         falling = false;
       }
@@ -126,7 +115,7 @@ function hi() {
       yspeed = 0;
       gravity = 0.009;
       abc = true;
-    }, 500);
+    }, 700);
   }
 }
 // function falling() {
@@ -247,14 +236,11 @@ function jumpSkill() {
   //더블점프
   if (dbjump == true) {
     player.y -= 0.45;
-<<<<<<< HEAD
     jumpTimer++;
   }
 
   if (falling == true) {
     player.y -= 7.57;
-=======
->>>>>>> MS_hp
     jumpTimer++;
   }
 
@@ -279,7 +265,6 @@ function jumpSkill() {
   }
 }
 
-<<<<<<< HEAD
 //허들 충돌 및 피격
 function TopHurdle() {
   //앉는 허들
@@ -306,7 +291,7 @@ function TopHurdle() {
         clearInterval(hi);
         player.state = "run";
         a = true;
-      }, 1000);
+      }, 700);
     }
   }
 }
@@ -344,7 +329,7 @@ function LowHurdle() {
         clearInterval(hi);
         a = true;
         player.state = "run";
-      }, 1000);
+      }, 700);
     }
   }
 }
@@ -360,10 +345,10 @@ function MiddleHurdle() {
       highhurdle[i].y + highhurdle[i].height - (player.y + player.height);
 
     if (
-      col_left_X > -55 &&
-      col_left_X < 55 &&
-      col_right_X > -55 &&
-      col_right_X < 55 &&
+      col_left_X > -70 &&
+      col_left_X < 70 &&
+      col_right_X > -70 &&
+      col_right_X < 70 &&
       col_top_Y < 90 &&
       col_top_Y > -90 &&
       col_bottom_Y > -90 &&
@@ -383,13 +368,11 @@ function MiddleHurdle() {
         clearInterval(hi);
         a = true;
         player.state = "run";
-      }, 1000);
+      }, 700);
     }
   }
 }
 
-=======
->>>>>>> MS_hp
 //전역변수(frame=프레임, jumpTimer = 점프시간)
 let frame = 0;
 let jumpTimer = 0;
@@ -494,10 +477,7 @@ function game() {
   ctxBackground.clearRect(0, 0, canvasBackground.width, canvasBackground.width);
 
   //땅 올라타기
-<<<<<<< HEAD
   //밑에 땅
-=======
->>>>>>> MS_hp
   for (let i = 0; i < floor.length; i++) {
     if (
       player.y + player.height >= floor[i].y &&
@@ -518,7 +498,6 @@ function game() {
       }
     }
   }
-<<<<<<< HEAD
   //위에 땅
   for (let i = 0; i < floatFloor.length; i++) {
     if (
@@ -527,11 +506,6 @@ function game() {
       player.state != "jumpstart" &&
       player.state != "falling"
     ) {
-=======
-
-  if (floatPlayer == true) {
-    for (let i = 0; i < floatFloor.length; i++) {
->>>>>>> MS_hp
       if (
         player.y + player.height >= floatFloor[i].y &&
         player.x + player.width - 10 >= floatFloor[i].x &&
@@ -542,42 +516,16 @@ function game() {
         jumpTimer = 0;
         jump = false;
         dbjump = false;
-<<<<<<< HEAD
         if (player.state == "coll") {
           player.state = "coll";
         } else if (player.state != "slide") {
-=======
-        if (player.state != "slide") {
->>>>>>> MS_hp
           player.state = "run";
         }
       }
     }
   }
 
-<<<<<<< HEAD
-  //충돌시
-  for (let i = 0; i < hurdle.length; i++) {
-    if (
-      hurdle[i].x < 200 &&
-      hurdle[i].x > 0 &&
-      player.height == 90 &&
-      a == true
-    ) {
-      col_temp--;
-      a = false;
-      let hi = setInterval(() => {
-        a = false;
-      }, 1);
-      setTimeout(() => {
-        clearInterval(hi);
-        a = true;
-      }, 1000);
-    }
-  }
 
-=======
->>>>>>> MS_hp
   jellyEat();
   jumpSkill();
 
@@ -592,7 +540,6 @@ function game() {
   hurdle.forEach((hurdle) => {
     hurdle.draw();
   });
-<<<<<<< HEAD
   lowhurdle.forEach((lowhurdle) => {
     lowhurdle.draw();
   });
@@ -601,30 +548,23 @@ function game() {
   });
   player.update();
 
-=======
-
-  player.update();
-
->>>>>>> MS_hp
   //hp.js함수 실행
   breadDraw();
   jamDraw();
   HpDecrease.draw();
   HpLight.draw();
-<<<<<<< HEAD
   TopHurdle();
   LowHurdle();
   MiddleHurdle();
 
   if (floor[26].x < 0) {
     floor[26].x = 0;
-=======
 
-  if (HpDecrease.x <= 30) {
-    cancelAnimationFrame(game);
-  } else {
-    requestAnimationFrame(game);
->>>>>>> MS_hp
+    if (HpDecrease.x <= 30) {
+      cancelAnimationFrame(game);
+    } else {
+      requestAnimationFrame(game);
+    }
   }
 }
 //실행
@@ -635,4 +575,4 @@ document.getElementById("gmes").onclick = function () {
 document.getElementById("tutorial").onclick = function () {
   game();
   document.getElementById("tutorial").style.zIndex = "-1";
-};
+}

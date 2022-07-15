@@ -25,8 +25,8 @@
     }
 
     .backImg {
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       position: absolute;
       opacity: 0.7;
     }
@@ -59,9 +59,12 @@
       position: absolute;
       display: flex;
       justify-content: center;
-      top: 25%;
+      top: 15%;
+      left: 50%;
       width: 300px;
       height: 30px;
+      transform: translate(-50%,-50%);
+      z-index: 10;
     }
     #pointImg {
       display: flex;
@@ -97,8 +100,8 @@
       position: absolute;
       top: 100px;
       left: 100px;      
-      width: 80vh;
-      height: 40vh;
+      width: 80%;
+      height: 40%;
       border: 1px solid black;
       z-index: 1;
     }
@@ -223,6 +226,16 @@
   <body>
     <img class="backImg" src="images/background/back6.png" />
     <div id="canvasBox">
+      <div id="point">
+        <div id="pointImg">
+          <img
+            src="/MS/images/Map/point.png"
+            width="30px"
+            height="30px"
+          />&nbsp;&nbsp;
+          <div id="pointBox">0</div>
+        </div>
+      </div>
       <div id="intro">
         <button id="gmes">Game Start</button>
       </div>
@@ -260,16 +273,7 @@
       <img src="images/playicon2.png" alt="" id="playBtn" class="Btn">
       <img src="images/pauseicon.png" alt="" id="pauseBtn" class="Btn">
     </div>
-    <div id="point">
-      <div id="pointImg">
-        <img
-          src="/MS/images/Map/point.png"
-          width="30px"
-          height="30px"
-        />&nbsp;&nbsp;
-        <div id="pointBox">0</div>
-      </div>
-    </div>
+    
       
     </div>    
       <!-- <div id="UI">
@@ -297,6 +301,5 @@
   <script src="hurdle-1.js"></script>
   <script src="jelly-1.js"></script>
   <script src="UI.js"></script>
-  <script src="hp.js"></script>
   <script src="main.js"></script>
 </html>

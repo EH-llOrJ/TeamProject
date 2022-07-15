@@ -108,6 +108,7 @@ function hi() {
       abc = false;
       gravity = 0;
       player.y = 230;
+      hpRemove();
     }, 10);
     setTimeout(() => {
       player.state = "dbjumplast";
@@ -283,6 +284,7 @@ function TopHurdle() {
       console.log("충돌");
       player.state = "coll";
       a = false;
+      hpRemove()
       let hi = setInterval(() => {
         a = false;
         player.state = "coll";
@@ -321,6 +323,7 @@ function LowHurdle() {
       console.log("충돌");
       player.state = "coll";
       a = false;
+      hpRemove();
       let hi = setInterval(() => {
         a = false;
         player.state = "coll";
@@ -360,6 +363,7 @@ function MiddleHurdle() {
       console.log("충돌");
       player.state = "coll";
       a = false;
+      hpRemove();
       let hi = setInterval(() => {
         a = false;
         player.state = "coll";
@@ -558,13 +562,7 @@ function game() {
   MiddleHurdle();
 
   if (floor[26].x < 0) {
-    floor[26].x = 0;
-
-    if (HpDecrease.x <= 30) {
-      cancelAnimationFrame(game);
-    } else {
-      requestAnimationFrame(game);
-    }
+    floor[26].x = 0;    
   }
 }
 //실행
@@ -573,6 +571,6 @@ document.getElementById("gmes").onclick = function () {
 };
 
 document.getElementById("tutorial").onclick = function () {
+  document.getElementById("tutorial").style.zIndex = "-99";
   game();
-  document.getElementById("tutorial").style.zIndex = "-1";
 }

@@ -94,7 +94,7 @@ router.post('/login', (req, res) => {
                 
                 token = jwt.sign({
                     user
-                }, process.env.JWT_TOKEN_SECRET, { expiresIn: "1h" });
+                }, process.env.JWT_TOKEN_SECRET, { expiresIn: "24h" });
                 // const token = jwt.sign({ user }, process.env.JWT_TOKEN_SECRET, { expiresIn:
                 // "1h" }); var decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET)  동기적으로
                 // 디코딩 == 복호화 console.log(decoded.user);

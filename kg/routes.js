@@ -101,7 +101,7 @@ router.get('/login', (req, res) => {
                             //     httpOnly: true, // 자바 스크립트에서 document.cookie 시 확인되지 않음
                             //     expires: new Date(Date.now() + 1000*60*60) // 쿠키 발급 후 얼마나 쿠키를 가지고 있을 지
                             // })
-                            const token = jwt.sign({ user }, process.env.JWT_TOKEN_SECRET, { expiresIn: "1h" });
+                            const token = jwt.sign({ user }, process.env.JWT_TOKEN_SECRET, { expiresIn: "24h" });
                             // var decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET) // 동기적으로 디코딩 == 복호화
                             // console.log(decoded.user);
                             jwt.verify(token, process.env.JWT_TOKEN_SECRET, (err, decoded) => {

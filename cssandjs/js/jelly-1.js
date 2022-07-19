@@ -1,21 +1,21 @@
 //젤리 기본 이미지
 let whiteJellyImg = new Image();
-whiteJellyImg.src = "images/Jelly/일반젤리1.png";
+whiteJellyImg.src = "/image/images/Jelly/일반젤리1.png";
 
 let yellowJellyImg = new Image();
-yellowJellyImg.src = "images/Jelly/노란젤리1.png";
+yellowJellyImg.src = "/image/images/Jelly/노란젤리1.png";
 
 let redJellyImg = new Image();
-redJellyImg.src = "images/Jelly/빨간젤리1.png";
+redJellyImg.src = "/image/images/Jelly/빨간젤리1.png";
 
 let bigJellyImg = new Image();
-bigJellyImg.src = "images/Jelly/왕젤리1.png";
+bigJellyImg.src = "/image/images/Jelly/왕젤리1.png";
 
 let clearJellyImg = new Image();
-clearJellyImg.src = "images/Jelly/클리어젤리.png";
+clearJellyImg.src = "/image/images/Jelly/클리어젤리.png";
 
 let hpPotionImg = new Image();
-hpPotionImg.src = "images/HP/potion.png";
+hpPotionImg.src = "/image/images/HP/potion.png";
 
 const pointUp = document.getElementById("pointBox");
 let pointHTML = pointUp.innerHTML;
@@ -248,36 +248,39 @@ function hppotionEat(player, _potion) {
     eatJellyWidth > -55 &&
     eatJellyHeight < 55 &&
     eatJellyHeight > -55
-  ) {
-    _potion.setEater();
-    ctxMain.clearRect(_potion.x, _potion.y, _potion.width, _potion.height);
-    hpRestore();
-  } else if (_potion.getEater() == false) {
-    _potion.draw();
+    ) {
+      _potion.setEater();
+      ctxMain.clearRect(_potion.x, _potion.y, _potion.width, _potion.height);
+      hpRestore();
+    } else if (_potion.getEater() == false) {
+      _potion.draw();
+    }
   }
-}
-
-function clearjellyEat(player, _jelly) {
-  let eatJellyX = _jelly.x - player.x;
-  let eatJellyWidth = _jelly.x + _jelly.width - (player.x + player.width);
-  let eatJellyY = _jelly.y - player.y;
-  let eatJellyHeight = _jelly.y + _jelly.height - (player.y + player.height);
-  if (
-    eatJellyX < 100 &&
-    eatJellyX > -100 &&
-    eatJellyY < 100 &&
-    eatJellyY > -100 &&
-    eatJellyWidth < 100 &&
-    eatJellyWidth > -100 &&
-    eatJellyHeight < 100 &&
-    eatJellyHeight > -100
-  ) {
-    _jelly.setEater();
-    ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
-    point += 333333;
-    player.state = "end";
-    gameEnd();
-  } else if (_jelly.getEater() == false) {
+  
+  function clearjellyEat(player, _jelly) {
+    let eatJellyX = _jelly.x - player.x;
+    let eatJellyWidth = _jelly.x + _jelly.width - (player.x + player.width);
+    let eatJellyY = _jelly.y - player.y;
+    let eatJellyHeight = _jelly.y + _jelly.height - (player.y + player.height);
+    if (
+      eatJellyX < 100 &&
+      eatJellyX > -100 &&
+      eatJellyY < 100 &&
+      eatJellyY > -100 &&
+      eatJellyWidth < 100 &&
+      eatJellyWidth > -100 &&
+      eatJellyHeight < 100 &&
+      eatJellyHeight > -100
+      ) {
+        _jelly.setEater();
+        ctxMain.clearRect(_jelly.x, _jelly.y, _jelly.width, _jelly.height);
+        pointHTML = parseInt(pointHTML) + 333333;
+        scoreHTML = parseInt(scoreHTML) + 333333;
+        pointUp.innerHTML = pointHTML.toLocaleString("ko-KR");
+        scoreUp.innerHTML = scoreHTML.toLocaleString("ko-KR");
+        player.state = "end"
+        gameEnd();
+      } else if (_jelly.getEater() == false) {
     _jelly.draw();
   }
 }

@@ -1,21 +1,21 @@
 //젤리 기본 이미지
 let whiteJellyImg = new Image();
-whiteJellyImg.src = "images/Jelly/일반젤리1.png";
+whiteJellyImg.src = "/image/images/Jelly/일반젤리1.png";
 
 let yellowJellyImg = new Image();
-yellowJellyImg.src = "images/Jelly/노란젤리1.png";
+yellowJellyImg.src = "/image/images/Jelly/노란젤리1.png";
 
 let redJellyImg = new Image();
-redJellyImg.src = "images/Jelly/빨간젤리1.png";
+redJellyImg.src = "/image/images/Jelly/빨간젤리1.png";
 
 let bigJellyImg = new Image();
-bigJellyImg.src = "images/Jelly/왕젤리1.png";
+bigJellyImg.src = "/image/images/Jelly/왕젤리1.png";
 
 let clearJellyImg = new Image();
-clearJellyImg.src = "images/Jelly/클리어젤리.png";
+clearJellyImg.src = "/image/images/Jelly/클리어젤리.png";
 
 let hpPotionImg = new Image();
-hpPotionImg.src = "images/HP/potion.png";
+hpPotionImg.src = "/image/images/HP/potion.png";
 
 //젤리 클래스
 class WhiteJelly {

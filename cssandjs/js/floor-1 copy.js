@@ -1,47 +1,55 @@
+// //캔버스 변수 선언, 할당
+let canvasMain = document.getElementById("main");
+let ctxMain = canvasMain.getContext("2d");
+
+// //캔버스 크기
+canvasMain.width = 20000;
+canvasMain.height = 600;
+
 //스테이지 1 바닥땅 이미지
 let floor1_10Img = new Image();
-floor1_10Img.src = "images/Hurdle/floor1_10.png";
+floor1_10Img.src = "/image/images/Hurdle/floor1_10.png";
 
 let floor1_5Img = new Image();
-floor1_5Img.src = "images/Hurdle/floor1_5.png";
+floor1_5Img.src = "/image/images/Hurdle/floor1_5.png";
 
 let floor1_1Img = new Image();
-floor1_1Img.src = "images/Hurdle/floor1_1.png";
+floor1_1Img.src = "/image/images/Hurdle/floor1_1.png";
 
 //스테이지 1 떠있는땅 이미지
 let _floor1_10Img = new Image();
-_floor1_10Img.src = "images/Hurdle/floor1-10.png";
+_floor1_10Img.src = "/image/images/Hurdle/floor1-10.png";
 
 let _floor1_5Img = new Image();
-_floor1_5Img.src = "images/Hurdle/floor1-5.png";
+_floor1_5Img.src = "/image/images/Hurdle/floor1-5.png";
 
 let _floor1_1Img = new Image();
-_floor1_1Img.src = "images/Hurdle/floor1-1.png";
+_floor1_1Img.src = "/image/images/Hurdle/floor1-1.png";
 
 //스테이지 2 바닥땅 이미지
 let floor2_10Img = new Image();
-floor2_10Img.src = "images/Hurdle/floor2_10.png";
+floor2_10Img.src = "/image/images/Hurdle/floor2_10.png";
 
 let floor2_5Img = new Image();
-floor2_5Img.src = "images/Hurdle/floor2_5.png";
+floor2_5Img.src = "/image/images/Hurdle/floor2_5.png";
 
 let floor2_1Img = new Image();
-floor2_1Img.src = "images/Hurdle/floor2_1.png";
+floor2_1Img.src = "/image/images/Hurdle/floor2_1.png";
 
 //스테이지 2 떠있는땅 이미지
 let _floor2_10Img = new Image();
-_floor2_10Img.src = "images/Hurdle/floor2-10.png";
+_floor2_10Img.src = "/image/images/Hurdle/floor2-10.png";
 
 let _floor2_5Img = new Image();
-_floor2_5Img.src = "images/Hurdle/floor2-5.png";
+_floor2_5Img.src = "/image/images/Hurdle/floor2-5.png";
 
 let _floor2_1Img = new Image();
-_floor2_1Img.src = "images/Hurdle/floor2-1.png";
+_floor2_1Img.src = "/image/images/Hurdle/floor2-1.png";
 
 //투명 땅 이미지
 
 let invisualFloor_1Img = new Image();
-invisualFloor_1Img.src = "images/Hurdle/invisualFloor_1.png";
+invisualFloor_1Img.src = "/image/images/Hurdle/invisualFloor_1.png";
 
 //땅 설정
 class Floor1_10 {
@@ -53,120 +61,72 @@ class Floor1_10 {
     this.time = 0;
   }
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
     ctxMain.drawImage(floor1_10Img, this.x, this.y, this.width, this.height);
   }
 }
 
 class Floor1_5 extends Floor1_10 {
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
     ctxMain.drawImage(floor1_5Img, this.x, this.y, this.width, this.height);
   }
 }
 
 class Floor1_1 extends Floor1_10 {
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
     ctxMain.drawImage(floor1_1Img, this.x, this.y, this.width, this.height);
   }
 }
 
 class floatFloor1_10 extends Floor1_10 {
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
     ctxMain.drawImage(_floor1_10Img, this.x, this.y, this.width, this.height);
   }
 }
 
 class floatFloor1_5 extends Floor1_10 {
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
     ctxMain.drawImage(_floor1_5Img, this.x, this.y, this.width, this.height);
   }
 }
 
 class floatFloor1_1 extends Floor1_10 {
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
     ctxMain.drawImage(_floor1_1Img, this.x, this.y, this.width, this.height);
   }
 }
 
 class Floor2_10 extends Floor1_10 {
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
     ctxMain.drawImage(floor2_10Img, this.x, this.y, this.width, this.height);
   }
 }
 
 class Floor2_5 extends Floor1_10 {
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
     ctxMain.drawImage(floor2_5Img, this.x, this.y, this.width, this.height);
   }
 }
 
 class Floor2_1 extends Floor1_10 {
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
     ctxMain.drawImage(floor2_1Img, this.x, this.y, this.width, this.height);
   }
 }
 
 class floatFloor2_10 extends Floor1_10 {
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
     ctxMain.drawImage(_floor2_10Img, this.x, this.y, this.width, this.height);
   }
 }
 
 class floatFloor2_5 extends Floor1_10 {
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
     ctxMain.drawImage(_floor2_5Img, this.x, this.y, this.width, this.height);
   }
 }
 
 class floatFloor2_1 extends Floor1_10 {
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
     ctxMain.drawImage(_floor2_1Img, this.x, this.y, this.width, this.height);
   }
 }
@@ -174,10 +134,6 @@ class floatFloor2_1 extends Floor1_10 {
 //안보이는 발판
 class invisualFloor_1 extends Floor1_10 {
   draw() {
-    this.time++;
-    if (this.time % 1 == 0) {
-      this.x -= 2.35;
-    }
     ctxMain.drawImage(
       invisualFloor_1Img,
       this.x,
@@ -213,6 +169,8 @@ let floor = [
 
   new Floor2_1({ x: 12100, y: 510, width: 80, height: 90 }),
 
+  new Floor2_1({ x: 12260, y: 510, width: 80, height: 90 }),
+
   new Floor2_1({ x: 12420, y: 510, width: 80, height: 90 }),
 
   new Floor2_10({ x: 12600, y: 510, width: 800, height: 90 }),
@@ -226,6 +184,8 @@ let floor = [
   new Floor2_10({ x: 16600, y: 510, width: 800, height: 90 }),
 
   new Floor2_1({ x: 17800, y: 510, width: 80, height: 90 }),
+
+  new Floor2_1({ x: 18000, y: 510, width: 80, height: 90 }),
 
   new Floor2_1({ x: 18200, y: 510, width: 80, height: 90 }),
 
@@ -257,7 +217,7 @@ let floatFloor = [
 
   new floatFloor2_1({ x: 10850, y: 370, width: 80, height: 17 }),
 
-  new floatFloor2_1({ x: 11200, y: 420, width: 80, height: 17 }),
+  new floatFloor2_1({ x: 11150, y: 420, width: 80, height: 17 }),
 
   new floatFloor2_1({ x: 11460, y: 450, width: 80, height: 17 }),
 

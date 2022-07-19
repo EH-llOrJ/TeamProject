@@ -12,7 +12,7 @@ let ctxHpBar = canvasHpBar.getContext("2d");
 
 // bread image
 let hpImg = new Image();
-hpImg.src = "images/HP/bread.png";
+hpImg.src = "/image/images/HP/bread.png";
 function breadDraw() {
   ctxHpBar.drawImage(hpImg, 0, 0, 300, 100);
 }
@@ -31,7 +31,7 @@ let ctxJam = canvasJam.getContext("2d");
 
 // jam image
 let jamImg = new Image();
-jamImg.src = "images/HP/hp.png";
+jamImg.src = "/image/images/HP/hp.png";
 function jamDraw() {
   ctxJam.drawImage(jamImg, 35, 30, 233, 50);
 }

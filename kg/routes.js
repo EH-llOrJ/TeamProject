@@ -212,22 +212,34 @@ router.get('/maingame', (req, res) => {
 router.get('/searchinfo', (req, res) => {
     let token = req.cookies.token
     console.log(token)
-    let decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET)
-    console.log(decoded)
-    if (decoded) {
-        connection.query("select * from members where id = '" + decoded.user.id + "';", (err, result) => {
-            if (err) console.log(err)
-            else {
-                let date = String(result[0].birth)
-                console.log(date)
-                res.render('searchinfo.ejs', {
-                    id: result[0].id,
-                    name: result[0].name,
-                    phone: result[0].phone,
-                    birth: result[0].birth,
-                })
-            }
-        })
+    if (!req.cookies.token) {
+        res.redirect('/kg/error')
+    } else {
+        let decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET)
+        console.log(decoded)
+        if (decoded) {
+            connection.query("select * from members where id = '" + decoded.user.id + "';", (err, result) => {
+                if (err) {
+                    console.log(err)
+                    res.redirect("/kg/error")
+                }
+                else {
+                    let date = String(result[0].birth)
+                    console.log(date)
+                    res.render('searchinfo.ejs', {
+                        id: result[0].id,
+                        name: result[0].name,
+                        phone: result[0].phone,
+                        birth: result[0].birth,
+                    })
+                }
+            })
+        }
     }
 })
+
+router.get("/error", (req, res) => {
+    res.render("error.ejs")
+})
+
 module.exports = router;

@@ -209,7 +209,7 @@ router.post('/updateScore', (req, res) => {
 router.get('/maingame', (req, res) => {
     res.render('game.ejs')
 })
-router.get('/searchinfo', (req, res) => {
+router.get('/myinfo', (req, res) => {
     let token = req.cookies.token
     console.log(token)
     if (!req.cookies.token) {
@@ -226,7 +226,7 @@ router.get('/searchinfo', (req, res) => {
                 else {
                     let date = String(result[0].birth)
                     console.log(date)
-                    res.render('searchinfo.ejs', {
+                    res.render('myinfo.ejs', {
                         id: result[0].id,
                         name: result[0].name,
                         phone: result[0].phone,
@@ -242,4 +242,13 @@ router.get("/error", (req, res) => {
     res.render("error.ejs")
 })
 
+router.get("/searchinfo", (req, res) => {
+    res.render("searchpassword.ejs")
+})
+router.get("/searchid", (req, res) => {
+    res.render("searchid")
+})
+router.get("/searchpw", (req, res) => {
+    res.render("searchpw")
+})
 module.exports = router;

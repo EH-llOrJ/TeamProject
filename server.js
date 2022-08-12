@@ -16,7 +16,7 @@ const indexrouter = require('./kg/index');
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static('cssandjs'));
 app.use(bodyParser());
 app.use(cookieParser());

@@ -4,11 +4,17 @@ const mysql = require('mysql');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const {query} = require('express');
+const { Template } = require('ejs');
 
 let dbScoreData;
 
 const connection = mysql.createConnection(
-    {host: process.env.db_host, user: process.env.db_user, password: process.env.db_password, database: process.env.db_database}
+    {
+        host: process.env.db_host,
+        user: process.env.db_user,
+        password: process.env.db_password,
+        database: process.env.db_database
+    }
 );
 
 function getScore() {
@@ -199,10 +205,29 @@ router.post('/updateScore', (req, res) => {
 
 })
 
+
 router.get('/maingame', (req, res) => {
     res.render('game.ejs')
 })
 router.get('/searchinfo', (req, res) => {
-    res.render('searchinfo.ejs')
+    let token = req.cookies.token
+    console.log(token)
+    let decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET)
+    console.log(decoded)
+    if (decoded) {
+        connection.query("select * from members where id = '" + decoded.user.id + "';", (err, result) => {
+            if (err) console.log(err)
+            else {
+                let date = String(result[0].birth)
+                console.log(date)
+                res.render('searchinfo.ejs', {
+                    id: result[0].id,
+                    name: result[0].name,
+                    phone: result[0].phone,
+                    birth: result[0].birth,
+                })
+            }
+        })
+    }
 })
 module.exports = router;

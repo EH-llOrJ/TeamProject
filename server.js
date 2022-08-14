@@ -1,10 +1,9 @@
 const express = require('express');
 const app = express();
 const mysql = require('mysql'); // 마이에스큐엘 라이브러리를 사용하겠다는 문구
-const bodyParser = require('body-parser'); //
+// const bodyParser = require('body-parser'); 
 const ejs = require('ejs');
-const dotenv = require('dotenv');
-require("dotenv").config();
+const dotenv = require('dotenv').config();
 const PORT = process.env.PORT;
 const cookieParser = require('cookie-parser');
 // const bcrypt = require('bcrypt');
@@ -18,7 +17,7 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('cssandjs'));
-app.use(bodyParser());
+// app.use(bodyParser()); app.use(express.urlencoded({ extended: false })); 이거 때문에 이제 선언 필요 X
 app.use(cookieParser());
 app.use('/kg', kgrouter);
 app.use('/', indexrouter);

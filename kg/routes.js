@@ -27,7 +27,7 @@ function getScore() {
     });
 }
 
-
+// 중복 검사 끝내고 회원가입 하는 포스트
 router.post('/signUpPro', (req, res) => {
     let dbdb = {}
     dbdb[process.env.dbID] = req.body.hiddenId;
@@ -53,9 +53,9 @@ router.post('/signUpPro', (req, res) => {
     })
 
 })
-router.get('/logout123', (req, res) => {
-    res.render('logout123.ejs')
-})
+// router.get('/logout123', (req, res) => {
+//     res.render('logout123.ejs')
+// })
 
 router.get('/login', (req, res) => {
     
@@ -157,6 +157,7 @@ router.get('/signup', (req, res) => {
     res.render('signup.ejs')
 })
 
+// id 중복확인
 router.post('/signup', (req, res) => {
     //console.log(req.body.id);  req요청 중에 id라는 이름으로 보냈을 때 req.body.id에 담긴다.
 

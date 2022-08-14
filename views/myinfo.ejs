@@ -12,10 +12,11 @@
     <span> phone= <%= phone%> </span><br>
     <span> birth= <%= birth%> </span><br>
 
-    <form action="/updatepw" method="post">
-      <input type="password" placeholder="현재 비밀번호">
+    <form action="/kg/updatepw" method="post">
+      <input type="password" placeholder="현재 비밀번호" name="nowpw">
       <input type="password" placeholder="변경할 비밀번호">
-      <input type="password" placeholder="변경할 비밀번호 재 확인">
+      <input type="password" name="newpw" placeholder="변경할 비밀번호 재 확인">
+      <input type="hidden" name="id" value="<%= id%>">
       <button type="submit">변경</button>
     </form>
   </body>

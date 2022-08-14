@@ -57,6 +57,34 @@ router.post('/signUpPro', (req, res) => {
 //     res.render('logout123.ejs')
 // })
 
+router.post("/updatepw", (req, res) => {
+    let changepw = bcrypt.hashSync(req.body.newpw,10)
+    const changepwinfo = `update members set pw = '${changepw}' where id = '${req.body.id}'`
+    const checkpwinfo = `select pw from members where id = '${req.body.id}'`
+    connection.query(checkpwinfo, (err, result) => {
+        console.log(result[0])
+        if (err) console.log("checkpw err", err)
+        else {
+            if (result[0] === undefined) {
+                console.log("잘못된 요청")
+            }
+            else if (!bcrypt.compareSync(req.body.nowpw, result[0].pw)) {
+                console.log("현재 비밀번호 틀림")
+                // res.render("myinfo.ejs","nowpwerror")
+            }
+            else if (bcrypt.compareSync(req.body.nowpw, result[0].pw)) {
+                console.log("비밀번호 변경 하겠슴")
+                connection.query(changepwinfo, (err, result2) => {
+                    if (err) console.log(err)
+                    else {
+                        res.redirect('/kg/logout')
+                    }
+                })
+            }
+        }
+    })
+})
+
 router.get('/login', (req, res) => {
     
     

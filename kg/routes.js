@@ -281,6 +281,10 @@ router.post("/resultsearchid", (req, res) => {
     })
 })
 
+router.post("/changepw", (req, res) => {
+
+})
+
 router.get("/error", (req, res) => {
     res.render("error.ejs")
 })

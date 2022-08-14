@@ -7,9 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    가입 하신분 이메일 및 성함 입력 하십시오
-    <input type="text" name="email" placeholder="e-mail">
-    <input type="text" name="name" placeholder="name">
-    <a href="/kg/searchpw">비밀번호 찾기</a>
+    가입 하신분 성함 및 전화번호 입력 하십시오
+    <form action="/kg/resultsearchid" method="post">
+        <input type="text" name="name" placeholder="name">
+        <input type="text" name="phone" placeholder="phone-number">
+        <button type="submit"></button>
+    </form>
+        <a href="/kg/searchpw">비밀번호 찾기</a>
 </body>
 </html>

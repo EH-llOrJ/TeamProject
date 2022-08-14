@@ -4,7 +4,7 @@ const mysql = require('mysql');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const {query} = require('express');
-const { Template } = require('ejs');
+const { Template, resolveInclude } = require('ejs');
 
 let dbScoreData;
 
@@ -236,6 +236,17 @@ router.get('/myinfo', (req, res) => {
             })
         }
     }
+})
+
+router.post("/resultsearchid", (req, res) => {
+    let qs = `select id from members where name = '${req.body.name}' and phone = '${req.body.phone}'`
+    connection.query(qs, (err, result) => {
+        console.log(result);
+        if (err) console.log("쿼리에러" + err)
+        else res.render("searchidsuc", {
+            id: result
+        })
+    })
 })
 
 router.get("/error", (req, res) => {

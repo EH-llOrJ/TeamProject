@@ -67,9 +67,11 @@ router.post("/updatepw", (req, res) => {
         else {
             if (result[0] === undefined) {
                 console.log("잘못된 요청")
+                res.send("none id")
             }
             else if (!bcrypt.compareSync(req.body.nowpw, result[0].pw)) {
                 console.log("현재 비밀번호 틀림")
+                res.send("nowpwerr")
                 // res.render("myinfo.ejs","nowpwerror")
             }
             else if (bcrypt.compareSync(req.body.nowpw, result[0].pw)) {
@@ -77,7 +79,8 @@ router.post("/updatepw", (req, res) => {
                 connection.query(changepwinfo, (err, result2) => {
                     if (err) console.log(err)
                     else {
-                        res.redirect('/kg/logout')
+                        res.send("changesuc")
+                        // res.redirect('/kg/logout')
                     }
                 })
             }

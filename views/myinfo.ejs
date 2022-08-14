@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
     <span> id= <%= id%> </span><br>
@@ -12,12 +13,49 @@
     <span> phone= <%= phone%> </span><br>
     <span> birth= <%= birth%> </span><br>
 
-    <form action="/kg/updatepw" method="post">
-      <input type="password" placeholder="현재 비밀번호" name="nowpw">
+    <!-- <form action="/kg/updatepw" method="post"> -->
+      <input type="password" placeholder="현재 비밀번호" name="nowpw" id="nowpw">
       <input type="password" placeholder="변경할 비밀번호">
-      <input type="password" name="newpw" placeholder="변경할 비밀번호 재 확인">
-      <input type="hidden" name="id" value="<%= id%>">
-      <button type="submit">변경</button>
-    </form>
+      <input type="password" name="newpw" placeholder="변경할 비밀번호 재 확인" id="newpw">
+      <input type="hidden" name="id" value="<%= id%>" id="id">
+      <button id="changebtn" onclick="changeinfo()">변경</button>
+    <!-- </form> -->
   </body>
+  <script>
+    function changeinfo(){
+      let nowpw = $('#nowpw').val();
+      let newpw = $('#newpw').val();
+      let id = $('#id').val();
+
+
+      $.ajax({
+        url:"/kg/updatepw",
+        type:"POST",
+        data:{
+          nowpw: nowpw,
+          newpw: newpw,
+          id: id
+        },
+        success: function(data){
+          switch (data) {
+            case "none id":
+              alert("잘못된 요청입니다.")
+              window.location="/kg/logout"
+              break;
+            case "nowpwerr":
+              alert("현재 비밀번호가 올바르지 않습니다.")
+              break;
+            case "changesuc":
+              alert("비밀번호 변경에 성공하였습니다.")
+              window.location="/kg/logout"
+              break;
+            default:
+              alert("잘못된 요청입니다.")
+              window.location="/kg/logout"
+              break;
+          }
+        }
+      })
+    }
+  </script>
 </html>

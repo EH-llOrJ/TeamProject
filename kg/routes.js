@@ -290,7 +290,7 @@ router.post("/changepw", (req, res) => {
         else {
             if (result[0].id == undefined) {
                 console.log('언디파인드 실행')
-                res.render("searchpw.ejs", "fail")
+                res.send("fail")
                 res.redirect("/kg/searchpw")
             }
             else if (result[0].id != undefined) {
@@ -303,7 +303,7 @@ router.post("/changepw", (req, res) => {
                     issuer:"GYEONG-1"
                 })
                 res.cookie = ("pwtoken", token1)
-                res.send("changepw.ejs")
+                res.send("suc")
             }
         }
     })

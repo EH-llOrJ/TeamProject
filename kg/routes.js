@@ -149,6 +149,7 @@ router.post('/login', (req, res) => {
     })
 })
 router.get('/logout', (req, res) => {
+    // 토큰이란 쿠키 삭제
     res.cookie('token', null, {maxAge: 0});
     res.redirect('/')
 })
@@ -282,7 +283,27 @@ router.post("/resultsearchid", (req, res) => {
 })
 
 router.post("/changepw", (req, res) => {
-
+    const qs = `select id from members where id = '${req.body.id}' and phone = '${req.body.phone}' and name = '${req.body.name}'`
+    connection.query(qs, (err, result) => {
+        if (err) console.log("qs err", err)
+        else {
+            if (result[0].id == undefined) {
+                res.render("searchpw.ejs", "fail")
+                res.redirect("/kg/searchpw")
+            }
+            else if (result[0].id != undefined) {
+                let token1 = jwt.sign({
+                    type: "jwt",
+                    name: "GyeongHwan"
+                }, process.env.JWT_TOKEN_PWSECRET, {
+                    expiresIn: "3m",
+                    issuer:"GYEONG-1"
+                })
+                res.cookie = ("pwtoken", token1)
+                res.send("changepw.ejs")
+            }
+        }
+    })
 })
 
 router.get("/error", (req, res) => {

@@ -285,13 +285,16 @@ router.post("/resultsearchid", (req, res) => {
 router.post("/changepw", (req, res) => {
     const qs = `select id from members where id = '${req.body.id}' and phone = '${req.body.phone}' and name = '${req.body.name}'`
     connection.query(qs, (err, result) => {
+        console.log(result)
         if (err) console.log("qs err", err)
         else {
             if (result[0].id == undefined) {
+                console.log('언디파인드 실행')
                 res.render("searchpw.ejs", "fail")
                 res.redirect("/kg/searchpw")
             }
             else if (result[0].id != undefined) {
+                console.log("낫 언디파인드 실행")
                 let token1 = jwt.sign({
                     type: "jwt",
                     name: "GyeongHwan"

@@ -154,6 +154,10 @@ router.get('/logout', (req, res) => {
     res.redirect('/')
 })
 
+router.get('/pwtokendel', (req, res) => {
+    res.cookie('pwtoken', null, { maxAge: 0 });
+    res.redirect('/')
+})
 router.get('/logout1', (req, res) => {
     let token = req.cookies.token;
     getScore();
@@ -297,7 +301,8 @@ router.post("/changepw", (req, res) => {
                 console.log("낫 언디파인드 실행")
                 let token1 = jwt.sign({
                     type: "jwt",
-                    name: "GyeongHwan"
+                    name: "GyeongHwan",
+                    id: req.body.id
                 }, process.env.JWT_TOKEN_PWSECRET, {
                     expiresIn: "3m",
                     issuer:"GYEONG-1"
@@ -305,6 +310,35 @@ router.post("/changepw", (req, res) => {
                 res.cookie("pwtoken", token1)
                 res.send("suc")
             }
+        }
+    })
+})
+
+router.get("/changepwhurryup", (req, res) => {
+    let token = req.cookies.pwtoken
+    console.log(token)
+    jwt.verify(token, process.env.JWT_TOKEN_PWSECRET, (err, result) => {
+        if (err) {
+           res.redirect("/kg/searchpw")
+        } 
+        else {
+            res.render("changepw.ejs")
+        }
+    })
+})
+router.post("/changepwhurryup", (req, res) => {
+    let token = req.cookies.pwtoken
+    jwt.verify(token, process.env.JWT_TOKEN_PWSECRET, (err, decoded) => {
+        if (err) res.redirect("/kg/searchpw")
+        else {
+            let newpw = bcrypt.hashSync(req.body.pw,10)
+            const qs = `update members set pw = '${newpw}' where id = '${decoded.id}'`
+            connection.query(qs, (err, result) => {
+                if (err) console.log("pw change qs err", err)
+                else {
+                    res.send("change suc")
+                }
+            })
         }
     })
 })

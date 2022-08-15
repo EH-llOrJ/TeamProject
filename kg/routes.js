@@ -302,7 +302,7 @@ router.post("/changepw", (req, res) => {
                     expiresIn: "3m",
                     issuer:"GYEONG-1"
                 })
-                res.cookie = ("pwtoken", token1)
+                res.cookie("pwtoken", token1)
                 res.send("suc")
             }
         }

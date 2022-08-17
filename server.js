@@ -11,7 +11,7 @@ const cookieParser = require('cookie-parser');
 const { application } = require('express');
 const kgrouter = require('./kg/routes');
 const indexrouter = require('./kg/index');
-// const config = dotenv.parse(buf)
+// const config = dotenv.parse(buf);
 
 app.set('view engine', 'ejs');
 app.set('views', './views');

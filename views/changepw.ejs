@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     변경할 비밀번호를 입력해 주세요.
-    <input type="password" placeholder="변경할 비밀번호">
-    <input type="password" placeholder="재 입력" id="pw">
+    <input type="password" placeholder="변경할 비밀번호" />
+    <input type="password" placeholder="재 입력" id="pw" />
     <button id="changepwbtn" onclick="pwbtn()">비밀번호 변경</button>
-</body>
-<script>
-function pwbtn(){
-    let pw = $("#pw").val();
-    $.ajax({
-        url:"/kg/changepwhurryup",
-        type:"POST",
-        data:{
-            pw:pw
+  </body>
+  <script>
+    function pwbtn() {
+      let pw = $("#pw").val();
+      $.ajax({
+        url: "/kg/changepwhurryup",
+        type: "POST",
+        data: {
+          pw: pw,
         },
-        success: function(data){
-            if(data == "change suc"){
-                alert("비밀번호 재 설정에 성공하였습니다. 재 로그인 부탁드립니다.")
-            }
-            window.location ="/kg/pwtokendel"
-        }
-    })
-}
-</script>
+        success: function (data) {
+          if (data == "change suc") {
+            alert("비밀번호 재 설정에 성공하였습니다. 재 로그인 부탁드립니다.");
+            window.location = "/kg/pwtokendel";
+          } else if (data == "tokenfail") {
+            alert("토큰이 만료되었습니다. 재 로그인 부탁드립니다.");
+            window.loaction = "/kg/logout";
+          }
+        },
+      });
+    }
+  </script>
 </html>

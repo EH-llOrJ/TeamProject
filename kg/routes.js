@@ -28,8 +28,7 @@ const middleware = (req, res, next) => {
   let token = req.session.accesstoken;
   jwt.verify(token, process.env.JWT_TOKEN_SECRET, (err, decoded) => {
     if (err) {
-      res.send("fail");
-      res.redirect("/logout");
+      res.send("token fail");
     } else {
       next();
     }
@@ -69,10 +68,13 @@ router.post("/signUpPro", (req, res) => {
   connection.query(process.env.db_signupquery, dbdb, (err, result) => {
     if (err) console.log("query err", err);
     else {
-      console.log("가입성공");
       res.redirect("/kg/logout123");
     }
   });
+});
+
+router.get("/logout123", (req, res) => {
+  res.render("logout123");
 });
 
 router.get("/login", (req, res) => {

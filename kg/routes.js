@@ -94,7 +94,6 @@ router.post("/login", (req, res) => {
           { expiresIn: "24h" }
         );
         req.session.accesstoken = token;
-        console.log(req.session.accesstoken);
         res.send("loginsuc");
       }
     }

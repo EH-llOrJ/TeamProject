@@ -10,7 +10,6 @@ const connection = mysql.createConnection({
 
 router.get("/", (req, res) => {
   res.render("main.ejs");
-  if (req.session.token == undefined) req.session.accesstoken = "";
   console.log(req.session);
 });
 

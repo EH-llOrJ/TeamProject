@@ -26,6 +26,14 @@ function getScore() {
 
 const middleware = (req, res, next) => {
   let token = req.session.accesstoken;
+  jwt.verify(token, process.env.JWT_TOKEN_SECRET, (err, decoded) => {
+    if (err) {
+      res.send("fail");
+      res.redirect("/logout");
+    } else {
+      next();
+    }
+  });
 };
 
 router.get("/signup", (req, res) => {

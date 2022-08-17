@@ -7,8 +7,6 @@ const { query } = require("express");
 const { Template, resolveInclude } = require("ejs");
 let dbScoreData;
 
-const session = require("express-session");
-
 const connection = mysql.createConnection({
   host: process.env.db_host,
   user: process.env.db_user,
@@ -95,7 +93,8 @@ router.post("/login", (req, res) => {
           process.env.JWT_TOKEN_SECRET,
           { expiresIn: "24h" }
         );
-        res.cookie("token", token);
+        req.session.accesstoken = token;
+        console.log(req.session.accesstoken);
         res.send("loginsuc");
       }
     }

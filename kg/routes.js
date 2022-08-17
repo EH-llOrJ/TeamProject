@@ -24,6 +24,10 @@ function getScore() {
   });
 }
 
+const middleware = (req, res, next) => {
+  let token = req.session.accesstoken;
+};
+
 router.get("/signup", (req, res) => {
   res.render("signup.ejs");
 });

@@ -14,7 +14,9 @@ class Members extends Sql.Model {
           type: Sql.STRING(200),
         },
       },
-      {}
+      {
+        sequelize,
+      }
     );
   }
 }
